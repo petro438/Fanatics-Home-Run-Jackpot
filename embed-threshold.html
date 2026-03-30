@@ -27,6 +27,9 @@
   .ctrl-lbl{font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);}
   select,input[type=date]{background:var(--bg);border:1px solid var(--border);color:var(--text);font-family:var(--mono);font-size:11px;padding:4px 7px;outline:none;}
   select:focus,input:focus{border-color:var(--accent);}
+  .search-bar{padding:7px 0 10px 0;}
+  .search-input{width:100%;background:var(--white);border:1px solid var(--border);color:var(--text);font-family:var(--mono);font-size:12px;padding:6px 10px;outline:none;}
+  .search-input:focus{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent);}
   .btn{padding:5px 12px;font-family:var(--ui);font-size:11px;font-weight:700;background:var(--accent);color:#000;border:none;cursor:pointer;text-transform:uppercase;}
   .btn:hover{opacity:.88;}.btn:disabled{opacity:.4;cursor:not-allowed;}
   .status{font-size:10px;color:var(--muted);}
@@ -103,14 +106,17 @@
 
   <div class="card">
     <div class="card-lbl">Full table — click headers to sort</div>
+    <div class="search-bar">
+      <input class="search-input" id="search" type="text" placeholder="Search player…" oninput="renderTable()">
+    </div>
     <div class="tbl-scroll">
       <table>
         <thead><tr>
           <th onclick="srt('name')" data-k="name">Player</th>
           <th onclick="srt('r430')" data-k="r430" class="sd">430+ rate</th>
-          <th onclick="srt('r420')" data-k="r420">420+ rate</th>
           <th onclick="srt('r440')" data-k="r440">440+ rate</th>
           <th onclick="srt('r450')" data-k="r450">450+ rate</th>
+          <th onclick="srt('r420')" data-k="r420">420+ rate</th>
           <th onclick="srt('avg_dist')" data-k="avg_dist">Avg dist</th>
           <th onclick="srt('p90_dist')" data-k="p90_dist">p90 dist</th>
           <th onclick="srt('hr_days')" data-k="hr_days">HR days</th>
@@ -300,7 +306,8 @@ function srt(k){
 }
 
 function renderTable(){
-  const sorted=[...players].sort((a,b)=>{
+  const q=(document.getElementById('search')?.value||'').toLowerCase();
+  const sorted=[...players].filter(p=>!q||p.name.toLowerCase().includes(q)).sort((a,b)=>{
     const av=a[sk]??0,bv=b[sk]??0;
     if(typeof av==='string')return sa?av.localeCompare(bv):bv.localeCompare(av);
     return sa?av-bv:bv-av;
@@ -309,9 +316,9 @@ function renderTable(){
   document.getElementById('tb').innerHTML=sorted.map(p=>`<tr>
     <td><span class="cp">${p.name}</span><span class="ct">${p.team}</span></td>
     <td style="${pctClr(p.r430)}">${p.r430!=null?p.r430+'%':'—'}</td>
-    <td class="cn">${p.r420!=null?p.r420+'%':'—'}</td>
     <td class="cn">${p.r440!=null?p.r440+'%':'—'}</td>
     <td class="cn">${p.r450!=null?p.r450+'%':'—'}</td>
+    <td class="cn">${p.r420!=null?p.r420+'%':'—'}</td>
     <td class="cn">${p.avg_dist||'—'} ft</td>
     <td class="cn">${p.p90_dist||'—'} ft</td>
     <td class="cn">${p.hr_days}</td>
