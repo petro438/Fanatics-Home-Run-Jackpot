@@ -56,8 +56,8 @@
 <div class="ctrl">
   <span class="ctrl-lbl">Season</span>
   <select id="sel" onchange="onSeasonChange()">
-    <option value="2026">2026 (live)</option>
     <option value="2025">2025 ★</option>
+    <option value="2026">2026 (live)</option>
     <option value="2024">2024</option>
     <option value="custom">Custom range</option>
   </select>
@@ -102,7 +102,7 @@
 
 <script>
 const REPO='https://petro438.github.io/Fanatics-Home-Run-Jackpot';
-const PRE={'2025':REPO+'/data-2025.json?v=2','2026':REPO+'/data-2026.json?v=2'};
+const PRE={'2025':REPO+'/data-2025.json?v=3','2026':REPO+'/data-2026.json?v=2'};
 const SEASONS={'2025':{s:'2025-03-27',e:'2025-09-28'},'2026':{s:'2026-03-27',e:'2026-09-30'},'2024':{s:'2024-03-20',e:'2024-09-29'}};
 const BINS=[290,320,350,370,390,400,410,420,430,440,450,470,500];
 const LABELS=['<320','320-349','350-369','370-389','390-399','400-409','410-419','420-429','430-439','440-449','450-469','470+'];
