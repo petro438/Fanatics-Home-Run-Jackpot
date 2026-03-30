@@ -8,314 +8,316 @@
     "avg_win_dist": 445,
     "avg_all_dist": 430,
     "generated": "2025-09-29",
-    "note": "dist_buckets based on top-5 HRs per day from day log. winner_hrs is exact. all_hrs is top-5 sample only \u2014 not full population."
+    "note": "hr_days corrected \u2014 counts unique days player homered, not individual HR rows. Threshold rates from top-5-per-day sample.",
+    "hr_days_note": "hr_days from leaderboard CSV; slightly overcounted for high-volume players due to multi-HR games counting twice. Accurate to within ~5-10% for players with 30+ HR days.",
+    "total_players": 521
   },
   "players": [
     {
       "name": "Schwarber, Kyle",
       "team": "PHI",
       "wins": 8,
-      "win_pct": 4.3,
-      "hr_days": 57,
-      "avg_dist": 409,
+      "win_pct": 4.4,
+      "hr_days": 49,
+      "avg_dist": 410,
       "p90_dist": 444,
       "max_dist": 468,
-      "avg_ev": 107.6,
-      "avg_la": 29.2,
+      "avg_ev": 107.7,
+      "avg_la": 29.1,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 100,
+      "r430": 80,
+      "r440": 40,
+      "r450": 25,
+      "dist_sample": 20
     },
     {
       "name": "Judge, Aaron",
       "team": "NYY",
       "wins": 6,
-      "win_pct": 3.2,
-      "hr_days": 55,
-      "avg_dist": 407,
+      "win_pct": 3.3,
+      "hr_days": 45,
+      "avg_dist": 408,
       "p90_dist": 443,
       "max_dist": 469,
-      "avg_ev": 108.0,
-      "avg_la": 30.4,
+      "avg_ev": 108.1,
+      "avg_la": 30.2,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 94,
+      "r430": 56,
+      "r440": 39,
+      "r450": 17,
+      "dist_sample": 18
     },
     {
       "name": "Su\u00e1rez, Eugenio",
       "team": "AZ",
       "wins": 5,
       "win_pct": 2.7,
-      "hr_days": 49,
+      "hr_days": 40,
       "avg_dist": 404,
       "p90_dist": 438,
       "max_dist": 466,
       "avg_ev": 104.7,
       "avg_la": 31.4,
       "la_profile": "pop-up",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 85,
+      "r430": 77,
+      "r440": 31,
+      "r450": 23,
+      "dist_sample": 13
     },
     {
       "name": "Cruz, Oneil",
       "team": "PIT",
       "wins": 5,
       "win_pct": 2.7,
-      "hr_days": 20,
+      "hr_days": 18,
       "avg_dist": 410,
       "p90_dist": 458,
       "max_dist": 463,
       "avg_ev": 110.3,
       "avg_la": 27.0,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 100,
+      "r430": 86,
+      "r440": 71,
+      "r450": 43,
+      "dist_sample": 7
     },
     {
       "name": "Buxton, Byron",
       "team": "MIN",
       "wins": 4,
       "win_pct": 2.2,
-      "hr_days": 35,
+      "hr_days": 31,
       "avg_dist": 406,
       "p90_dist": 437,
       "max_dist": 479,
       "avg_ev": 106.3,
       "avg_la": 30.7,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 75,
+      "r430": 75,
+      "r440": 38,
+      "r450": 12,
+      "dist_sample": 8
     },
     {
       "name": "Acu\u00f1a Jr., Ronald",
       "team": "ATL",
       "wins": 4,
       "win_pct": 2.2,
-      "hr_days": 21,
+      "hr_days": 20,
       "avg_dist": 419,
       "p90_dist": 456,
       "max_dist": 468,
       "avg_ev": 109.2,
       "avg_la": 29.2,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 75,
+      "r430": 42,
+      "r440": 33,
+      "r450": 33,
+      "dist_sample": 12
     },
     {
       "name": "Wood, James",
       "team": "WSH",
       "wins": 4,
       "win_pct": 2.2,
-      "hr_days": 32,
-      "avg_dist": 410,
+      "hr_days": 28,
+      "avg_dist": 411,
       "p90_dist": 445,
       "max_dist": 451,
       "avg_ev": 109.4,
-      "avg_la": 27.2,
+      "avg_la": 27.5,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 83,
+      "r430": 67,
+      "r440": 42,
+      "r450": 17,
+      "dist_sample": 12
     },
     {
       "name": "Trout, Mike",
       "team": "LAA",
       "wins": 3,
       "win_pct": 1.6,
-      "hr_days": 28,
-      "avg_dist": 407,
+      "hr_days": 22,
+      "avg_dist": 408,
       "p90_dist": 454,
       "max_dist": 485,
-      "avg_ev": 107.1,
-      "avg_la": 27.9,
+      "avg_ev": 106.9,
+      "avg_la": 27.8,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 100,
+      "r430": 83,
+      "r440": 83,
+      "r450": 50,
+      "dist_sample": 6
     },
     {
       "name": "Marte, Ketel",
       "team": "AZ",
       "wins": 3,
       "win_pct": 1.6,
-      "hr_days": 29,
-      "avg_dist": 406,
+      "hr_days": 25,
+      "avg_dist": 407,
       "p90_dist": 445,
       "max_dist": 449,
       "avg_ev": 107.2,
-      "avg_la": 27.0,
+      "avg_la": 27.1,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 75,
+      "r430": 62,
+      "r440": 62,
+      "r450": 0,
+      "dist_sample": 8
     },
     {
       "name": "Ohtani, Shohei",
       "team": "LAD",
       "wins": 3,
       "win_pct": 1.6,
-      "hr_days": 55,
+      "hr_days": 51,
       "avg_dist": 406,
       "p90_dist": 433,
       "max_dist": 454,
       "avg_ev": 109.2,
       "avg_la": 29.6,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 62,
+      "r430": 46,
+      "r440": 38,
+      "r450": 8,
+      "dist_sample": 13
     },
     {
       "name": "Raleigh, Cal",
       "team": "SEA",
       "wins": 3,
       "win_pct": 1.6,
-      "hr_days": 60,
+      "hr_days": 49,
       "avg_dist": 392,
       "p90_dist": 427,
       "max_dist": 448,
       "avg_ev": 105.8,
       "avg_la": 30.9,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 100,
+      "r430": 62,
+      "r440": 38,
+      "r450": 0,
+      "dist_sample": 8
     },
     {
       "name": "Lowe, Brandon",
       "team": "TB",
       "wins": 3,
       "win_pct": 1.6,
-      "hr_days": 32,
-      "avg_dist": 398,
-      "p90_dist": 428,
+      "hr_days": 29,
+      "avg_dist": 400,
+      "p90_dist": 429,
       "max_dist": 458,
       "avg_ev": 104.8,
-      "avg_la": 29.3,
+      "avg_la": 28.5,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 86,
+      "r430": 29,
+      "r440": 14,
+      "r450": 14,
+      "dist_sample": 7
     },
     {
       "name": "De La Cruz, Elly",
       "team": "CIN",
       "wins": 3,
       "win_pct": 1.6,
-      "hr_days": 23,
-      "avg_dist": 404,
+      "hr_days": 20,
+      "avg_dist": 405,
       "p90_dist": 436,
       "max_dist": 451,
       "avg_ev": 107.4,
-      "avg_la": 27.5,
+      "avg_la": 27.6,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
-    },
-    {
-      "name": "Canzone, Dominic",
-      "team": "SEA",
-      "wins": 3,
-      "win_pct": 1.6,
-      "hr_days": 13,
-      "avg_dist": 415,
-      "p90_dist": 447,
-      "max_dist": 450,
-      "avg_ev": 107.5,
-      "avg_la": 29.5,
-      "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 86,
+      "r430": 71,
+      "r440": 29,
+      "r450": 14,
+      "dist_sample": 7
     },
     {
       "name": "Kurtz, Nick",
       "team": "ATH",
       "wins": 3,
       "win_pct": 1.6,
-      "hr_days": 35,
+      "hr_days": 30,
       "avg_dist": 404,
       "p90_dist": 438,
       "max_dist": 493,
       "avg_ev": 105.9,
       "avg_la": 30.8,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 89,
+      "r430": 56,
+      "r440": 33,
+      "r450": 11,
+      "dist_sample": 9
     },
     {
       "name": "Stanton, Giancarlo",
       "team": "NYY",
       "wins": 2,
       "win_pct": 1.1,
-      "hr_days": 25,
+      "hr_days": 22,
       "avg_dist": 405,
       "p90_dist": 447,
       "max_dist": 451,
       "avg_ev": 108.1,
-      "avg_la": 26.9,
+      "avg_la": 26.8,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 75,
+      "r430": 50,
+      "r440": 38,
+      "r450": 25,
+      "dist_sample": 8
     },
     {
       "name": "Ozuna, Marcell",
       "team": "ATL",
       "wins": 2,
       "win_pct": 1.1,
-      "hr_days": 21,
+      "hr_days": 20,
       "avg_dist": 411,
       "p90_dist": 433,
       "max_dist": 464,
       "avg_ev": 105.6,
       "avg_la": 28.8,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 75,
+      "r430": 50,
+      "r440": 25,
+      "r450": 12,
+      "dist_sample": 8
     },
     {
       "name": "Springer, George",
       "team": "TOR",
       "wins": 2,
       "win_pct": 1.1,
-      "hr_days": 32,
+      "hr_days": 27,
       "avg_dist": 409,
       "p90_dist": 434,
       "max_dist": 450,
       "avg_ev": 106.0,
       "avg_la": 30.2,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 92,
+      "r430": 33,
+      "r440": 17,
+      "r450": 8,
+      "dist_sample": 12
     },
     {
       "name": "Olson, Matt",
@@ -329,10 +331,11 @@
       "avg_ev": 106.8,
       "avg_la": 29.1,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 71,
+      "r430": 57,
+      "r440": 43,
+      "r450": 14,
+      "dist_sample": 7
     },
     {
       "name": "McMahon, Ryan",
@@ -346,95 +349,83 @@
       "avg_ev": 106.2,
       "avg_la": 29.2,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 75,
+      "r430": 62,
+      "r440": 25,
+      "r450": 12,
+      "dist_sample": 8
     },
     {
       "name": "Devers, Rafael",
       "team": "BOS",
       "wins": 2,
       "win_pct": 1.1,
-      "hr_days": 35,
+      "hr_days": 32,
       "avg_dist": 401,
       "p90_dist": 435,
       "max_dist": 442,
       "avg_ev": 106.5,
       "avg_la": 27.7,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 86,
+      "r430": 57,
+      "r440": 29,
+      "r450": 0,
+      "dist_sample": 7
     },
     {
       "name": "Varsho, Daulton",
       "team": "TOR",
       "wins": 2,
       "win_pct": 1.1,
-      "hr_days": 20,
+      "hr_days": 18,
       "avg_dist": 400,
       "p90_dist": 451,
       "max_dist": 467,
       "avg_ev": 106.6,
       "avg_la": 27.0,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 100,
+      "r430": 60,
+      "r440": 40,
+      "r450": 40,
+      "dist_sample": 5
     },
     {
       "name": "Riley, Austin",
       "team": "ATL",
       "wins": 2,
       "win_pct": 1.1,
-      "hr_days": 16,
+      "hr_days": 14,
       "avg_dist": 413,
       "p90_dist": 434,
       "max_dist": 444,
       "avg_ev": 106.9,
       "avg_la": 29.8,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 62,
+      "r430": 25,
+      "r440": 12,
+      "r450": 0,
+      "dist_sample": 8
     },
     {
       "name": "Adell, Jo",
       "team": "LAA",
       "wins": 2,
       "win_pct": 1.1,
-      "hr_days": 37,
+      "hr_days": 33,
       "avg_dist": 411,
       "p90_dist": 436,
       "max_dist": 454,
       "avg_ev": 108.4,
       "avg_la": 26.8,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
-    },
-    {
-      "name": "Langeliers, Shea",
-      "team": "ATH",
-      "wins": 2,
-      "win_pct": 1.1,
-      "hr_days": 34,
-      "avg_dist": 399,
-      "p90_dist": 425,
-      "max_dist": 450,
-      "avg_ev": 105.5,
-      "avg_la": 27.8,
-      "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 67,
+      "r430": 67,
+      "r440": 25,
+      "r450": 17,
+      "dist_sample": 12
     },
     {
       "name": "Gorman, Nolan",
@@ -448,78 +439,83 @@
       "avg_ev": 106.1,
       "avg_la": 30.4,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 100,
+      "r430": 50,
+      "r440": 0,
+      "r450": 0,
+      "dist_sample": 4
     },
     {
       "name": "Burger, Jake",
       "team": "TEX",
       "wins": 2,
       "win_pct": 1.1,
-      "hr_days": 18,
+      "hr_days": 14,
       "avg_dist": 406,
       "p90_dist": 441,
       "max_dist": 442,
-      "avg_ev": 108.2,
-      "avg_la": 25.3,
+      "avg_ev": 108.4,
+      "avg_la": 25.8,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 100,
+      "r430": 57,
+      "r440": 29,
+      "r450": 0,
+      "dist_sample": 7
     },
     {
       "name": "Wallner, Matt",
       "team": "MIN",
       "wins": 2,
       "win_pct": 1.1,
-      "hr_days": 22,
+      "hr_days": 21,
       "avg_dist": 406,
       "p90_dist": 434,
       "max_dist": 452,
       "avg_ev": 107.1,
       "avg_la": 30.6,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 88,
+      "r430": 75,
+      "r440": 12,
+      "r450": 12,
+      "dist_sample": 8
     },
     {
       "name": "Butler, Lawrence",
       "team": "ATH",
       "wins": 2,
       "win_pct": 1.1,
-      "hr_days": 21,
+      "hr_days": 20,
       "avg_dist": 413,
       "p90_dist": 426,
       "max_dist": 448,
       "avg_ev": 106.0,
       "avg_la": 28.3,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 100,
+      "r430": 67,
+      "r440": 33,
+      "r450": 0,
+      "dist_sample": 3
     },
     {
       "name": "Rodr\u00edguez, Julio",
       "team": "SEA",
       "wins": 2,
       "win_pct": 1.1,
-      "hr_days": 32,
+      "hr_days": 29,
       "avg_dist": 403,
       "p90_dist": 438,
       "max_dist": 442,
       "avg_ev": 106.9,
       "avg_la": 26.6,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 89,
+      "r430": 78,
+      "r440": 33,
+      "r450": 0,
+      "dist_sample": 9
     },
     {
       "name": "Witt Jr., Bobby",
@@ -533,10 +529,11 @@
       "avg_ev": 106.7,
       "avg_la": 26.8,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 100,
+      "r430": 57,
+      "r440": 57,
+      "r450": 14,
+      "dist_sample": 7
     },
     {
       "name": "Outman, James",
@@ -550,95 +547,119 @@
       "avg_ev": 108.4,
       "avg_la": 29.5,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 100,
+      "r430": 100,
+      "r440": 67,
+      "r450": 0,
+      "dist_sample": 3
     },
     {
       "name": "Alvarez, Francisco",
       "team": "NYM",
       "wins": 2,
       "win_pct": 1.1,
-      "hr_days": 12,
-      "avg_dist": 398,
+      "hr_days": 10,
+      "avg_dist": 395,
       "p90_dist": 450,
       "max_dist": 452,
-      "avg_ev": 104.1,
-      "avg_la": 29.4,
+      "avg_ev": 103.6,
+      "avg_la": 29.6,
       "la_profile": "optimal",
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Carroll, Corbin",
       "team": "AZ",
       "wins": 2,
       "win_pct": 1.1,
-      "hr_days": 31,
+      "hr_days": 27,
       "avg_dist": 405,
       "p90_dist": 437,
       "max_dist": 474,
       "avg_ev": 105.6,
       "avg_la": 29.1,
       "la_profile": "optimal",
+      "r420": 89,
+      "r430": 67,
+      "r440": 22,
+      "r450": 11,
+      "dist_sample": 9
+    },
+    {
+      "name": "Canzone, Dominic",
+      "team": "SEA",
+      "wins": 2,
+      "win_pct": 1.1,
+      "hr_days": 8,
+      "avg_dist": 412,
+      "p90_dist": 447,
+      "max_dist": 450,
+      "avg_ev": 107.3,
+      "avg_la": 30.4,
+      "la_profile": "optimal",
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Neto, Zach",
       "team": "LAA",
       "wins": 2,
       "win_pct": 1.1,
-      "hr_days": 27,
-      "avg_dist": 402,
+      "hr_days": 25,
+      "avg_dist": 404,
       "p90_dist": 436,
       "max_dist": 447,
-      "avg_ev": 106.2,
-      "avg_la": 30.9,
-      "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "avg_ev": 106.3,
+      "avg_la": 31.1,
+      "la_profile": "pop-up",
+      "r420": 100,
+      "r430": 50,
+      "r440": 25,
+      "r450": 0,
+      "dist_sample": 8
     },
     {
       "name": "Beck, Jordan",
       "team": "COL",
       "wins": 2,
       "win_pct": 1.1,
-      "hr_days": 16,
+      "hr_days": 12,
       "avg_dist": 414,
       "p90_dist": 447,
       "max_dist": 448,
       "avg_ev": 104.6,
       "avg_la": 27.8,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 83,
+      "r430": 67,
+      "r440": 33,
+      "r450": 0,
+      "dist_sample": 6
     },
     {
       "name": "Caminero, Junior",
       "team": "TB",
       "wins": 2,
       "win_pct": 1.1,
-      "hr_days": 45,
+      "hr_days": 41,
       "avg_dist": 392,
       "p90_dist": 423,
       "max_dist": 447,
       "avg_ev": 105.3,
       "avg_la": 28.8,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 43,
+      "r430": 29,
+      "r440": 14,
+      "r450": 0,
+      "dist_sample": 7
     },
     {
       "name": "Montgomery, Colson",
@@ -652,10 +673,11 @@
       "avg_ev": 107.1,
       "avg_la": 28.6,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 100,
+      "r430": 60,
+      "r440": 40,
+      "r450": 40,
+      "dist_sample": 5
     },
     {
       "name": "Pham, Tommy",
@@ -669,17 +691,18 @@
       "avg_ev": 106.4,
       "avg_la": 26.3,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 86,
+      "r430": 57,
+      "r440": 29,
+      "r450": 0,
+      "dist_sample": 7
     },
     {
       "name": "Freeman, Freddie",
       "team": "LAD",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 24,
+      "hr_days": 22,
       "avg_dist": 406,
       "p90_dist": 421,
       "max_dist": 451,
@@ -689,58 +712,62 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Perez, Salvador",
       "team": "KC",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 31,
+      "hr_days": 26,
       "avg_dist": 399,
-      "p90_dist": 418,
+      "p90_dist": 426,
       "max_dist": 444,
       "avg_ev": 105.3,
-      "avg_la": 29.6,
+      "avg_la": 29.7,
       "la_profile": "optimal",
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Grichuk, Randal",
       "team": "AZ",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 9,
+      "hr_days": 8,
       "avg_dist": 413,
       "p90_dist": 453,
       "max_dist": 453,
       "avg_ev": 107.2,
       "avg_la": 25.8,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 100,
+      "r430": 67,
+      "r440": 67,
+      "r450": 33,
+      "dist_sample": 3
     },
     {
       "name": "Harper, Bryce",
       "team": "PHI",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 27,
+      "hr_days": 25,
       "avg_dist": 404,
       "p90_dist": 440,
       "max_dist": 448,
       "avg_ev": 106.4,
       "avg_la": 28.5,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 100,
+      "r430": 83,
+      "r440": 50,
+      "r450": 0,
+      "dist_sample": 6
     },
     {
       "name": "Hern\u00e1ndez, Enrique",
@@ -757,24 +784,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Muncy, Max",
-      "team": "LAD",
-      "wins": 1,
-      "win_pct": 0.5,
-      "hr_days": 19,
-      "avg_dist": 400,
-      "p90_dist": 424,
-      "max_dist": 433,
-      "avg_ev": 105.1,
-      "avg_la": 30.9,
+      "team": "ATH",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 9,
+      "avg_dist": 407,
+      "p90_dist": 431,
+      "max_dist": 431,
+      "avg_ev": 105.3,
+      "avg_la": 28.9,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 100,
+      "r430": 100,
+      "r440": 0,
+      "r450": 0,
+      "dist_sample": 3
     },
     {
       "name": "Taylor, Michael A.",
@@ -791,24 +820,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Walker, Christian",
       "team": "HOU",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 27,
+      "hr_days": 25,
       "avg_dist": 396,
       "p90_dist": 426,
       "max_dist": 433,
       "avg_ev": 105.2,
       "avg_la": 28.6,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 50,
+      "r430": 50,
+      "r440": 0,
+      "r450": 0,
+      "dist_sample": 4
     },
     {
       "name": "Contreras, Willson",
@@ -822,10 +853,11 @@
       "avg_ev": 106.6,
       "avg_la": 30.1,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 67,
+      "r430": 50,
+      "r440": 17,
+      "r450": 0,
+      "dist_sample": 6
     },
     {
       "name": "Castellanos, Nick",
@@ -842,7 +874,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Machado, Manny",
@@ -856,34 +889,36 @@
       "avg_ev": 105.3,
       "avg_la": 26.5,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 75,
+      "r430": 50,
+      "r440": 50,
+      "r450": 25,
+      "dist_sample": 4
     },
     {
       "name": "Yelich, Christian",
       "team": "MIL",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 29,
+      "hr_days": 26,
       "avg_dist": 395,
       "p90_dist": 429,
       "max_dist": 465,
       "avg_ev": 105.1,
       "avg_la": 30.2,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 50,
+      "r430": 33,
+      "r440": 17,
+      "r450": 17,
+      "dist_sample": 6
     },
     {
       "name": "Polanco, Jorge",
       "team": "SEA",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 26,
+      "hr_days": 24,
       "avg_dist": 382,
       "p90_dist": 413,
       "max_dist": 423,
@@ -893,7 +928,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Slater, Austin",
@@ -910,24 +946,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Hern\u00e1ndez, Teoscar",
       "team": "LAD",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 25,
+      "hr_days": 22,
       "avg_dist": 397,
       "p90_dist": 429,
       "max_dist": 445,
       "avg_ev": 104.5,
       "avg_la": 30.5,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 80,
+      "r430": 40,
+      "r440": 20,
+      "r450": 0,
+      "dist_sample": 5
     },
     {
       "name": "Refsnyder, Rob",
@@ -944,24 +982,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Swanson, Dansby",
       "team": "CHC",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 24,
+      "hr_days": 23,
       "avg_dist": 403,
       "p90_dist": 424,
       "max_dist": 441,
       "avg_ev": 104.9,
       "avg_la": 29.1,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 75,
+      "r430": 50,
+      "r440": 25,
+      "r450": 0,
+      "dist_sample": 4
     },
     {
       "name": "Correa, Carlos",
@@ -975,85 +1015,90 @@
       "avg_ev": 105.5,
       "avg_la": 28.1,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 75,
+      "r430": 50,
+      "r440": 25,
+      "r450": 25,
+      "dist_sample": 4
     },
     {
       "name": "Alonso, Pete",
       "team": "NYM",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 38,
+      "hr_days": 33,
       "avg_dist": 408,
       "p90_dist": 439,
       "max_dist": 447,
       "avg_ev": 107.6,
       "avg_la": 28.1,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 90,
+      "r430": 60,
+      "r440": 30,
+      "r450": 0,
+      "dist_sample": 10
     },
     {
       "name": "Smith, Dominic",
       "team": "SF",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 6,
-      "avg_dist": 394,
+      "hr_days": 5,
+      "avg_dist": 396,
       "p90_dist": 433,
       "max_dist": 433,
-      "avg_ev": 103.5,
-      "avg_la": 31.0,
+      "avg_ev": 103.7,
+      "avg_la": 30.8,
       "la_profile": "optimal",
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Adames, Willy",
       "team": "SF",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 30,
+      "hr_days": 26,
       "avg_dist": 401,
       "p90_dist": 432,
       "max_dist": 452,
       "avg_ev": 104.0,
       "avg_la": 30.6,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 100,
+      "r430": 100,
+      "r440": 33,
+      "r450": 33,
+      "dist_sample": 3
     },
     {
       "name": "Chapman, Matt",
       "team": "SF",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 21,
+      "hr_days": 19,
       "avg_dist": 399,
       "p90_dist": 420,
       "max_dist": 450,
       "avg_ev": 104.7,
       "avg_la": 27.2,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 67,
+      "r430": 33,
+      "r440": 33,
+      "r450": 33,
+      "dist_sample": 3
     },
     {
       "name": "Moncada, Yo\u00e1n",
       "team": "LAA",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 12,
+      "hr_days": 11,
       "avg_dist": 393,
       "p90_dist": 413,
       "max_dist": 439,
@@ -1063,7 +1108,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "S\u00e1nchez, Jes\u00fas",
@@ -1077,10 +1123,11 @@
       "avg_ev": 108.2,
       "avg_la": 25.3,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 75,
+      "r430": 50,
+      "r440": 0,
+      "r450": 0,
+      "dist_sample": 4
     },
     {
       "name": "Jones, Jahmai",
@@ -1097,7 +1144,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Larnach, Trevor",
@@ -1111,10 +1159,11 @@
       "avg_ev": 105.7,
       "avg_la": 25.3,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 83,
+      "r430": 50,
+      "r440": 0,
+      "r450": 0,
+      "dist_sample": 6
     },
     {
       "name": "Bart, Joey",
@@ -1131,7 +1180,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Gonzalez, Romy",
@@ -1145,10 +1195,11 @@
       "avg_ev": 106.4,
       "avg_la": 29.2,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 100,
+      "r430": 67,
+      "r440": 67,
+      "r450": 33,
+      "dist_sample": 3
     },
     {
       "name": "Lukes, Nathan",
@@ -1165,41 +1216,44 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Soto, Juan",
       "team": "NYM",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 43,
+      "hr_days": 38,
       "avg_dist": 400,
       "p90_dist": 420,
       "max_dist": 437,
       "avg_ev": 106.9,
       "avg_la": 29.6,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 100,
+      "r430": 75,
+      "r440": 0,
+      "r450": 0,
+      "dist_sample": 4
     },
     {
       "name": "Aranda, Jonathan",
       "team": "TB",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 15,
+      "hr_days": 14,
       "avg_dist": 398,
       "p90_dist": 433,
       "max_dist": 467,
-      "avg_ev": 105.4,
-      "avg_la": 30.3,
+      "avg_ev": 105.7,
+      "avg_la": 30.1,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 100,
+      "r430": 100,
+      "r440": 33,
+      "r450": 33,
+      "dist_sample": 3
     },
     {
       "name": "Jones, Nolan",
@@ -1213,95 +1267,119 @@
       "avg_ev": 106.2,
       "avg_la": 28.8,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 67,
+      "r430": 0,
+      "r440": 0,
+      "r450": 0,
+      "dist_sample": 3
     },
     {
       "name": "Moniak, Mickey",
       "team": "COL",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 24,
+      "hr_days": 23,
       "avg_dist": 411,
       "p90_dist": 450,
       "max_dist": 452,
       "avg_ev": 104.1,
       "avg_la": 28.4,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 100,
+      "r430": 71,
+      "r440": 57,
+      "r450": 43,
+      "dist_sample": 7
     },
     {
       "name": "Rooker, Brent",
       "team": "ATH",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 30,
+      "hr_days": 29,
       "avg_dist": 402,
       "p90_dist": 421,
       "max_dist": 440,
       "avg_ev": 104.9,
       "avg_la": 27.9,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 33,
+      "r430": 17,
+      "r440": 17,
+      "r450": 0,
+      "dist_sample": 6
     },
     {
       "name": "Rutschman, Adley",
       "team": "BAL",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 9,
+      "hr_days": 8,
       "avg_dist": 395,
       "p90_dist": 436,
       "max_dist": 436,
       "avg_ev": 105.7,
       "avg_la": 30.7,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 67,
+      "r430": 33,
+      "r440": 0,
+      "r450": 0,
+      "dist_sample": 3
     },
     {
       "name": "Stowers, Kyle",
       "team": "MIA",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 25,
+      "hr_days": 19,
       "avg_dist": 395,
       "p90_dist": 422,
       "max_dist": 440,
       "avg_ev": 104.6,
       "avg_la": 30.0,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 100,
+      "r430": 25,
+      "r440": 25,
+      "r450": 0,
+      "dist_sample": 4
+    },
+    {
+      "name": "Langeliers, Shea",
+      "team": "ATH",
+      "wins": 1,
+      "win_pct": 0.5,
+      "hr_days": 29,
+      "avg_dist": 399,
+      "p90_dist": 425,
+      "max_dist": 450,
+      "avg_ev": 105.4,
+      "avg_la": 28.4,
+      "la_profile": "optimal",
+      "r420": 100,
+      "r430": 33,
+      "r440": 33,
+      "r450": 33,
+      "dist_sample": 3
     },
     {
       "name": "Murphy, Sean",
       "team": "ATL",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 16,
+      "hr_days": 14,
       "avg_dist": 410,
       "p90_dist": 451,
       "max_dist": 455,
       "avg_ev": 105.6,
       "avg_la": 28.9,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 83,
+      "r430": 67,
+      "r440": 50,
+      "r450": 33,
+      "dist_sample": 6
     },
     {
       "name": "Jackson, Jeremiah",
@@ -1318,7 +1396,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Call, Alex",
@@ -1335,58 +1414,62 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Toglia, Michael",
       "team": "COL",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 11,
+      "hr_days": 10,
       "avg_dist": 413,
       "p90_dist": 429,
       "max_dist": 457,
       "avg_ev": 105.3,
       "avg_la": 29.0,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 67,
+      "r430": 33,
+      "r440": 33,
+      "r450": 33,
+      "dist_sample": 3
     },
     {
       "name": "Alvarez, Yordan",
       "team": "HOU",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 7,
-      "avg_dist": 413,
+      "hr_days": 6,
+      "avg_dist": 418,
       "p90_dist": 436,
       "max_dist": 436,
-      "avg_ev": 107.1,
-      "avg_la": 26.3,
+      "avg_ev": 107.4,
+      "avg_la": 26.2,
       "la_profile": "optimal",
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Herrera, Iv\u00e1n",
       "team": "STL",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 19,
+      "hr_days": 17,
       "avg_dist": 407,
       "p90_dist": 425,
       "max_dist": 428,
       "avg_ev": 107.3,
       "avg_la": 26.4,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 40,
+      "r430": 0,
+      "r440": 0,
+      "r450": 0,
+      "dist_sample": 5
     },
     {
       "name": "Ramos, Heliot",
@@ -1400,10 +1483,11 @@
       "avg_ev": 105.9,
       "avg_la": 27.2,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 100,
+      "r430": 71,
+      "r440": 0,
+      "r450": 0,
+      "dist_sample": 7
     },
     {
       "name": "Freeman, Tyler",
@@ -1420,24 +1504,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Harris II, Michael",
       "team": "ATL",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 21,
-      "avg_dist": 410,
-      "p90_dist": 444,
+      "hr_days": 19,
+      "avg_dist": 411,
+      "p90_dist": 446,
       "max_dist": 451,
-      "avg_ev": 104.8,
-      "avg_la": 28.5,
+      "avg_ev": 104.9,
+      "avg_la": 28.9,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 83,
+      "r430": 67,
+      "r440": 50,
+      "r450": 17,
+      "dist_sample": 6
     },
     {
       "name": "Clarke, Denzel",
@@ -1454,7 +1540,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Canario, Alexander",
@@ -1471,48 +1558,51 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Suzuki, Seiya",
       "team": "CHC",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 32,
+      "hr_days": 27,
       "avg_dist": 398,
       "p90_dist": 420,
       "max_dist": 445,
       "avg_ev": 105.8,
       "avg_la": 26.9,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 100,
+      "r430": 75,
+      "r440": 50,
+      "r450": 0,
+      "dist_sample": 4
     },
     {
       "name": "Burleson, Alec",
       "team": "STL",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 19,
-      "avg_dist": 410,
+      "hr_days": 18,
+      "avg_dist": 408,
       "p90_dist": 435,
       "max_dist": 443,
-      "avg_ev": 105.5,
-      "avg_la": 26.4,
+      "avg_ev": 105.3,
+      "avg_la": 26.1,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 100,
+      "r430": 75,
+      "r440": 25,
+      "r450": 0,
+      "dist_sample": 4
     },
     {
       "name": "Schneider, Davis",
       "team": "TOR",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 11,
+      "hr_days": 8,
       "avg_dist": 394,
       "p90_dist": 439,
       "max_dist": 454,
@@ -1522,7 +1612,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Mauricio, Ronny",
@@ -1539,7 +1630,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Noel, Jhonkensy",
@@ -1556,7 +1648,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Barger, Addison",
@@ -1570,10 +1663,11 @@
       "avg_ev": 107.1,
       "avg_la": 26.4,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 80,
+      "r430": 20,
+      "r440": 20,
+      "r450": 0,
+      "dist_sample": 5
     },
     {
       "name": "Duran, Jarren",
@@ -1587,10 +1681,11 @@
       "avg_ev": 105.5,
       "avg_la": 26.4,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 67,
+      "r430": 67,
+      "r440": 33,
+      "r450": 0,
+      "dist_sample": 3
     },
     {
       "name": "Jeffers, Ryan",
@@ -1604,85 +1699,90 @@
       "avg_ev": 105.7,
       "avg_la": 28.2,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 33,
+      "r430": 33,
+      "r440": 33,
+      "r450": 0,
+      "dist_sample": 3
     },
     {
       "name": "O'Hoppe, Logan",
       "team": "LAA",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 19,
+      "hr_days": 17,
       "avg_dist": 402,
       "p90_dist": 431,
       "max_dist": 470,
       "avg_ev": 104.9,
       "avg_la": 30.9,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 50,
+      "r430": 50,
+      "r440": 25,
+      "r450": 25,
+      "dist_sample": 4
     },
     {
       "name": "Pages, Andy",
       "team": "LAD",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 28,
+      "hr_days": 25,
       "avg_dist": 397,
       "p90_dist": 418,
       "max_dist": 424,
-      "avg_ev": 103.7,
+      "avg_ev": 103.9,
       "avg_la": 27.9,
       "la_profile": "optimal",
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Ram\u00edrez, Agust\u00edn",
       "team": "MIA",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 21,
+      "hr_days": 18,
       "avg_dist": 410,
       "p90_dist": 436,
       "max_dist": 447,
       "avg_ev": 107.0,
       "avg_la": 26.7,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 100,
+      "r430": 29,
+      "r440": 29,
+      "r450": 0,
+      "dist_sample": 7
     },
     {
       "name": "Greene, Riley",
       "team": "DET",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 36,
+      "hr_days": 32,
       "avg_dist": 397,
       "p90_dist": 432,
       "max_dist": 471,
       "avg_ev": 107.3,
       "avg_la": 30.0,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 80,
+      "r430": 60,
+      "r440": 20,
+      "r450": 20,
+      "dist_sample": 5
     },
     {
       "name": "Baty, Brett",
       "team": "NYM",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 18,
+      "hr_days": 17,
       "avg_dist": 399,
       "p90_dist": 428,
       "max_dist": 455,
@@ -1692,24 +1792,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Busch, Michael",
       "team": "CHC",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 34,
+      "hr_days": 31,
       "avg_dist": 397,
       "p90_dist": 428,
       "max_dist": 466,
       "avg_ev": 105.0,
       "avg_la": 30.6,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 57,
+      "r430": 29,
+      "r440": 29,
+      "r450": 14,
+      "dist_sample": 7
     },
     {
       "name": "Gorski, Matt",
@@ -1726,24 +1828,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Pasquantino, Vinnie",
       "team": "KC",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 32,
+      "hr_days": 30,
       "avg_dist": 399,
       "p90_dist": 425,
       "max_dist": 448,
       "avg_ev": 103.3,
       "avg_la": 26.9,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 100,
+      "r430": 25,
+      "r440": 25,
+      "r450": 0,
+      "dist_sample": 4
     },
     {
       "name": "Doyle, Brenton",
@@ -1757,27 +1861,29 @@
       "avg_ev": 105.3,
       "avg_la": 25.9,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 80,
+      "r430": 80,
+      "r440": 20,
+      "r450": 0,
+      "dist_sample": 5
     },
     {
       "name": "Baldwin, Drake",
       "team": "ATL",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 20,
-      "avg_dist": 396,
+      "hr_days": 18,
+      "avg_dist": 398,
       "p90_dist": 431,
       "max_dist": 433,
-      "avg_ev": 104.3,
-      "avg_la": 26.9,
+      "avg_ev": 104.0,
+      "avg_la": 27.3,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 67,
+      "r430": 33,
+      "r440": 0,
+      "r450": 0,
+      "dist_sample": 3
     },
     {
       "name": "Encarnacion-Strand, Christian",
@@ -1794,7 +1900,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Keith, Colt",
@@ -1811,31 +1918,33 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Soderstrom, Tyler",
       "team": "ATH",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 25,
+      "hr_days": 21,
       "avg_dist": 398,
       "p90_dist": 432,
       "max_dist": 445,
       "avg_ev": 105.3,
       "avg_la": 27.4,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 100,
+      "r430": 75,
+      "r440": 25,
+      "r450": 0,
+      "dist_sample": 4
     },
     {
       "name": "Dom\u00ednguez, Jasson",
       "team": "NYY",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 10,
+      "hr_days": 7,
       "avg_dist": 391,
       "p90_dist": 445,
       "max_dist": 445,
@@ -1845,48 +1954,69 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Crow-Armstrong, Pete",
       "team": "CHC",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 31,
+      "hr_days": 26,
       "avg_dist": 395,
       "p90_dist": 414,
       "max_dist": 452,
       "avg_ev": 105.7,
       "avg_la": 30.9,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 67,
+      "r430": 33,
+      "r440": 33,
+      "r450": 33,
+      "dist_sample": 3
     },
     {
       "name": "Chourio, Jackson",
       "team": "MIL",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 21,
+      "hr_days": 20,
       "avg_dist": 397,
       "p90_dist": 415,
       "max_dist": 448,
       "avg_ev": 104.3,
       "avg_la": 25.9,
       "la_profile": "optimal",
+      "r420": 50,
+      "r430": 25,
+      "r440": 25,
+      "r450": 0,
+      "dist_sample": 4
+    },
+    {
+      "name": "Whitcomb, Shay",
+      "team": "HOU",
+      "wins": 1,
+      "win_pct": 0.5,
+      "hr_days": 1,
+      "avg_dist": 451,
+      "p90_dist": 451,
+      "max_dist": 451,
+      "avg_ev": 107.6,
+      "avg_la": 33.0,
+      "la_profile": "pop-up",
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Caglianone, Jac",
       "team": "KC",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 7,
+      "hr_days": 6,
       "avg_dist": 412,
       "p90_dist": 466,
       "max_dist": 466,
@@ -1896,14 +2026,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Jensen, Carter",
       "team": "KC",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 3,
+      "hr_days": 2,
       "avg_dist": 411,
       "p90_dist": 456,
       "max_dist": 456,
@@ -1913,31 +2044,33 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Goodman, Hunter",
       "team": "COL",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 31,
+      "hr_days": 28,
       "avg_dist": 409,
       "p90_dist": 442,
       "max_dist": 451,
       "avg_ev": 105.2,
       "avg_la": 29.3,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 90,
+      "r430": 70,
+      "r440": 50,
+      "r450": 10,
+      "dist_sample": 10
     },
     {
       "name": "Smith, Cam",
       "team": "HOU",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 9,
+      "hr_days": 7,
       "avg_dist": 395,
       "p90_dist": 446,
       "max_dist": 446,
@@ -1947,24 +2080,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Young, Cole",
       "team": "SEA",
       "wins": 1,
       "win_pct": 0.5,
-      "hr_days": 5,
-      "avg_dist": 395,
+      "hr_days": 4,
+      "avg_dist": 402,
       "p90_dist": 456,
       "max_dist": 456,
-      "avg_ev": 105.1,
-      "avg_la": 27.6,
+      "avg_ev": 106.8,
+      "avg_la": 27.5,
       "la_profile": "optimal",
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Cole, Zach",
@@ -1981,7 +2116,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Maldonado, Mart\u00edn",
@@ -1998,14 +2134,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Solano, Donovan",
       "team": "SEA",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 3,
+      "hr_days": 2,
       "avg_dist": 396,
       "p90_dist": 416,
       "max_dist": 416,
@@ -2015,7 +2152,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "McCutchen, Andrew",
@@ -2032,7 +2170,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Turner, Justin",
@@ -2049,7 +2188,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Santana, Carlos",
@@ -2066,7 +2206,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Rojas, Miguel",
@@ -2083,7 +2224,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Goldschmidt, Paul",
@@ -2100,24 +2242,44 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
+    },
+    {
+      "name": "Le\u00f3n, Sandy",
+      "team": "ATL",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 369,
+      "p90_dist": 369,
+      "max_dist": 369,
+      "avg_ev": 99.3,
+      "avg_la": 33.0,
+      "la_profile": "pop-up",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Altuve, Jose",
       "team": "HOU",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 26,
+      "hr_days": 23,
       "avg_dist": 384,
       "p90_dist": 410,
       "max_dist": 439,
       "avg_ev": 103.2,
       "avg_la": 30.2,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 50,
+      "r430": 50,
+      "r440": 0,
+      "r450": 0,
+      "dist_sample": 4
     },
     {
       "name": "Marte, Starling",
@@ -2134,7 +2296,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "d'Arnaud, Travis",
@@ -2151,7 +2314,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Heyward, Jason",
@@ -2168,7 +2332,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "LeMahieu, DJ",
@@ -2185,14 +2350,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Flores, Wilmer",
       "team": "SF",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 16,
+      "hr_days": 14,
       "avg_dist": 378,
       "p90_dist": 399,
       "max_dist": 413,
@@ -2202,14 +2368,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Higashioka, Kyle",
       "team": "TEX",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 11,
+      "hr_days": 10,
       "avg_dist": 386,
       "p90_dist": 414,
       "max_dist": 421,
@@ -2219,7 +2386,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "McCann, James",
@@ -2236,14 +2404,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Semien, Marcus",
       "team": "TEX",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 15,
+      "hr_days": 14,
       "avg_dist": 391,
       "p90_dist": 423,
       "max_dist": 424,
@@ -2253,7 +2422,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "V\u00e1zquez, Christian",
@@ -2270,7 +2440,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Vargas, Ildemaro",
@@ -2287,14 +2458,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "D\u00edaz, Elias",
       "team": "SD",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 9,
+      "hr_days": 8,
       "avg_dist": 386,
       "p90_dist": 413,
       "max_dist": 413,
@@ -2304,7 +2476,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Arenado, Nolan",
@@ -2321,7 +2494,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Farmer, Kyle",
@@ -2338,14 +2512,33 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
+    },
+    {
+      "name": "Maile, Luke",
+      "team": "KC",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 419,
+      "p90_dist": 419,
+      "max_dist": 419,
+      "avg_ev": 106.1,
+      "avg_la": 27.0,
+      "la_profile": "optimal",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Yastrzemski, Mike",
       "team": "SF",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 17,
+      "hr_days": 16,
       "avg_dist": 388,
       "p90_dist": 418,
       "max_dist": 432,
@@ -2355,7 +2548,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Iglesias, Jose",
@@ -2372,7 +2566,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
+    },
+    {
+      "name": "Canha, Mark",
+      "team": "KC",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 408,
+      "p90_dist": 408,
+      "max_dist": 408,
+      "avg_ev": 104.2,
+      "avg_la": 30.0,
+      "la_profile": "optimal",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Pederson, Joc",
@@ -2389,7 +2602,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Realmuto, J.T.",
@@ -2406,7 +2620,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Bogaerts, Xander",
@@ -2423,14 +2638,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Profar, Jurickson",
       "team": "ATL",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 14,
+      "hr_days": 12,
       "avg_dist": 390,
       "p90_dist": 417,
       "max_dist": 437,
@@ -2440,14 +2656,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "B\u00e1ez, Javier",
       "team": "DET",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 12,
+      "hr_days": 10,
       "avg_dist": 391,
       "p90_dist": 410,
       "max_dist": 410,
@@ -2457,7 +2674,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Hedges, Austin",
@@ -2474,41 +2692,44 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Lindor, Francisco",
       "team": "NYM",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 31,
+      "hr_days": 28,
       "avg_dist": 390,
       "p90_dist": 412,
       "max_dist": 425,
       "avg_ev": 103.8,
       "avg_la": 29.9,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 0,
+      "r430": 0,
+      "r440": 0,
+      "r450": 0,
+      "dist_sample": 4
     },
     {
       "name": "Story, Trevor",
       "team": "BOS",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 26,
-      "avg_dist": 389,
+      "hr_days": 24,
+      "avg_dist": 388,
       "p90_dist": 429,
       "max_dist": 431,
-      "avg_ev": 104.2,
-      "avg_la": 28.2,
+      "avg_ev": 104.0,
+      "avg_la": 28.6,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 100,
+      "r430": 33,
+      "r440": 0,
+      "r450": 0,
+      "dist_sample": 3
     },
     {
       "name": "S\u00e1nchez, Gary",
@@ -2525,7 +2746,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Kepler, Max",
@@ -2542,7 +2764,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Candelario, Jeimer",
@@ -2559,14 +2782,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Ur\u00edas, Ram\u00f3n",
       "team": "BAL",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 11,
+      "hr_days": 10,
       "avg_dist": 381,
       "p90_dist": 407,
       "max_dist": 410,
@@ -2576,41 +2800,44 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Bell, Josh",
       "team": "WSH",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 22,
+      "hr_days": 21,
       "avg_dist": 404,
       "p90_dist": 430,
       "max_dist": 433,
       "avg_ev": 107.0,
       "avg_la": 27.4,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 100,
+      "r430": 50,
+      "r440": 0,
+      "r450": 0,
+      "dist_sample": 4
     },
     {
       "name": "Betts, Mookie",
       "team": "LAD",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 21,
+      "hr_days": 18,
       "avg_dist": 390,
-      "p90_dist": 405,
+      "p90_dist": 410,
       "max_dist": 412,
-      "avg_ev": 101.3,
-      "avg_la": 28.0,
+      "avg_ev": 101.4,
+      "avg_la": 28.2,
       "la_profile": "optimal",
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Caratini, Victor",
@@ -2627,7 +2854,44 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
+    },
+    {
+      "name": "Mach\u00edn, Vimael",
+      "team": "BAL",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 397,
+      "p90_dist": 397,
+      "max_dist": 397,
+      "avg_ev": 107.6,
+      "avg_la": 20.0,
+      "la_profile": "liner",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
+    },
+    {
+      "name": "Martini, Nick",
+      "team": "COL",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 388,
+      "p90_dist": 388,
+      "max_dist": 388,
+      "avg_ev": 98.0,
+      "avg_la": 23.0,
+      "la_profile": "liner",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Arcia, Orlando",
@@ -2644,7 +2908,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Haase, Eric",
@@ -2661,14 +2926,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Nimmo, Brandon",
       "team": "NYM",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 25,
+      "hr_days": 21,
       "avg_dist": 388,
       "p90_dist": 412,
       "max_dist": 417,
@@ -2678,14 +2944,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Turner, Trea",
       "team": "PHI",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 15,
+      "hr_days": 13,
       "avg_dist": 393,
       "p90_dist": 424,
       "max_dist": 426,
@@ -2695,14 +2962,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Ram\u00edrez, Jos\u00e9",
       "team": "CLE",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 30,
+      "hr_days": 27,
       "avg_dist": 380,
       "p90_dist": 408,
       "max_dist": 420,
@@ -2712,14 +2980,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Bregman, Alex",
       "team": "BOS",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 18,
+      "hr_days": 17,
       "avg_dist": 386,
       "p90_dist": 411,
       "max_dist": 418,
@@ -2729,14 +2998,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Kelly, Carson",
       "team": "CHC",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 17,
+      "hr_days": 14,
       "avg_dist": 386,
       "p90_dist": 409,
       "max_dist": 418,
@@ -2746,31 +3016,51 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Seager, Corey",
       "team": "TEX",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 22,
+      "hr_days": 19,
       "avg_dist": 400,
       "p90_dist": 427,
       "max_dist": 434,
-      "avg_ev": 105.7,
-      "avg_la": 28.8,
+      "avg_ev": 105.8,
+      "avg_la": 28.6,
+      "la_profile": "optimal",
+      "r420": 100,
+      "r430": 50,
+      "r440": 0,
+      "r450": 0,
+      "dist_sample": 4
+    },
+    {
+      "name": "Winker, Jesse",
+      "team": "NYM",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 405,
+      "p90_dist": 405,
+      "max_dist": 405,
+      "avg_ev": 104.6,
+      "avg_la": 29.0,
       "la_profile": "optimal",
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Andujar, Miguel",
       "team": "ATH",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 10,
+      "hr_days": 9,
       "avg_dist": 377,
       "p90_dist": 403,
       "max_dist": 403,
@@ -2780,7 +3070,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Torrens, Luis",
@@ -2797,7 +3088,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Newman, Kevin",
@@ -2814,7 +3106,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Taylor, Chris",
@@ -2831,7 +3124,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Taylor, Tyrone",
@@ -2848,24 +3142,44 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Ward, Taylor",
       "team": "LAA",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 36,
+      "hr_days": 34,
       "avg_dist": 396,
       "p90_dist": 426,
       "max_dist": 432,
       "avg_ev": 103.4,
       "avg_la": 30.1,
       "la_profile": "optimal",
+      "r420": 67,
+      "r430": 17,
+      "r440": 0,
+      "r450": 0,
+      "dist_sample": 6
+    },
+    {
+      "name": "Mateo, Jorge",
+      "team": "BAL",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 396,
+      "p90_dist": 396,
+      "max_dist": 396,
+      "avg_ev": 100.8,
+      "avg_la": 32.0,
+      "la_profile": "pop-up",
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Heineman, Tyler",
@@ -2882,7 +3196,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Santander, Anthony",
@@ -2899,7 +3214,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
+    },
+    {
+      "name": "Biggio, Cavan",
+      "team": "KC",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 389,
+      "p90_dist": 389,
+      "max_dist": 389,
+      "avg_ev": 102.4,
+      "avg_la": 24.0,
+      "la_profile": "liner",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Conforto, Michael",
@@ -2916,7 +3250,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Frazier, Adam",
@@ -2933,7 +3268,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Trevino, Jose",
@@ -2950,14 +3286,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "McGuire, Reese",
       "team": "CHC",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 9,
+      "hr_days": 8,
       "avg_dist": 383,
       "p90_dist": 432,
       "max_dist": 432,
@@ -2967,31 +3304,33 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Soler, Jorge",
       "team": "LAA",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 13,
-      "avg_dist": 397,
+      "hr_days": 12,
+      "avg_dist": 400,
       "p90_dist": 421,
       "max_dist": 448,
-      "avg_ev": 107.3,
-      "avg_la": 26.5,
+      "avg_ev": 107.5,
+      "avg_la": 27.0,
       "la_profile": "optimal",
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Sosa, Edmundo",
       "team": "PHI",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 11,
+      "hr_days": 9,
       "avg_dist": 389,
       "p90_dist": 429,
       "max_dist": 430,
@@ -3001,7 +3340,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Ib\u00e1\u00f1ez, Andy",
@@ -3018,7 +3358,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Cronenworth, Jake",
@@ -3035,31 +3376,51 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
+    },
+    {
+      "name": "Navarreto, Brian",
+      "team": "MIA",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 401,
+      "p90_dist": 401,
+      "max_dist": 401,
+      "avg_ev": 101.4,
+      "avg_la": 25.0,
+      "la_profile": "optimal",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Bauers, Jake",
       "team": "MIL",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 8,
-      "avg_dist": 397,
+      "hr_days": 7,
+      "avg_dist": 402,
       "p90_dist": 443,
       "max_dist": 443,
-      "avg_ev": 107.0,
-      "avg_la": 28.5,
+      "avg_ev": 106.7,
+      "avg_la": 26.3,
       "la_profile": "optimal",
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Bellinger, Cody",
       "team": "NYY",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 29,
+      "hr_days": 26,
       "avg_dist": 386,
       "p90_dist": 410,
       "max_dist": 451,
@@ -3069,7 +3430,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Crawford, J.P.",
@@ -3086,7 +3448,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Escarra, J.C.",
@@ -3103,7 +3466,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Fraley, Jake",
@@ -3120,14 +3484,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Garver, Mitch",
       "team": "SEA",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 9,
+      "hr_days": 8,
       "avg_dist": 404,
       "p90_dist": 437,
       "max_dist": 437,
@@ -3137,14 +3502,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Heim, Jonah",
       "team": "TEX",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 11,
+      "hr_days": 10,
       "avg_dist": 381,
       "p90_dist": 405,
       "max_dist": 417,
@@ -3154,7 +3520,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "O'Neill, Tyler",
@@ -3171,7 +3538,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Palacios, Joshua",
@@ -3188,7 +3556,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Tellez, Rowdy",
@@ -3202,17 +3571,36 @@
       "avg_ev": 106.3,
       "avg_la": 26.4,
       "la_profile": "optimal",
+      "r420": 80,
+      "r430": 40,
+      "r440": 20,
+      "r450": 0,
+      "dist_sample": 5
+    },
+    {
+      "name": "Thaiss, Matt",
+      "team": "CWS",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 382,
+      "p90_dist": 382,
+      "max_dist": 382,
+      "avg_ev": 101.9,
+      "avg_la": 38.0,
+      "la_profile": "pop-up",
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "White, Eli",
       "team": "ATL",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 10,
+      "hr_days": 9,
       "avg_dist": 418,
       "p90_dist": 452,
       "max_dist": 452,
@@ -3222,7 +3610,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Wilson, Weston",
@@ -3239,7 +3628,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Rosario, Amed",
@@ -3256,7 +3646,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Estrada, Thairo",
@@ -3273,7 +3664,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Wynns, Austin",
@@ -3290,14 +3682,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Benintendi, Andrew",
       "team": "CWS",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 20,
+      "hr_days": 18,
       "avg_dist": 386,
       "p90_dist": 406,
       "max_dist": 425,
@@ -3307,14 +3700,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Dub\u00f3n, Mauricio",
       "team": "HOU",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 7,
+      "hr_days": 6,
       "avg_dist": 384,
       "p90_dist": 402,
       "max_dist": 402,
@@ -3324,7 +3718,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Jansen, Danny",
@@ -3341,7 +3736,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Kiner-Falefa, Isiah",
@@ -3358,14 +3754,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "McNeil, Jeff",
       "team": "NYM",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 12,
+      "hr_days": 10,
       "avg_dist": 392,
       "p90_dist": 420,
       "max_dist": 420,
@@ -3375,7 +3772,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Tauchman, Mike",
@@ -3392,24 +3790,62 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
+    },
+    {
+      "name": "Tromp, Chadwick",
+      "team": "BAL",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 367,
+      "p90_dist": 367,
+      "max_dist": 367,
+      "avg_ev": 100.3,
+      "avg_la": 29.0,
+      "la_profile": "optimal",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Albies, Ozzie",
       "team": "ATL",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 17,
-      "avg_dist": 379,
+      "hr_days": 15,
+      "avg_dist": 380,
       "p90_dist": 413,
       "max_dist": 435,
-      "avg_ev": 102.1,
-      "avg_la": 30.0,
+      "avg_ev": 102.4,
+      "avg_la": 29.8,
       "la_profile": "optimal",
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
+    },
+    {
+      "name": "Robles, Victor",
+      "team": "SEA",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 392,
+      "p90_dist": 392,
+      "max_dist": 392,
+      "avg_ev": 102.1,
+      "avg_la": 34.0,
+      "la_profile": "pop-up",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Herrera, Jose",
@@ -3426,7 +3862,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Naylor, Josh",
@@ -3443,14 +3880,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Toro, Abraham",
       "team": "BOS",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 7,
+      "hr_days": 6,
       "avg_dist": 387,
       "p90_dist": 408,
       "max_dist": 408,
@@ -3460,7 +3898,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Ur\u00edas, Luis",
@@ -3477,7 +3916,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Arraez, Luis",
@@ -3494,31 +3934,33 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Torres, Gleyber",
       "team": "DET",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 16,
+      "hr_days": 15,
       "avg_dist": 400,
       "p90_dist": 424,
       "max_dist": 432,
       "avg_ev": 105.3,
       "avg_la": 28.3,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 67,
+      "r430": 33,
+      "r440": 0,
+      "r450": 0,
+      "dist_sample": 3
     },
     {
       "name": "Castro, Willi",
       "team": "MIN",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 11,
+      "hr_days": 9,
       "avg_dist": 392,
       "p90_dist": 410,
       "max_dist": 439,
@@ -3528,31 +3970,33 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "D\u00edaz, Yandy",
       "team": "TB",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 25,
+      "hr_days": 23,
       "avg_dist": 379,
       "p90_dist": 427,
       "max_dist": 435,
       "avg_ev": 103.2,
       "avg_la": 27.6,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 67,
+      "r430": 67,
+      "r440": 0,
+      "r450": 0,
+      "dist_sample": 3
     },
     {
       "name": "Rengifo, Luis",
       "team": "LAA",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 9,
+      "hr_days": 8,
       "avg_dist": 392,
       "p90_dist": 419,
       "max_dist": 419,
@@ -3562,7 +4006,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Pozo, Yohel",
@@ -3579,7 +4024,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Monasterio, Andruw",
@@ -3596,7 +4042,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Adams, Riley",
@@ -3613,7 +4060,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
+    },
+    {
+      "name": "Bouchard, Sean",
+      "team": "COL",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 367,
+      "p90_dist": 367,
+      "max_dist": 367,
+      "avg_ev": 103.6,
+      "avg_la": 42.0,
+      "la_profile": "pop-up",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Gray, Tristan",
@@ -3630,7 +4096,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Hill, Derek",
@@ -3647,7 +4114,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Hilliard, Sam",
@@ -3664,14 +4132,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Hoskins, Rhys",
       "team": "MIL",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 12,
+      "hr_days": 11,
       "avg_dist": 394,
       "p90_dist": 408,
       "max_dist": 440,
@@ -3681,7 +4150,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Jackson, Alex",
@@ -3698,7 +4168,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "McKinstry, Zach",
@@ -3715,14 +4186,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Mullins, Cedric",
       "team": "BAL",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 17,
+      "hr_days": 16,
       "avg_dist": 384,
       "p90_dist": 396,
       "max_dist": 408,
@@ -3732,41 +4204,44 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "O'Hearn, Ryan",
       "team": "BAL",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 18,
-      "avg_dist": 390,
+      "hr_days": 17,
+      "avg_dist": 392,
       "p90_dist": 415,
       "max_dist": 417,
-      "avg_ev": 103.2,
-      "avg_la": 29.2,
+      "avg_ev": 103.5,
+      "avg_la": 28.8,
       "la_profile": "optimal",
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Smith, Pavin",
       "team": "AZ",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 8,
+      "hr_days": 7,
       "avg_dist": 404,
       "p90_dist": 429,
       "max_dist": 429,
       "avg_ev": 103.5,
       "avg_la": 29.1,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 67,
+      "r430": 0,
+      "r440": 0,
+      "r450": 0,
+      "dist_sample": 3
     },
     {
       "name": "Thomas, Lane",
@@ -3783,7 +4258,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "DeJong, Paul",
@@ -3800,41 +4276,44 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Laureano, Ram\u00f3n",
       "team": "BAL",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 25,
-      "avg_dist": 399,
+      "hr_days": 23,
+      "avg_dist": 398,
       "p90_dist": 428,
       "max_dist": 438,
       "avg_ev": 106.1,
-      "avg_la": 29.0,
+      "avg_la": 28.8,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 86,
+      "r430": 29,
+      "r440": 0,
+      "r450": 0,
+      "dist_sample": 7
     },
     {
       "name": "Sheets, Gavin",
       "team": "SD",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 19,
+      "hr_days": 17,
       "avg_dist": 402,
       "p90_dist": 439,
       "max_dist": 451,
       "avg_ev": 104.5,
       "avg_la": 27.3,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 100,
+      "r430": 60,
+      "r440": 20,
+      "r450": 20,
+      "dist_sample": 5
     },
     {
       "name": "Ruiz, Keibert",
@@ -3851,7 +4330,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Rivas, Leo",
@@ -3868,14 +4348,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Contreras, William",
       "team": "MIL",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 17,
+      "hr_days": 15,
       "avg_dist": 387,
       "p90_dist": 408,
       "max_dist": 441,
@@ -3885,14 +4366,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Perkins, Blake",
       "team": "MIL",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 3,
+      "hr_days": 2,
       "avg_dist": 382,
       "p90_dist": 398,
       "max_dist": 398,
@@ -3902,7 +4384,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Nootbaar, Lars",
@@ -3919,7 +4402,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Hoerner, Nico",
@@ -3936,7 +4420,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Mountcastle, Ryan",
@@ -3953,7 +4438,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Hayes, Ke'Bryan",
@@ -3970,14 +4456,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Tucker, Kyle",
       "team": "CHC",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 22,
+      "hr_days": 21,
       "avg_dist": 393,
       "p90_dist": 417,
       "max_dist": 427,
@@ -3987,7 +4474,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
+    },
+    {
+      "name": "Cameron, Daz",
+      "team": "MIL",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 437,
+      "p90_dist": 437,
+      "max_dist": 437,
+      "avg_ev": 108.2,
+      "avg_la": 25.0,
+      "la_profile": "optimal",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "India, Jonathan",
@@ -4004,7 +4510,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Fortes, Nick",
@@ -4021,14 +4528,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Grisham, Trent",
       "team": "NYY",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 34,
+      "hr_days": 29,
       "avg_dist": 389,
       "p90_dist": 412,
       "max_dist": 432,
@@ -4038,7 +4546,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
+    },
+    {
+      "name": "Vierling, Matt",
+      "team": "DET",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 374,
+      "p90_dist": 374,
+      "max_dist": 374,
+      "avg_ev": 106.1,
+      "avg_la": 37.0,
+      "la_profile": "pop-up",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Stephenson, Tyler",
@@ -4055,7 +4582,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Rodgers, Brendan",
@@ -4072,7 +4600,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Mangum, Jake",
@@ -4089,14 +4618,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Lowe, Nathaniel",
       "team": "WSH",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 18,
+      "hr_days": 17,
       "avg_dist": 394,
       "p90_dist": 421,
       "max_dist": 424,
@@ -4106,24 +4636,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Happ, Ian",
       "team": "CHC",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 24,
+      "hr_days": 21,
       "avg_dist": 393,
       "p90_dist": 425,
       "max_dist": 434,
-      "avg_ev": 104.2,
-      "avg_la": 28.7,
+      "avg_ev": 103.9,
+      "avg_la": 29.0,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 100,
+      "r430": 0,
+      "r440": 0,
+      "r450": 0,
+      "dist_sample": 3
     },
     {
       "name": "France, Ty",
@@ -4140,14 +4672,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Bader, Harrison",
       "team": "MIN",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 17,
+      "hr_days": 16,
       "avg_dist": 390,
       "p90_dist": 417,
       "max_dist": 446,
@@ -4157,7 +4690,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Haggerty, Sam",
@@ -4174,14 +4708,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Moore, Dylan",
       "team": "SEA",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 11,
+      "hr_days": 10,
       "avg_dist": 393,
       "p90_dist": 413,
       "max_dist": 429,
@@ -4191,14 +4726,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Straw, Myles",
       "team": "TOR",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 4,
+      "hr_days": 3,
       "avg_dist": 386,
       "p90_dist": 397,
       "max_dist": 397,
@@ -4208,7 +4744,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Isbel, Kyle",
@@ -4225,24 +4762,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Bohm, Alec",
       "team": "PHI",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 12,
-      "avg_dist": 383,
+      "hr_days": 11,
+      "avg_dist": 386,
       "p90_dist": 422,
       "max_dist": 433,
-      "avg_ev": 101.5,
-      "avg_la": 29.2,
+      "avg_ev": 101.9,
+      "avg_la": 28.9,
       "la_profile": "optimal",
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Wade Jr., LaMonte",
@@ -4259,7 +4798,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
+    },
+    {
+      "name": "Brown, Seth",
+      "team": "ATH",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 385,
+      "p90_dist": 385,
+      "max_dist": 385,
+      "avg_ev": 105.3,
+      "avg_la": 24.0,
+      "la_profile": "liner",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "McCarthy, Jake",
@@ -4276,24 +4834,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Clemens, Kody",
       "team": "MIN",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 19,
+      "hr_days": 17,
       "avg_dist": 392,
       "p90_dist": 422,
       "max_dist": 451,
       "avg_ev": 104.1,
       "avg_la": 29.9,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 67,
+      "r430": 33,
+      "r440": 33,
+      "r450": 33,
+      "dist_sample": 3
     },
     {
       "name": "Conine, Griffin",
@@ -4310,7 +4870,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Maton, Nick",
@@ -4327,14 +4888,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Pe\u00f1a, Jeremy",
       "team": "HOU",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 17,
+      "hr_days": 16,
       "avg_dist": 380,
       "p90_dist": 415,
       "max_dist": 423,
@@ -4344,24 +4906,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Tatis Jr., Fernando",
       "team": "SD",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 25,
+      "hr_days": 24,
       "avg_dist": 409,
       "p90_dist": 432,
       "max_dist": 441,
       "avg_ev": 107.6,
       "avg_la": 26.1,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 80,
+      "r430": 40,
+      "r440": 10,
+      "r450": 0,
+      "dist_sample": 10
     },
     {
       "name": "Guerrero Jr., Vladimir",
@@ -4375,10 +4939,11 @@
       "avg_ev": 107.7,
       "avg_la": 25.0,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 86,
+      "r430": 29,
+      "r440": 14,
+      "r450": 0,
+      "dist_sample": 7
     },
     {
       "name": "March\u00e1n, Rafael",
@@ -4395,7 +4960,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Taveras, Leody",
@@ -4412,24 +4978,44 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Amaya, Miguel",
       "team": "CHC",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 5,
-      "avg_dist": 381,
-      "p90_dist": 390,
-      "max_dist": 390,
-      "avg_ev": 102.8,
-      "avg_la": 30.4,
+      "hr_days": 4,
+      "avg_dist": 379,
+      "p90_dist": 388,
+      "max_dist": 388,
+      "avg_ev": 102.3,
+      "avg_la": 30.0,
       "la_profile": "optimal",
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
+    },
+    {
+      "name": "Cabrera, Oswaldo",
+      "team": "NYY",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 382,
+      "p90_dist": 382,
+      "max_dist": 382,
+      "avg_ev": 100.4,
+      "avg_la": 23.0,
+      "la_profile": "liner",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Valdez, Enmanuel",
@@ -4446,24 +5032,62 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Chisholm Jr., Jazz",
       "team": "NYY",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 31,
+      "hr_days": 27,
       "avg_dist": 387,
       "p90_dist": 423,
       "max_dist": 442,
       "avg_ev": 105.5,
       "avg_la": 29.1,
       "la_profile": "optimal",
+      "r420": 75,
+      "r430": 50,
+      "r440": 25,
+      "r450": 0,
+      "dist_sample": 4
+    },
+    {
+      "name": "Ferm\u00edn, Jos\u00e9",
+      "team": "STL",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 367,
+      "p90_dist": 367,
+      "max_dist": 367,
+      "avg_ev": 98.5,
+      "avg_la": 35.0,
+      "la_profile": "pop-up",
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": null
+    },
+    {
+      "name": "Ruiz, Esteury",
+      "team": "LAD",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 413,
+      "p90_dist": 413,
+      "max_dist": 413,
+      "avg_ev": 106.7,
+      "avg_la": 32.0,
+      "la_profile": "pop-up",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Gim\u00e9nez, Andr\u00e9s",
@@ -4480,7 +5104,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
+    },
+    {
+      "name": "Chaparro, Andr\u00e9s",
+      "team": "WSH",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 411,
+      "p90_dist": 411,
+      "max_dist": 411,
+      "avg_ev": 105.2,
+      "avg_la": 31.0,
+      "la_profile": "optimal",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Narv\u00e1ez, Carlos",
@@ -4497,7 +5140,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Fermin, Freddy",
@@ -4514,14 +5158,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Cortes, Carlos",
       "team": "ATH",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 4,
+      "hr_days": 3,
       "avg_dist": 402,
       "p90_dist": 413,
       "max_dist": 413,
@@ -4531,24 +5176,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Lowe, Josh",
       "team": "TB",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 12,
-      "avg_dist": 391,
+      "hr_days": 10,
+      "avg_dist": 392,
       "p90_dist": 413,
       "max_dist": 423,
-      "avg_ev": 104.6,
-      "avg_la": 30.5,
+      "avg_ev": 104.9,
+      "avg_la": 30.7,
       "la_profile": "optimal",
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Fitzgerald, Tyler",
@@ -4565,7 +5212,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
+    },
+    {
+      "name": "Fletcher, Dominic",
+      "team": "CWS",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 380,
+      "p90_dist": 380,
+      "max_dist": 380,
+      "avg_ev": 102.1,
+      "avg_la": 28.0,
+      "la_profile": "optimal",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Hamilton, David",
@@ -4582,7 +5248,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Lux, Gavin",
@@ -4599,14 +5266,33 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
+    },
+    {
+      "name": "Rortvedt, Ben",
+      "team": "LAD",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 393,
+      "p90_dist": 393,
+      "max_dist": 393,
+      "avg_ev": 97.7,
+      "avg_la": 28.0,
+      "la_profile": "optimal",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Benson, Will",
       "team": "CIN",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 12,
+      "hr_days": 11,
       "avg_dist": 392,
       "p90_dist": 423,
       "max_dist": 425,
@@ -4616,14 +5302,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Bichette, Bo",
       "team": "TOR",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 18,
+      "hr_days": 17,
       "avg_dist": 397,
       "p90_dist": 418,
       "max_dist": 434,
@@ -4633,7 +5320,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Carlson, Dylan",
@@ -4650,7 +5338,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Trammell, Taylor",
@@ -4667,14 +5356,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Naylor, Bo",
       "team": "CLE",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 14,
+      "hr_days": 13,
       "avg_dist": 399,
       "p90_dist": 425,
       "max_dist": 425,
@@ -4684,7 +5374,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Julien, Edouard",
@@ -4701,7 +5392,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Encarnacion, Jerar",
@@ -4718,14 +5410,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Morel, Christopher",
       "team": "TB",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 11,
+      "hr_days": 10,
       "avg_dist": 404,
       "p90_dist": 434,
       "max_dist": 438,
@@ -4735,7 +5428,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Garc\u00eda, Adolis",
@@ -4749,27 +5443,29 @@
       "avg_ev": 104.9,
       "avg_la": 27.4,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 60,
+      "r430": 40,
+      "r440": 0,
+      "r450": 0,
+      "dist_sample": 5
     },
     {
       "name": "Gurriel Jr., Lourdes",
       "team": "AZ",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 19,
+      "hr_days": 18,
       "avg_dist": 402,
       "p90_dist": 424,
       "max_dist": 439,
       "avg_ev": 103.5,
       "avg_la": 28.7,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 67,
+      "r430": 33,
+      "r440": 0,
+      "r450": 0,
+      "dist_sample": 3
     },
     {
       "name": "Myers, Dane",
@@ -4786,24 +5482,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Arozarena, Randy",
       "team": "SEA",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 27,
+      "hr_days": 26,
       "avg_dist": 399,
       "p90_dist": 431,
       "max_dist": 445,
       "avg_ev": 106.1,
       "avg_la": 26.8,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 100,
+      "r430": 60,
+      "r440": 20,
+      "r450": 0,
+      "dist_sample": 5
     },
     {
       "name": "Rogers, Jake",
@@ -4820,14 +5518,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Bleday, JJ",
       "team": "ATH",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 14,
+      "hr_days": 13,
       "avg_dist": 386,
       "p90_dist": 418,
       "max_dist": 428,
@@ -4837,14 +5536,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Steer, Spencer",
       "team": "CIN",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 21,
+      "hr_days": 18,
       "avg_dist": 388,
       "p90_dist": 411,
       "max_dist": 439,
@@ -4854,14 +5554,33 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
+    },
+    {
+      "name": "Knizner, Andrew",
+      "team": "SF",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 397,
+      "p90_dist": 397,
+      "max_dist": 397,
+      "avg_ev": 106.5,
+      "avg_la": 26.0,
+      "la_profile": "optimal",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Reynolds, Bryan",
       "team": "PIT",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 16,
+      "hr_days": 15,
       "avg_dist": 400,
       "p90_dist": 421,
       "max_dist": 432,
@@ -4871,14 +5590,33 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
+    },
+    {
+      "name": "Martin, Austin",
+      "team": "MIN",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 395,
+      "p90_dist": 395,
+      "max_dist": 395,
+      "avg_ev": 103.7,
+      "avg_la": 36.0,
+      "la_profile": "pop-up",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Vientos, Mark",
       "team": "NYM",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 17,
+      "hr_days": 16,
       "avg_dist": 394,
       "p90_dist": 427,
       "max_dist": 427,
@@ -4888,41 +5626,44 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Lewis, Royce",
       "team": "MIN",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 14,
-      "avg_dist": 400,
+      "hr_days": 11,
+      "avg_dist": 402,
       "p90_dist": 425,
       "max_dist": 451,
-      "avg_ev": 104.0,
+      "avg_ev": 104.3,
       "avg_la": 26.1,
       "la_profile": "optimal",
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Turang, Brice",
       "team": "MIL",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 18,
+      "hr_days": 17,
       "avg_dist": 408,
       "p90_dist": 437,
       "max_dist": 444,
       "avg_ev": 104.9,
       "avg_la": 28.1,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 80,
+      "r430": 60,
+      "r440": 20,
+      "r450": 0,
+      "dist_sample": 5
     },
     {
       "name": "Rojas, Josh",
@@ -4939,7 +5680,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
+    },
+    {
+      "name": "Melendez, MJ",
+      "team": "KC",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 429,
+      "p90_dist": 429,
+      "max_dist": 429,
+      "avg_ev": 107.2,
+      "avg_la": 25.0,
+      "la_profile": "optimal",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Marsh, Brandon",
@@ -4956,7 +5716,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Huff, Sam",
@@ -4973,14 +5734,33 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
+    },
+    {
+      "name": "Bliss, Ryan",
+      "team": "SEA",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 387,
+      "p90_dist": 387,
+      "max_dist": 387,
+      "avg_ev": 100.4,
+      "avg_la": 23.0,
+      "la_profile": "liner",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Wells, Austin",
       "team": "NYY",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 21,
+      "hr_days": 20,
       "avg_dist": 380,
       "p90_dist": 410,
       "max_dist": 423,
@@ -4990,7 +5770,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
+    },
+    {
+      "name": "Malloy, Justyn-Henry",
+      "team": "DET",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 389,
+      "p90_dist": 389,
+      "max_dist": 389,
+      "avg_ev": 111.7,
+      "avg_la": 23.0,
+      "la_profile": "liner",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Edman, Tommy",
@@ -5004,27 +5803,29 @@
       "avg_ev": 102.7,
       "avg_la": 30.1,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 33,
+      "r430": 0,
+      "r440": 0,
+      "r450": 0,
+      "dist_sample": 3
     },
     {
       "name": "Smith, Will",
       "team": "LAD",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 19,
-      "avg_dist": 401,
+      "hr_days": 16,
+      "avg_dist": 399,
       "p90_dist": 422,
       "max_dist": 435,
       "avg_ev": 104.7,
-      "avg_la": 27.7,
+      "avg_la": 27.8,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 75,
+      "r430": 25,
+      "r440": 0,
+      "r450": 0,
+      "dist_sample": 4
     },
     {
       "name": "Suwinski, Jack",
@@ -5041,7 +5842,62 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
+    },
+    {
+      "name": "Johnson, Daniel",
+      "team": "SF",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 409,
+      "p90_dist": 409,
+      "max_dist": 409,
+      "avg_ev": 102.1,
+      "avg_la": 26.0,
+      "la_profile": "optimal",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
+    },
+    {
+      "name": "Miranda, Jose",
+      "team": "MIN",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 389,
+      "p90_dist": 389,
+      "max_dist": 389,
+      "avg_ev": 98.6,
+      "avg_la": 30.0,
+      "la_profile": "optimal",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
+    },
+    {
+      "name": "Teodosio, Bryce",
+      "team": "LAA",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 394,
+      "p90_dist": 394,
+      "max_dist": 394,
+      "avg_ev": 106.7,
+      "avg_la": 37.0,
+      "la_profile": "pop-up",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Edwards, Xavier",
@@ -5058,7 +5914,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
+    },
+    {
+      "name": "Johnson, Bryce",
+      "team": "SD",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 408,
+      "p90_dist": 408,
+      "max_dist": 408,
+      "avg_ev": 102.3,
+      "avg_la": 31.0,
+      "la_profile": "optimal",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Hummel, Cooper",
@@ -5075,7 +5950,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Schmitt, Casey",
@@ -5092,7 +5968,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Smith, Josh",
@@ -5109,7 +5986,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Triolo, Jared",
@@ -5126,14 +6004,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Hays, Austin",
       "team": "CIN",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 15,
+      "hr_days": 13,
       "avg_dist": 396,
       "p90_dist": 414,
       "max_dist": 429,
@@ -5143,24 +6022,62 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
+    },
+    {
+      "name": "Davidson, Logan",
+      "team": "LAA",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 422,
+      "p90_dist": 422,
+      "max_dist": 422,
+      "avg_ev": 108.9,
+      "avg_la": 34.0,
+      "la_profile": "pop-up",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Raley, Luke",
       "team": "SEA",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 7,
-      "avg_dist": 389,
+      "hr_days": 4,
+      "avg_dist": 395,
       "p90_dist": 436,
       "max_dist": 436,
-      "avg_ev": 106.9,
-      "avg_la": 28.3,
+      "avg_ev": 105.1,
+      "avg_la": 29.8,
       "la_profile": "optimal",
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
+    },
+    {
+      "name": "Brooks, Trenton",
+      "team": "SD",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 397,
+      "p90_dist": 397,
+      "max_dist": 397,
+      "avg_ev": 101.8,
+      "avg_la": 29.0,
+      "la_profile": "optimal",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Short, Zack",
@@ -5177,14 +6094,33 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
+    },
+    {
+      "name": "Mastrobuoni, Miles",
+      "team": "SEA",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 345,
+      "p90_dist": 345,
+      "max_dist": 345,
+      "avg_ev": 94.7,
+      "avg_la": 36.0,
+      "la_profile": "pop-up",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Mervis, Matt",
       "team": "MIA",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 7,
+      "hr_days": 6,
       "avg_dist": 389,
       "p90_dist": 421,
       "max_dist": 421,
@@ -5194,14 +6130,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Misner, Kameron",
       "team": "TB",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 5,
+      "hr_days": 4,
       "avg_dist": 376,
       "p90_dist": 431,
       "max_dist": 431,
@@ -5211,14 +6148,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Rave, John",
       "team": "KC",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 4,
+      "hr_days": 3,
       "avg_dist": 406,
       "p90_dist": 422,
       "max_dist": 422,
@@ -5228,14 +6166,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Paredes, Isaac",
       "team": "HOU",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 20,
+      "hr_days": 18,
       "avg_dist": 375,
       "p90_dist": 407,
       "max_dist": 407,
@@ -5245,7 +6184,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Walls, Taylor",
@@ -5262,14 +6202,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Friedl, TJ",
       "team": "CIN",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 14,
+      "hr_days": 13,
       "avg_dist": 385,
       "p90_dist": 407,
       "max_dist": 415,
@@ -5279,7 +6220,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Casas, Triston",
@@ -5296,14 +6238,33 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
+    },
+    {
+      "name": "Waters, Drew",
+      "team": "KC",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 408,
+      "p90_dist": 408,
+      "max_dist": 408,
+      "avg_ev": 100.9,
+      "avg_la": 31.0,
+      "la_profile": "optimal",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Garc\u00eda Jr., Luis",
       "team": "WSH",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 16,
+      "hr_days": 14,
       "avg_dist": 397,
       "p90_dist": 420,
       "max_dist": 422,
@@ -5313,7 +6274,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Elko, Tim",
@@ -5330,7 +6292,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Rodr\u00edguez, Johnathan",
@@ -5347,7 +6310,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Valera, George",
@@ -5364,7 +6328,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Bailey, Patrick",
@@ -5381,7 +6346,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Kelenic, Jarred",
@@ -5398,7 +6364,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Arias, Gabriel",
@@ -5412,27 +6379,29 @@
       "avg_ev": 108.4,
       "avg_la": 26.7,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 100,
+      "r430": 50,
+      "r440": 25,
+      "r450": 0,
+      "dist_sample": 4
     },
     {
       "name": "Kirk, Alejandro",
       "team": "TOR",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 16,
+      "hr_days": 13,
       "avg_dist": 402,
       "p90_dist": 424,
       "max_dist": 432,
-      "avg_ev": 104.1,
-      "avg_la": 26.8,
+      "avg_ev": 104.2,
+      "avg_la": 27.0,
       "la_profile": "optimal",
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Moreno, Gabriel",
@@ -5449,7 +6418,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Campero, Gustavo",
@@ -5466,75 +6436,80 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Garcia, Maikel",
       "team": "KC",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 16,
+      "hr_days": 15,
       "avg_dist": 399,
       "p90_dist": 428,
       "max_dist": 428,
       "avg_ev": 103.5,
       "avg_la": 25.0,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 67,
+      "r430": 0,
+      "r440": 0,
+      "r450": 0,
+      "dist_sample": 3
     },
     {
       "name": "Lopez, Otto",
       "team": "MIA",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 15,
+      "hr_days": 14,
       "avg_dist": 402,
       "p90_dist": 429,
       "max_dist": 446,
       "avg_ev": 103.1,
       "avg_la": 28.5,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 60,
+      "r430": 20,
+      "r440": 20,
+      "r450": 0,
+      "dist_sample": 5
     },
     {
       "name": "Perdomo, Geraldo",
       "team": "AZ",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 21,
+      "hr_days": 20,
       "avg_dist": 393,
       "p90_dist": 417,
       "max_dist": 423,
       "avg_ev": 102.2,
-      "avg_la": 29.3,
+      "avg_la": 29.1,
       "la_profile": "optimal",
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Peraza, Oswald",
       "team": "NYY",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 6,
-      "avg_dist": 376,
+      "hr_days": 5,
+      "avg_dist": 380,
       "p90_dist": 408,
       "max_dist": 408,
-      "avg_ev": 103.9,
-      "avg_la": 24.5,
+      "avg_ev": 105.7,
+      "avg_la": 23.0,
       "la_profile": "liner",
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "P\u00e9rez, Wenceel",
@@ -5551,24 +6526,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Sosa, Lenyn",
       "team": "CWS",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 22,
+      "hr_days": 20,
       "avg_dist": 405,
       "p90_dist": 439,
       "max_dist": 451,
       "avg_ev": 105.7,
       "avg_la": 28.3,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 80,
+      "r430": 60,
+      "r440": 40,
+      "r450": 20,
+      "dist_sample": 5
     },
     {
       "name": "Diaz, Yainer",
@@ -5585,7 +6562,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Robert Jr., Luis",
@@ -5602,7 +6580,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Kim, Ha-Seong",
@@ -5619,14 +6598,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Jung, Josh",
       "team": "TEX",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 14,
+      "hr_days": 13,
       "avg_dist": 387,
       "p90_dist": 412,
       "max_dist": 414,
@@ -5636,14 +6616,33 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
+    },
+    {
+      "name": "Seymour, Bob",
+      "team": "TB",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 357,
+      "p90_dist": 357,
+      "max_dist": 357,
+      "avg_ev": 93.4,
+      "avg_la": 29.0,
+      "la_profile": "optimal",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Westburg, Jordan",
       "team": "BAL",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 17,
+      "hr_days": 16,
       "avg_dist": 397,
       "p90_dist": 434,
       "max_dist": 461,
@@ -5653,7 +6652,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
+    },
+    {
+      "name": "Noda, Ryan",
+      "team": "CWS",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 397,
+      "p90_dist": 397,
+      "max_dist": 397,
+      "avg_ev": 105.6,
+      "avg_la": 24.0,
+      "la_profile": "liner",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Clement, Ernie",
@@ -5670,7 +6688,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
+    },
+    {
+      "name": "Barrero, Jos\u00e9",
+      "team": "STL",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 385,
+      "p90_dist": 385,
+      "max_dist": 385,
+      "avg_ev": 100.1,
+      "avg_la": 32.0,
+      "la_profile": "pop-up",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Wagaman, Eric",
@@ -5684,17 +6721,18 @@
       "avg_ev": 106.3,
       "avg_la": 27.1,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 75,
+      "r430": 25,
+      "r440": 25,
+      "r450": 25,
+      "dist_sample": 4
     },
     {
       "name": "Caballero, Jos\u00e9",
       "team": "TB",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 5,
+      "hr_days": 4,
       "avg_dist": 369,
       "p90_dist": 423,
       "max_dist": 423,
@@ -5704,14 +6742,33 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
+    },
+    {
+      "name": "V\u00e1zquez, Luis",
+      "team": "BAL",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 416,
+      "p90_dist": 416,
+      "max_dist": 416,
+      "avg_ev": 103.8,
+      "avg_la": 29.0,
+      "la_profile": "optimal",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Meyers, Jake",
       "team": "HOU",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 3,
+      "hr_days": 2,
       "avg_dist": 378,
       "p90_dist": 409,
       "max_dist": 409,
@@ -5721,7 +6778,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Young, Jared",
@@ -5738,7 +6796,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
+    },
+    {
+      "name": "McCormick, Chas",
+      "team": "HOU",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 393,
+      "p90_dist": 393,
+      "max_dist": 393,
+      "avg_ev": 104.5,
+      "avg_la": 32.0,
+      "la_profile": "pop-up",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Kjerstad, Heston",
@@ -5755,14 +6832,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Paris, Kyren",
       "team": "LAA",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 6,
+      "hr_days": 5,
       "avg_dist": 396,
       "p90_dist": 434,
       "max_dist": 434,
@@ -5772,7 +6850,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Rocchio, Brayan",
@@ -5789,7 +6868,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Pereira, Everson",
@@ -5806,24 +6886,44 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Abreu, Wilyer",
       "team": "BOS",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 23,
-      "avg_dist": 399,
+      "hr_days": 18,
+      "avg_dist": 401,
       "p90_dist": 423,
       "max_dist": 430,
       "avg_ev": 105.1,
-      "avg_la": 29.9,
+      "avg_la": 29.4,
+      "la_profile": "optimal",
+      "r420": 100,
+      "r430": 25,
+      "r440": 0,
+      "r450": 0,
+      "dist_sample": 4
+    },
+    {
+      "name": "Jim\u00e9nez, Leo",
+      "team": "TOR",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 402,
+      "p90_dist": 402,
+      "max_dist": 402,
+      "avg_ev": 100.0,
+      "avg_la": 28.0,
       "la_profile": "optimal",
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Alexander, Blaze",
@@ -5840,7 +6940,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Thomas, Alek",
@@ -5857,7 +6958,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Hinds, Rece",
@@ -5874,7 +6976,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Meadows, Parker",
@@ -5891,14 +6994,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Vargas, Miguel",
       "team": "CWS",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 16,
+      "hr_days": 15,
       "avg_dist": 382,
       "p90_dist": 411,
       "max_dist": 422,
@@ -5908,7 +7012,44 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
+    },
+    {
+      "name": "Vivas, Jorbit",
+      "team": "NYY",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 360,
+      "p90_dist": 360,
+      "max_dist": 360,
+      "avg_ev": 101.0,
+      "avg_la": 23.0,
+      "la_profile": "liner",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
+    },
+    {
+      "name": "Barrosa, Jorge",
+      "team": "AZ",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 389,
+      "p90_dist": 389,
+      "max_dist": 389,
+      "avg_ev": 99.3,
+      "avg_la": 35.0,
+      "la_profile": "pop-up",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Mead, Curtis",
@@ -5925,24 +7066,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Tovar, Ezequiel",
       "team": "COL",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 10,
+      "hr_days": 9,
       "avg_dist": 406,
       "p90_dist": 433,
       "max_dist": 433,
-      "avg_ev": 103.4,
-      "avg_la": 29.8,
+      "avg_ev": 103.2,
+      "avg_la": 30.4,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 75,
+      "r430": 25,
+      "r440": 0,
+      "r450": 0,
+      "dist_sample": 4
     },
     {
       "name": "Rafaela, Ceddanne",
@@ -5959,14 +7102,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Peguero, Liover",
       "team": "PIT",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 4,
+      "hr_days": 2,
       "avg_dist": 394,
       "p90_dist": 410,
       "max_dist": 410,
@@ -5976,7 +7120,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
+    },
+    {
+      "name": "Rojas, Johan",
+      "team": "PHI",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 421,
+      "p90_dist": 421,
+      "max_dist": 421,
+      "avg_ev": 103.8,
+      "avg_la": 24.0,
+      "la_profile": "liner",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Torkelson, Spencer",
@@ -5990,10 +7153,11 @@
       "avg_ev": 104.2,
       "avg_la": 29.5,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 100,
+      "r430": 50,
+      "r440": 0,
+      "r450": 0,
+      "dist_sample": 4
     },
     {
       "name": "Loftin, Nick",
@@ -6010,7 +7174,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Schuemann, Max",
@@ -6027,7 +7192,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "McLain, Matt",
@@ -6044,7 +7210,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Keirsey Jr., DaShawn",
@@ -6061,7 +7228,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
+    },
+    {
+      "name": "Palacios, Richie",
+      "team": "TB",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 379,
+      "p90_dist": 379,
+      "max_dist": 379,
+      "avg_ev": 102.8,
+      "avg_la": 32.0,
+      "la_profile": "pop-up",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Del Castillo, Adrian",
@@ -6078,7 +7264,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Helman, Michael",
@@ -6095,14 +7282,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Kwan, Steven",
       "team": "CLE",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 11,
+      "hr_days": 10,
       "avg_dist": 381,
       "p90_dist": 406,
       "max_dist": 431,
@@ -6112,7 +7300,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Davis, Henry",
@@ -6129,7 +7318,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Fitzgerald, Ryan",
@@ -6146,7 +7336,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "MacIver, Willie",
@@ -6163,7 +7354,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Gelof, Zack",
@@ -6180,24 +7372,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Donovan, Brendan",
       "team": "STL",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 11,
-      "avg_dist": 384,
-      "p90_dist": 396,
+      "hr_days": 10,
+      "avg_dist": 387,
+      "p90_dist": 404,
       "max_dist": 404,
-      "avg_ev": 104.6,
-      "avg_la": 25.5,
-      "la_profile": "optimal",
+      "avg_ev": 104.7,
+      "avg_la": 24.5,
+      "la_profile": "liner",
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Stott, Bryson",
@@ -6214,7 +7408,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Cowser, Colton",
@@ -6228,10 +7423,11 @@
       "avg_ev": 105.6,
       "avg_la": 27.8,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 100,
+      "r430": 25,
+      "r440": 25,
+      "r450": 25,
+      "dist_sample": 4
     },
     {
       "name": "Norby, Connor",
@@ -6248,7 +7444,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Baldwin, Brooks",
@@ -6265,14 +7462,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Carpenter, Kerry",
       "team": "DET",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 26,
+      "hr_days": 23,
       "avg_dist": 391,
       "p90_dist": 424,
       "max_dist": 437,
@@ -6282,7 +7480,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Gasper, Mickey",
@@ -6299,7 +7498,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Hern\u00e1ndez, Heriberto",
@@ -6316,7 +7516,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Fry, David",
@@ -6333,14 +7534,51 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
+    },
+    {
+      "name": "Capra, Vinny",
+      "team": "MIL",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 370,
+      "p90_dist": 370,
+      "max_dist": 370,
+      "avg_ev": 103.9,
+      "avg_la": 25.0,
+      "la_profile": "optimal",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
+    },
+    {
+      "name": "Eaton, Nate",
+      "team": "BOS",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 380,
+      "p90_dist": 380,
+      "max_dist": 380,
+      "avg_ev": 104.8,
+      "avg_la": 23.0,
+      "la_profile": "liner",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Schneemann, Daniel",
       "team": "CLE",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 12,
+      "hr_days": 11,
       "avg_dist": 387,
       "p90_dist": 408,
       "max_dist": 408,
@@ -6350,7 +7588,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Marte, Noelvi",
@@ -6364,10 +7603,11 @@
       "avg_ev": 105.2,
       "avg_la": 27.1,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 100,
+      "r430": 75,
+      "r440": 25,
+      "r450": 0,
+      "dist_sample": 4
     },
     {
       "name": "Matos, Luis",
@@ -6384,7 +7624,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Bernabel, Warming",
@@ -6401,7 +7642,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Mart\u00ednez, Angel",
@@ -6418,7 +7660,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Clase, Jonatan",
@@ -6435,14 +7678,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Abrams, CJ",
       "team": "WSH",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 19,
+      "hr_days": 18,
       "avg_dist": 387,
       "p90_dist": 426,
       "max_dist": 428,
@@ -6452,7 +7696,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Locklear, Tyler",
@@ -6469,7 +7714,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Henderson, Gunnar",
@@ -6486,14 +7732,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Volpe, Anthony",
       "team": "NYY",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 19,
+      "hr_days": 18,
       "avg_dist": 385,
       "p90_dist": 421,
       "max_dist": 442,
@@ -6503,14 +7750,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Nu\u00f1ez, Nasim",
       "team": "WSH",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 4,
+      "hr_days": 3,
       "avg_dist": 374,
       "p90_dist": 389,
       "max_dist": 389,
@@ -6520,7 +7768,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Lugo, Matthew",
@@ -6537,7 +7786,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Freeman, Cody",
@@ -6554,7 +7804,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
+    },
+    {
+      "name": "Caissie, Owen",
+      "team": "CHC",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 381,
+      "p90_dist": 381,
+      "max_dist": 381,
+      "avg_ev": 105.2,
+      "avg_la": 22.0,
+      "la_profile": "liner",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Vaughn, Andrew",
@@ -6571,7 +7840,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
+    },
+    {
+      "name": "Mesa Jr., Victor",
+      "team": "MIA",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 394,
+      "p90_dist": 394,
+      "max_dist": 394,
+      "avg_ev": 102.1,
+      "avg_la": 34.0,
+      "la_profile": "pop-up",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Koss, Christian",
@@ -6588,24 +7876,44 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Frelick, Sal",
       "team": "MIL",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 13,
-      "avg_dist": 391,
+      "hr_days": 12,
+      "avg_dist": 390,
       "p90_dist": 412,
       "max_dist": 422,
-      "avg_ev": 101.9,
-      "avg_la": 25.5,
+      "avg_ev": 101.5,
+      "avg_la": 25.6,
       "la_profile": "optimal",
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
+    },
+    {
+      "name": "Tolbert, Tyler",
+      "team": "KC",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 391,
+      "p90_dist": 391,
+      "max_dist": 391,
+      "avg_ev": 94.2,
+      "avg_la": 31.0,
+      "la_profile": "optimal",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Collins, Isaac",
@@ -6622,14 +7930,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Crews, Dylan",
       "team": "WSH",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 10,
+      "hr_days": 9,
       "avg_dist": 404,
       "p90_dist": 429,
       "max_dist": 429,
@@ -6639,7 +7948,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
+    },
+    {
+      "name": "Lee, Korey",
+      "team": "CWS",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 392,
+      "p90_dist": 392,
+      "max_dist": 392,
+      "avg_ev": 101.7,
+      "avg_la": 31.0,
+      "la_profile": "optimal",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Massey, Michael",
@@ -6656,7 +7984,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Pag\u00e9s, Pedro",
@@ -6673,14 +8002,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Lee, Brooks",
       "team": "MIN",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 16,
+      "hr_days": 15,
       "avg_dist": 383,
       "p90_dist": 415,
       "max_dist": 430,
@@ -6690,24 +8020,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Wiemer, Joey",
       "team": "MIA",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 4,
-      "avg_dist": 402,
+      "hr_days": 3,
+      "avg_dist": 403,
       "p90_dist": 417,
       "max_dist": 417,
-      "avg_ev": 106.8,
-      "avg_la": 28.5,
+      "avg_ev": 105.6,
+      "avg_la": 27.7,
       "la_profile": "optimal",
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Rushing, Dalton",
@@ -6724,7 +8056,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Hernaiz, Darell",
@@ -6741,7 +8074,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Scott II, Victor",
@@ -6758,14 +8092,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Ortiz, Joey",
       "team": "MIL",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 7,
+      "hr_days": 6,
       "avg_dist": 387,
       "p90_dist": 414,
       "max_dist": 414,
@@ -6775,14 +8110,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Horwitz, Spencer",
       "team": "PIT",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 11,
+      "hr_days": 9,
       "avg_dist": 403,
       "p90_dist": 416,
       "max_dist": 421,
@@ -6792,7 +8128,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Thomas, Colby",
@@ -6809,7 +8146,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Gilbert, Drew",
@@ -6826,7 +8164,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Beavers, Dylan",
@@ -6843,14 +8182,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Johnston, Troy",
       "team": "MIA",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 4,
+      "hr_days": 3,
       "avg_dist": 407,
       "p90_dist": 434,
       "max_dist": 434,
@@ -6860,7 +8200,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
+    },
+    {
+      "name": "Harris, Dustin",
+      "team": "TEX",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 408,
+      "p90_dist": 408,
+      "max_dist": 408,
+      "avg_ev": 102.9,
+      "avg_la": 28.0,
+      "la_profile": "optimal",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Pauley, Graham",
@@ -6877,14 +8236,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Crim, Blaine",
       "team": "COL",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 5,
+      "hr_days": 4,
       "avg_dist": 417,
       "p90_dist": 439,
       "max_dist": 439,
@@ -6894,41 +8254,98 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
+    },
+    {
+      "name": "Wisely, Brett",
+      "team": "SF",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 415,
+      "p90_dist": 415,
+      "max_dist": 415,
+      "avg_ev": 101.0,
+      "avg_la": 33.0,
+      "la_profile": "pop-up",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Hicks, Liam",
       "team": "MIA",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 7,
-      "avg_dist": 378,
+      "hr_days": 6,
+      "avg_dist": 377,
       "p90_dist": 411,
       "max_dist": 411,
-      "avg_ev": 101.5,
+      "avg_ev": 101.7,
       "avg_la": 28.7,
       "la_profile": "optimal",
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
+    },
+    {
+      "name": "Ritter, Ryan",
+      "team": "COL",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 354,
+      "p90_dist": 354,
+      "max_dist": 354,
+      "avg_ev": 102.6,
+      "avg_la": 42.0,
+      "la_profile": "pop-up",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
+    },
+    {
+      "name": "Fulford, Braxton",
+      "team": "COL",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 433,
+      "p90_dist": 433,
+      "max_dist": 433,
+      "avg_ev": 108.6,
+      "avg_la": 31.0,
+      "la_profile": "optimal",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Freeland, Alex",
       "team": "LAD",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 3,
-      "avg_dist": 398,
-      "p90_dist": 413,
-      "max_dist": 413,
-      "avg_ev": 102.9,
-      "avg_la": 29.0,
+      "hr_days": 2,
+      "avg_dist": 391,
+      "p90_dist": 394,
+      "max_dist": 394,
+      "avg_ev": 101.9,
+      "avg_la": 30.5,
       "la_profile": "optimal",
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Hassell III, Robert",
@@ -6945,7 +8362,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Teel, Kyle",
@@ -6962,7 +8380,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Walker, Jordan",
@@ -6979,14 +8398,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Winn, Masyn",
       "team": "STL",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 9,
+      "hr_days": 8,
       "avg_dist": 388,
       "p90_dist": 403,
       "max_dist": 403,
@@ -6996,7 +8416,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
+    },
+    {
+      "name": "Amador, Adael",
+      "team": "COL",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 378,
+      "p90_dist": 378,
+      "max_dist": 378,
+      "avg_ev": 97.9,
+      "avg_la": 38.0,
+      "la_profile": "pop-up",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Acosta, Maximo",
@@ -7013,14 +8452,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Sanoja, Javier",
       "team": "MIA",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 6,
+      "hr_days": 5,
       "avg_dist": 379,
       "p90_dist": 402,
       "max_dist": 402,
@@ -7030,7 +8470,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
+    },
+    {
+      "name": "Karros, Kyle",
+      "team": "COL",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 381,
+      "p90_dist": 381,
+      "max_dist": 381,
+      "avg_ev": 102.6,
+      "avg_la": 22.0,
+      "la_profile": "liner",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Mayo, Coby",
@@ -7047,48 +8506,51 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
-      "name": "Muncy, Max",
-      "team": "ATH",
+      "name": "Veen, Zac",
+      "team": "COL",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 9,
-      "avg_dist": 407,
-      "p90_dist": 431,
-      "max_dist": 431,
-      "avg_ev": 105.3,
-      "avg_la": 28.9,
+      "hr_days": 1,
+      "avg_dist": 412,
+      "p90_dist": 412,
+      "max_dist": 412,
+      "avg_ev": 103.4,
+      "avg_la": 28.0,
       "la_profile": "optimal",
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "House, Brady",
       "team": "WSH",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 5,
-      "avg_dist": 392,
+      "hr_days": 3,
+      "avg_dist": 399,
       "p90_dist": 427,
       "max_dist": 427,
-      "avg_ev": 104.6,
-      "avg_la": 28.2,
+      "avg_ev": 103.0,
+      "avg_la": 27.8,
       "la_profile": "optimal",
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Mayer, Marcelo",
       "team": "BOS",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 4,
+      "hr_days": 3,
       "avg_dist": 404,
       "p90_dist": 418,
       "max_dist": 418,
@@ -7098,7 +8560,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Kayfus, CJ",
@@ -7115,7 +8578,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Campbell, Kristian",
@@ -7132,7 +8596,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Fern\u00e1ndez, Yanquiel",
@@ -7149,7 +8614,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Gonzales, Nick",
@@ -7166,24 +8632,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Dingler, Dillon",
       "team": "DET",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 14,
-      "avg_dist": 390,
+      "hr_days": 13,
+      "avg_dist": 389,
       "p90_dist": 409,
       "max_dist": 410,
-      "avg_ev": 103.9,
-      "avg_la": 28.1,
+      "avg_ev": 103.8,
+      "avg_la": 28.0,
       "la_profile": "optimal",
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Guzman, Denzer",
@@ -7200,7 +8668,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Ballesteros, Mois\u00e9s",
@@ -7217,7 +8686,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Basallo, Samuel",
@@ -7234,7 +8704,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
+    },
+    {
+      "name": "Dunn, Blake",
+      "team": "CIN",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 384,
+      "p90_dist": 384,
+      "max_dist": 384,
+      "avg_ev": 104.6,
+      "avg_la": 39.0,
+      "la_profile": "pop-up",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Tawa, Tim",
@@ -7251,24 +8740,44 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
+    },
+    {
+      "name": "Yorke, Nick",
+      "team": "PIT",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 393,
+      "p90_dist": 393,
+      "max_dist": 393,
+      "avg_ev": 101.7,
+      "avg_la": 26.0,
+      "la_profile": "optimal",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Schanuel, Nolan",
       "team": "LAA",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 14,
-      "avg_dist": 389,
+      "hr_days": 12,
+      "avg_dist": 394,
       "p90_dist": 416,
       "max_dist": 418,
       "avg_ev": 101.7,
-      "avg_la": 30.3,
-      "la_profile": "optimal",
+      "avg_la": 31.2,
+      "la_profile": "pop-up",
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Loperfido, Joey",
@@ -7285,7 +8794,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Carter, Evan",
@@ -7302,7 +8812,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Langford, Wyatt",
@@ -7316,17 +8827,18 @@
       "avg_ev": 106.3,
       "avg_la": 29.3,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 100,
+      "r430": 100,
+      "r440": 0,
+      "r450": 0,
+      "dist_sample": 3
     },
     {
       "name": "Matthews, Brice",
       "team": "HOU",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 4,
+      "hr_days": 3,
       "avg_dist": 409,
       "p90_dist": 423,
       "max_dist": 423,
@@ -7336,7 +8848,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Saggese, Thomas",
@@ -7353,14 +8866,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Moore, Christian",
       "team": "LAA",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 7,
+      "hr_days": 6,
       "avg_dist": 405,
       "p90_dist": 430,
       "max_dist": 430,
@@ -7370,7 +8884,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Lile, Daylen",
@@ -7387,7 +8902,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Osuna, Alejandro",
@@ -7404,24 +8920,44 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Young, Jacob",
       "team": "WSH",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 3,
-      "avg_dist": 384,
+      "hr_days": 2,
+      "avg_dist": 387,
       "p90_dist": 393,
       "max_dist": 393,
-      "avg_ev": 101.2,
-      "avg_la": 28.7,
+      "avg_ev": 100.9,
+      "avg_la": 30.5,
       "la_profile": "optimal",
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
+    },
+    {
+      "name": "Crooks, Jimmy",
+      "team": "STL",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 384,
+      "p90_dist": 384,
+      "max_dist": 384,
+      "avg_ev": 100.4,
+      "avg_la": 36.0,
+      "la_profile": "pop-up",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Sweeney, Trey",
@@ -7438,7 +8974,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Williams, Carson",
@@ -7455,24 +8992,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Rice, Ben",
       "team": "NYY",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 26,
+      "hr_days": 24,
       "avg_dist": 400,
       "p90_dist": 427,
       "max_dist": 435,
       "avg_ev": 106.7,
       "avg_la": 27.5,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 71,
+      "r430": 14,
+      "r440": 0,
+      "r450": 0,
+      "dist_sample": 7
     },
     {
       "name": "Quero, Edgar",
@@ -7489,14 +9028,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Manzardo, Kyle",
       "team": "CLE",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 27,
+      "hr_days": 25,
       "avg_dist": 392,
       "p90_dist": 418,
       "max_dist": 436,
@@ -7506,7 +9046,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Dezenzo, Zach",
@@ -7523,7 +9064,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Anthony, Roman",
@@ -7540,31 +9082,33 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Stewart, Sal",
       "team": "CIN",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 6,
-      "avg_dist": 409,
+      "hr_days": 5,
+      "avg_dist": 410,
       "p90_dist": 419,
       "max_dist": 419,
-      "avg_ev": 107.3,
-      "avg_la": 28.7,
+      "avg_ev": 107.1,
+      "avg_la": 27.6,
       "la_profile": "optimal",
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Merrill, Jackson",
       "team": "SD",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 16,
+      "hr_days": 15,
       "avg_dist": 391,
       "p90_dist": 417,
       "max_dist": 431,
@@ -7574,7 +9118,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
+    },
+    {
+      "name": "Church, Nathan",
+      "team": "STL",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 414,
+      "p90_dist": 414,
+      "max_dist": 414,
+      "avg_ev": 104.3,
+      "avg_la": 28.0,
+      "la_profile": "optimal",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     },
     {
       "name": "Roden, Alan",
@@ -7591,7 +9154,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Durbin, Caleb",
@@ -7608,48 +9172,33 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
     },
     {
       "name": "Holliday, Jackson",
       "team": "BAL",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 17,
+      "hr_days": 16,
       "avg_dist": 393,
       "p90_dist": 425,
       "max_dist": 430,
       "avg_ev": 103.0,
       "avg_la": 27.9,
       "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
-    },
-    {
-      "name": "DeLauter, Chase",
-      "team": "CLE",
-      "wins": 0,
-      "win_pct": 0.0,
-      "hr_days": 4,
-      "avg_dist": 376,
-      "p90_dist": 422,
-      "max_dist": 422,
-      "avg_ev": 102.9,
-      "avg_la": 27.3,
-      "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r420": 100,
+      "r430": 33,
+      "r440": 0,
+      "r450": 0,
+      "dist_sample": 3
     },
     {
       "name": "Kemp, Otto",
       "team": "PHI",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 8,
+      "hr_days": 7,
       "avg_dist": 397,
       "p90_dist": 434,
       "max_dist": 434,
@@ -7659,14 +9208,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Marsee, Jakob",
       "team": "MIA",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 5,
+      "hr_days": 4,
       "avg_dist": 399,
       "p90_dist": 409,
       "max_dist": 409,
@@ -7676,31 +9226,33 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Meidroth, Chase",
       "team": "CWS",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 6,
-      "avg_dist": 382,
-      "p90_dist": 417,
-      "max_dist": 417,
-      "avg_ev": 101.6,
-      "avg_la": 34.3,
+      "hr_days": 5,
+      "avg_dist": 375,
+      "p90_dist": 395,
+      "max_dist": 395,
+      "avg_ev": 100.4,
+      "avg_la": 35.6,
       "la_profile": "pop-up",
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Alvarez Jr., Nacho",
       "team": "ATL",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 2,
+      "hr_days": 1,
       "avg_dist": 368,
       "p90_dist": 388,
       "max_dist": 388,
@@ -7710,14 +9262,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Wilson, Jacob",
       "team": "ATH",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 13,
+      "hr_days": 12,
       "avg_dist": 383,
       "p90_dist": 414,
       "max_dist": 420,
@@ -7727,7 +9280,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 2
     },
     {
       "name": "Keaschall, Luke",
@@ -7744,7 +9298,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Shaw, Matt",
@@ -7761,7 +9316,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Yoshida, Masataka",
@@ -7778,24 +9334,8 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
-    },
-    {
-      "name": "Murakami, Munetaka",
-      "team": "CWS",
-      "wins": 0,
-      "win_pct": 0.0,
-      "hr_days": 2,
-      "avg_dist": 397,
-      "p90_dist": 409,
-      "max_dist": 409,
-      "avg_ev": 103.0,
-      "avg_la": 31.0,
-      "la_profile": "optimal",
-      "r420": null,
-      "r430": null,
-      "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Kim, Hyeseong",
@@ -7812,14 +9352,15 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 0
     },
     {
       "name": "Lee, Jung Hoo",
       "team": "SF",
       "wins": 0,
       "win_pct": 0.0,
-      "hr_days": 8,
+      "hr_days": 7,
       "avg_dist": 381,
       "p90_dist": 406,
       "max_dist": 406,
@@ -7829,7 +9370,26 @@
       "r420": null,
       "r430": null,
       "r440": null,
-      "r450": null
+      "r450": null,
+      "dist_sample": 1
+    },
+    {
+      "name": "Williamson, Ben",
+      "team": "SEA",
+      "wins": 0,
+      "win_pct": 0.0,
+      "hr_days": 1,
+      "avg_dist": 398,
+      "p90_dist": 398,
+      "max_dist": 398,
+      "avg_ev": 102.9,
+      "avg_la": 33.0,
+      "la_profile": "pop-up",
+      "r420": null,
+      "r430": null,
+      "r440": null,
+      "r450": null,
+      "dist_sample": null
     }
   ],
   "dist_buckets": {
