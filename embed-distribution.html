@@ -3,18 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fanatics Long Ball Jackpot — Distance Distribution</title>
+<title>Fanatics Long Ball Jackpot — Distance Win Rate</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 <style>
-  :root {
-    --bg:#f0efe9;--white:#fff;--border:#b8b8b2;--border-light:#ddddd8;
-    --text:#111;--muted:#5a5a54;--muted2:#8a8a84;
-    --accent:#00c358;--accent-dark:#007a38;--accent-bg:#e6f9ee;
-    --amber:#7a4f00;
-    --ui:'IBM Plex Sans Condensed',sans-serif;--mono:'IBM Plex Mono',monospace;
-  }
+  :root{--bg:#f0efe9;--white:#fff;--border:#b8b8b2;--border-light:#ddddd8;--text:#111;--muted:#5a5a54;--muted2:#8a8a84;--accent:#00c358;--accent-dark:#007a38;--accent-bg:#e6f9ee;--amber:#7a4f00;--amber-bg:#fdf5e4;--ui:'IBM Plex Sans Condensed',sans-serif;--mono:'IBM Plex Mono',monospace;}
   *{box-sizing:border-box;margin:0;padding:0;}
   html,body{height:auto;overflow:visible;}
   body{background:var(--bg);color:var(--text);font-family:var(--mono);font-size:12px;}
@@ -28,35 +22,34 @@
   select,input[type=date]{background:var(--bg);border:1px solid var(--border);color:var(--text);font-family:var(--mono);font-size:11px;padding:4px 7px;outline:none;}
   select:focus,input:focus{border-color:var(--accent);}
   .btn{padding:5px 12px;font-family:var(--ui);font-size:11px;font-weight:700;background:var(--accent);color:#000;border:none;cursor:pointer;text-transform:uppercase;}
-  .btn:hover{opacity:0.88;}
-  .btn:disabled{opacity:0.4;cursor:not-allowed;}
+  .btn:hover{opacity:.88;}.btn:disabled{opacity:.4;cursor:not-allowed;}
   .status{font-size:10px;color:var(--muted);}
-  .pbar{height:2px;background:var(--border-light);display:none;}
-  .pbar.on{display:block;}
+  .pbar{height:2px;background:var(--border-light);display:none;}.pbar.on{display:block;}
   .pfill{height:100%;background:var(--accent);transition:width .3s;}
-  .chart-area{padding:12px;display:none;}
-  .chart-area.on{display:block;}
-  .card{background:var(--white);border:1px solid var(--border);padding:12px 14px;}
-  .card-lbl{font-family:var(--ui);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--muted);border-bottom:1px solid var(--border-light);padding-bottom:5px;margin-bottom:10px;}
-  .legend{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:8px;font-size:10px;color:var(--muted);}
-  .li{display:flex;align-items:center;gap:5px;}
-  .ls{width:10px;height:10px;}
-  .note{font-size:9px;color:var(--muted2);margin-top:7px;line-height:1.6;}
+  .wrap{padding:12px;display:none;}.wrap.on{display:block;}
   .stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px;}
-  .stat{background:var(--bg);padding:8px 10px;border:1px solid var(--border-light);}
+  .stat{background:var(--white);border:1px solid var(--border-light);padding:8px 10px;}
   .stat-lbl{font-size:9px;text-transform:uppercase;letter-spacing:0.07em;color:var(--muted2);margin-bottom:3px;}
-  .stat-val{font-family:var(--ui);font-size:18px;font-weight:700;line-height:1;}
+  .stat-val{font-family:var(--ui);font-size:19px;font-weight:700;line-height:1;}
   .stat-sub{font-size:9px;color:var(--muted2);margin-top:2px;}
+  .card{background:var(--white);border:1px solid var(--border);padding:12px 14px;margin-bottom:10px;}
+  .card-lbl{font-family:var(--ui);font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--muted);border-bottom:1px solid var(--border-light);padding-bottom:5px;margin-bottom:10px;}
+  .note{font-size:10px;color:var(--muted2);margin-top:8px;line-height:1.6;}
+  .note strong{color:var(--accent-dark);}
+  .tab-row{display:flex;gap:0;margin-bottom:10px;border-bottom:2px solid var(--border);}
+  .tab{font-family:var(--ui);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;padding:5px 12px;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-2px;}
+  .tab.on{color:var(--text);border-bottom-color:var(--text);}
+  .tab:hover:not(.on){background:var(--border-light);}
   .foot{padding:7px 12px;font-size:9px;color:var(--muted2);border-top:1px solid var(--border-light);background:var(--white);display:flex;justify-content:space-between;}
-  .foot a{color:var(--muted2);text-decoration:none;}
-  .foot a:hover{color:var(--text);}
+  .foot a{color:var(--muted2);text-decoration:none;}.foot a:hover{color:var(--text);}
+  .zone-label{font-family:var(--ui);font-size:9px;font-weight:700;color:var(--accent-dark);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:4px;}
 </style>
 </head>
 <body>
 
 <div class="hdr">
   <img src="https://cdn.vox-cdn.com/uploads/chorus_asset/file/23240520/Action_Network_Logo.png" class="an-logo" onerror="this.style.display='none'" alt="AN">
-  <div class="hdr-title">HR Distance: <em>All HRs</em> vs Day Winners</div>
+  <div class="hdr-title">How Far Must a HR Travel to <em>Win the Jackpot?</em></div>
   <div class="hdr-right">Fanatics Long Ball Jackpot<br>Baseball Savant · Statcast</div>
 </div>
 
@@ -69,97 +62,108 @@
     <option value="custom">Custom range</option>
   </select>
   <span id="customCtrl" style="display:none;gap:8px;align-items:center;">
-    <span class="ctrl-lbl">From</span><input type="date" id="sd" value="2024-03-20">
-    <span class="ctrl-lbl">To</span><input type="date" id="ed" value="2024-09-29">
+    <span class="ctrl-lbl">From</span><input type="date" id="sd">
+    <span class="ctrl-lbl">To</span><input type="date" id="ed">
   </span>
   <button class="btn" id="btn" onclick="run()">Load</button>
   <span class="status" id="st"></span>
 </div>
 <div class="pbar" id="pb"><div class="pfill" id="pf" style="width:0%"></div></div>
 
-<div class="chart-area" id="ca">
+<div class="wrap" id="wrap">
   <div class="stats-row" id="statsRow"></div>
-  <div class="card">
-    <div class="card-lbl">Home run distance distribution — all HRs vs day winners</div>
-    <div class="legend">
-      <div class="li"><div class="ls" style="background:#ddddd8"></div>All HRs</div>
-      <div class="li"><div class="ls" style="background:#00c358"></div>Day winners (longest HR)</div>
+
+  <div class="tab-row">
+    <div class="tab on" onclick="switchTab('winrate')">Win rate by distance</div>
+    <div class="tab" onclick="switchTab('vol')">Volume distribution</div>
+  </div>
+
+  <div id="pane-winrate">
+    <div class="card">
+      <div class="card-lbl">Jackpot win rate by HR distance — % of HRs at each distance that won the day</div>
+      <div style="position:relative;height:280px"><canvas id="chWR"></canvas></div>
+      <div class="note" id="noteWR"></div>
     </div>
-    <div style="position:relative;height:300px"><canvas id="ch"></canvas></div>
-    <div class="note" id="noteText"></div>
+  </div>
+
+  <div id="pane-vol" style="display:none">
+    <div class="card">
+      <div class="card-lbl">HR volume distribution — all HRs (gray) vs day winners (green)</div>
+      <div style="position:relative;height:280px"><canvas id="chVol"></canvas></div>
+      <div class="note">Green bars are the winners. They cluster further right than the gray — confirming distance is the key variable.</div>
+    </div>
   </div>
 </div>
 
 <div class="foot">
-  <span>Day winner = player who hit the longest HR on that date · Baseball Savant Statcast</span>
+  <span>Win rate = jackpot wins ÷ all HRs at that distance · Baseball Savant Statcast</span>
   <a href="https://www.actionnetwork.com" target="_blank">actionnetwork.com</a>
 </div>
 
 <script>
-const PRE={'2025':'data-2025.json','2026':'data-2026.json'};
+const REPO='https://petro438.github.io/Fanatics-Home-Run-Jackpot';
+const PRE={'2025':REPO+'/data-2025.json','2026':REPO+'/data-2026.json'};
 const SEASONS={'2025':{s:'2025-03-27',e:'2025-09-28'},'2026':{s:'2026-03-27',e:'2026-09-30'},'2024':{s:'2024-03-20',e:'2024-09-29'}};
 const BINS=[290,320,350,370,390,400,410,420,430,440,450,470,500];
 const LABELS=['<320','320-349','350-369','370-389','390-399','400-409','410-419','420-429','430-439','440-449','450-469','470+'];
-let chart=null;
+let charts={};
 
 function onSeasonChange(){
   const v=document.getElementById('sel').value;
   document.getElementById('customCtrl').style.display=v==='custom'?'flex':'none';
   if(v!=='custom'&&SEASONS[v]){document.getElementById('sd').value=SEASONS[v].s;document.getElementById('ed').value=SEASONS[v].e;}
 }
-
+function switchTab(name){
+  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('on',['winrate','vol'][i]===name));
+  document.getElementById('pane-winrate').style.display=name==='winrate'?'block':'none';
+  document.getElementById('pane-vol').style.display=name==='vol'?'block':'none';
+  setTimeout(()=>{Object.values(charts).forEach(c=>c?.resize?.());sendHeight();},50);
+}
 function savantUrl(s,e){const y=s.slice(0,4);return `https://baseballsavant.mlb.com/statcast_search/csv?all=true&hfPT=&hfAB=home_run%7C&hfGT=R%7C&hfBBT=&hfPR=&hfZ=&stadium=&hfBBL=&hfNewZones=&hfC=&hfSea=${y}%7C&hfSit=&player_type=batter&hfOuts=&opponent=&pitcher_throws=&batter_stands=&hfSA=&game_date_gt=${s}&game_date_lt=${e}&hfInfield=&team=&position=&hfOutfield=&hfRO=&home_road=&hfFlag=&hfPull=&metric_1=&hfInn=&min_pitches=0&min_results=0&group_by=name&sort_col=pitches&player_event_sort=h_launch_speed&sort_order=desc&min_abs=0&type=details`;}
-
 function chunks(s,e,d=30){const out=[],cur=new Date(s+'T12:00:00'),last=new Date(e+'T12:00:00');while(cur<=last){const ce=new Date(cur);ce.setDate(ce.getDate()+d-1);if(ce>last)ce.setTime(last.getTime());out.push({s:cur.toISOString().split('T')[0],e:ce.toISOString().split('T')[0]});cur.setDate(cur.getDate()+d);}return out;}
-
 function avg(a){return a.length?Math.round(a.reduce((s,v)=>s+v,0)/a.length):0;}
 function bucket(d){for(let i=0;i<BINS.length-1;i++){if(d>=BINS[i]&&d<BINS[i+1])return i;}return BINS.length-2;}
+function sendHeight(){setTimeout(()=>{window.parent.postMessage({type:'resize',height:document.documentElement.scrollHeight},'*');},150);}
 
 async function run(){
-  const sel=document.getElementById('sel').value;
-  const btn=document.getElementById('btn');
+  const sel=document.getElementById('sel').value,btn=document.getElementById('btn');
   btn.disabled=true;
   document.getElementById('pb').classList.add('on');
-  document.getElementById('ca').classList.remove('on');
+  document.getElementById('wrap').classList.remove('on');
   document.getElementById('st').textContent='Loading…';
   document.getElementById('pf').style.width='20%';
-
   try{
     if(PRE[sel]){
       try{
         const r=await fetch(PRE[sel]);
         if(r.ok){
           const d=await r.json();
-          renderFromBuckets(d.dist_buckets,d.meta);
+          renderAll(d.dist_buckets,d.meta);
           document.getElementById('st').textContent=`${d.meta.days} days · ${d.meta.total_hrs} HRs · ★ pre-loaded`;
           btn.disabled=false;return;
         }
       }catch(e){}
     }
-    // Live fetch
     const s=document.getElementById('sd').value,e=document.getElementById('ed').value;
-    const cs=chunks(s,e,30);
-    let allRows=[];
+    const cs=chunks(s,e,30);let allRows=[];
     for(let i=0;i<cs.length;i++){
-      const{s:cs2,e:ce2}=cs[i];
+      const{s:s2,e:e2}=cs[i];
       document.getElementById('pf').style.width=Math.round(((i+1)/cs.length)*85)+'%';
-      document.getElementById('st').textContent=`Fetching ${cs2} → ${ce2} (${i+1}/${cs.length})…`;
+      document.getElementById('st').textContent=`Fetching ${s2}→${e2} (${i+1}/${cs.length})…`;
       let resp,att=0;
-      while(att<3){try{resp=await fetch(savantUrl(cs2,ce2));if(resp.ok)break;}catch(er){}att++;if(att<3)await new Promise(r=>setTimeout(r,1500*att));}
+      while(att<3){try{resp=await fetch(savantUrl(s2,e2));if(resp.ok)break;}catch(er){}att++;if(att<3)await new Promise(r=>setTimeout(r,1500*att));}
       if(!resp||!resp.ok)continue;
-      const csv=await resp.text();
-      if(!csv||csv.trim()[0]==='<')continue;
-      const parsed=Papa.parse(csv,{header:true,skipEmptyLines:true});
-      allRows=allRows.concat(parsed.data.filter(r=>r.events==='home_run'&&r.game_date&&parseInt(r.hit_distance_sc)>100));
+      const csv=await resp.text();if(!csv||csv.trim()[0]==='<')continue;
+      const p=Papa.parse(csv,{header:true,skipEmptyLines:true});
+      allRows=allRows.concat(p.data.filter(r=>r.events==='home_run'&&r.game_date&&parseInt(r.hit_distance_sc)>100));
       await new Promise(r=>setTimeout(r,300));
     }
-    // Build buckets
     const byDate={};
     for(const r of allRows){
       const date=r.game_date,dist=parseInt(r.hit_distance_sc);
       if(!date||!dist||dist<100)continue;
       if(!byDate[date])byDate[date]=[];
-      byDate[date].push({pid:r.batter,dist});
+      byDate[date].push({dist,pid:r.batter});
     }
     const allD=[],winD=[];
     for(const[,hrs]of Object.entries(byDate)){
@@ -169,68 +173,76 @@ async function run(){
     const cA=Array(LABELS.length).fill(0),cW=Array(LABELS.length).fill(0);
     allD.forEach(d=>cA[bucket(d)]++);
     winD.forEach(d=>cW[bucket(d)]++);
-    const meta={days:Object.keys(byDate).length,total_hrs:allRows.length};
-    renderFromBuckets({labels:LABELS,all_hrs:cA,winner_hrs:cW},meta,allD,winD);
+    const meta={days:Object.keys(byDate).length,total_hrs:allRows.length,avg_all:avg(allD),avg_win:avg(winD)};
+    renderAll({labels:LABELS,all_hrs:cA,winner_hrs:cW},meta);
     document.getElementById('pf').style.width='100%';
     document.getElementById('st').textContent=`${meta.days} days · ${meta.total_hrs} HRs`;
   }catch(err){document.getElementById('st').textContent='⚠ '+err.message;}
   btn.disabled=false;
 }
 
-function renderFromBuckets(buckets,meta,allD,winD){
-  const avgAll=allD?avg(allD):null, avgWin=winD?avg(winD):null;
-  // Stats row
-  const statsHtml=avgAll&&avgWin?`
-    <div class="stat"><div class="stat-lbl">Avg HR distance</div><div class="stat-val">${avgAll} ft</div><div class="stat-sub">all home runs</div></div>
-    <div class="stat"><div class="stat-lbl">Avg winner dist</div><div class="stat-val" style="color:var(--accent-dark)">${avgWin} ft</div><div class="stat-sub">day-winning HRs</div></div>
-    <div class="stat"><div class="stat-lbl">Distance gap</div><div class="stat-val" style="color:var(--amber)">+${avgWin-avgAll} ft</div><div class="stat-sub">winners vs average</div></div>`:'';
-  document.getElementById('statsRow').innerHTML=statsHtml;
-
-  // Chart
-  if(chart)chart.destroy();
+function renderAll(buckets,meta){
+  Object.values(charts).forEach(c=>c?.destroy());charts={};
   const mf={family:'IBM Plex Mono',size:10};
-  chart=new Chart(document.getElementById('ch'),{
+  const mfSm={family:'IBM Plex Mono',size:9};
+  const tt={backgroundColor:'#fff',borderColor:'#b8b8b2',borderWidth:1,titleColor:'#111',bodyColor:'#5a5a54',titleFont:mf,bodyFont:mfSm};
+  const thresh=LABELS.indexOf('430-439');
+
+  // Stats
+  const pctAll=Math.round(buckets.all_hrs.slice(thresh).reduce((s,v)=>s+v,0)/buckets.all_hrs.reduce((s,v)=>s+v,0)*100);
+  const pctWin=Math.round(buckets.winner_hrs.slice(thresh).reduce((s,v)=>s+v,0)/buckets.winner_hrs.reduce((s,v)=>s+v,0)*100);
+  document.getElementById('statsRow').innerHTML=`
+    <div class="stat"><div class="stat-lbl">430+ ft — all HRs</div><div class="stat-val">${pctAll}%</div><div class="stat-sub">of all home runs</div></div>
+    <div class="stat"><div class="stat-lbl">430+ ft — winners</div><div class="stat-val" style="color:var(--accent-dark)">${pctWin}%</div><div class="stat-sub">of jackpot winners</div></div>
+    <div class="stat"><div class="stat-lbl">Winner edge</div><div class="stat-val" style="color:var(--amber)">${pctWin>pctAll?'+':''}${pctWin-pctAll}pp</div><div class="stat-sub">at 430+ ft vs avg HR</div></div>`;
+
+  // Win rate chart — primary
+  const winRate=buckets.all_hrs.map((a,i)=>a>=3?+(buckets.winner_hrs[i]/a*100).toFixed(1):null);
+  const barColors=LABELS.map((_,i)=>i>=thresh?'#00c358':'#b8b8b2');
+  charts.wr=new Chart(document.getElementById('chWR'),{
     type:'bar',
-    data:{
-      labels:buckets.labels,
-      datasets:[
-        {label:'All HRs',data:buckets.all_hrs,backgroundColor:'#ddddd8',borderRadius:0},
-        {label:'Day winners',data:buckets.winner_hrs,backgroundColor:'#00c358',borderRadius:0},
-      ]
-    },
+    data:{labels:LABELS,datasets:[{label:'Win rate',data:winRate,backgroundColor:barColors,borderRadius:0}]},
     options:{
       responsive:true,maintainAspectRatio:false,
       plugins:{
         legend:{display:false},
-        tooltip:{backgroundColor:'#fff',borderColor:'#b8b8b2',borderWidth:1,titleColor:'#111',bodyColor:'#5a5a54',titleFont:mf,bodyFont:mf,
-          callbacks:{
-            afterBody:items=>{
-              const i=items[0].dataIndex;
-              const pct=buckets.all_hrs[i]?Math.round(buckets.winner_hrs[i]/buckets.all_hrs[i]*100):0;
-              return[`Win rate at this distance: ${pct}%`];
-            }
-          }
-        }
+        tooltip:{...tt,callbacks:{
+          label:ctx=>ctx.parsed.y!=null?`Win rate: ${ctx.parsed.y}%`:'<3 HRs — not enough data',
+          afterLabel:ctx=>{const i=ctx.dataIndex;return`${buckets.winner_hrs[i]} wins from ${buckets.all_hrs[i]} HRs`;}
+        }}
       },
       scales:{
-        x:{ticks:{color:'#5a5a54',font:{family:'IBM Plex Mono',size:9},maxRotation:40},grid:{display:false}},
-        y:{ticks:{color:'#5a5a54',font:mf},grid:{color:'#e8e8e4'},title:{display:true,text:'Home runs',color:'#5a5a54',font:mf}}
+        x:{ticks:{color:'#5a5a54',font:mfSm,maxRotation:40},grid:{display:false}},
+        y:{ticks:{color:'#5a5a54',font:mfSm,callback:v=>v+'%'},grid:{color:'#e8e8e4'},title:{display:true,text:'% of HRs that won',color:'#5a5a54',font:mfSm}}
+      }
+    }
+  });
+  const peakIdx=winRate.reduce((mi,v,i)=>v!=null&&(mi==null||v>winRate[mi])?i:mi,null);
+  document.getElementById('noteWR').innerHTML=
+    `<strong>Green bars = 430+ ft (winning territory).</strong> A home run at 430+ ft is ${Math.round(pctWin/Math.max(pctAll,1)*10)/10}× more likely to win the jackpot than an average HR. Peak win rate is in the <strong>${LABELS[peakIdx]}</strong> bucket. Fewer than 3 HRs in a bucket shown as no bar.`;
+
+  // Volume chart — secondary
+  charts.vol=new Chart(document.getElementById('chVol'),{
+    type:'bar',
+    data:{labels:LABELS,datasets:[
+      {label:'All HRs',data:buckets.all_hrs,backgroundColor:'#ddddd8',borderRadius:0},
+      {label:'Day winners',data:buckets.winner_hrs,backgroundColor:'#00c358',borderRadius:0},
+    ]},
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:true,labels:{color:'#5a5a54',font:mfSm,boxWidth:9,padding:10}},tooltip:{...tt}},
+      scales:{
+        x:{ticks:{color:'#5a5a54',font:mfSm,maxRotation:40},grid:{display:false}},
+        y:{ticks:{color:'#5a5a54',font:mfSm},grid:{color:'#e8e8e4'},title:{display:true,text:'Home runs',color:'#5a5a54',font:mfSm}}
       }
     }
   });
 
-  // Annotation line at 430ft bucket — find the index
-  const thresh430=buckets.labels.indexOf('430-439');
-  if(thresh430>-1){
-    document.getElementById('noteText').innerHTML=
-      `<strong>430+ ft</strong> home runs account for <strong>${Math.round((buckets.winner_hrs.slice(thresh430).reduce((s,v)=>s+v,0)/buckets.winner_hrs.reduce((s,v)=>s+v,0))*100)}%</strong> of all day winners, but only <strong>${Math.round((buckets.all_hrs.slice(thresh430).reduce((s,v)=>s+v,0)/buckets.all_hrs.reduce((s,v)=>s+v,0))*100)}%</strong> of all home runs hit. Targeting players who consistently hit 430+ ft gives you a significant edge in this promo.`;
-  }
-
-  document.getElementById('ca').classList.add('on');
+  document.getElementById('wrap').classList.add('on');
   sendHeight();
 }
 
-function sendHeight(){setTimeout(()=>{window.parent.postMessage({type:'resize',height:document.documentElement.scrollHeight},'*');},150);}
+window.addEventListener('load',run);
 </script>
 </body>
 </html>
