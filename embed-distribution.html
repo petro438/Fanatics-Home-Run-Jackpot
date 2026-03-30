@@ -74,13 +74,13 @@
   <div class="stats-row" id="statsRow"></div>
 
   <div class="tab-row">
-    <div class="tab on" onclick="switchTab('winrate')">Win rate by distance</div>
+    <div class="tab on" onclick="switchTab('winrate')">Win share by distance</div>
     <div class="tab" onclick="switchTab('vol')">Volume distribution</div>
   </div>
 
   <div id="pane-winrate">
     <div class="card">
-      <div class="card-lbl">Jackpot win rate by HR distance — % of HRs at each distance that won the day</div>
+      <div class="card-lbl">Where do jackpot winners come from? — % of winning days by HR distance</div>
       <div style="position:relative;height:280px"><canvas id="chWR"></canvas></div>
       <div class="note" id="noteWR"></div>
     </div>
@@ -196,30 +196,31 @@ function renderAll(buckets,meta){
     <div class="stat"><div class="stat-lbl">430+ ft — winners</div><div class="stat-val" style="color:var(--accent-dark)">${pctWin}%</div><div class="stat-sub">of jackpot winners</div></div>
     <div class="stat"><div class="stat-lbl">Winner edge</div><div class="stat-val" style="color:var(--amber)">${pctWin>pctAll?'+':''}${pctWin-pctAll}pp</div><div class="stat-sub">at 430+ ft vs avg HR</div></div>`;
 
-  // Win rate chart — primary
-  const winRate=buckets.all_hrs.map((a,i)=>a>=3?+(buckets.winner_hrs[i]/a*100).toFixed(1):null);
+  // Win share chart — % of total jackpot wins that came from each distance bucket
+  const totalWins=buckets.winner_hrs.reduce((s,v)=>s+v,0);
+  const winShare=buckets.winner_hrs.map(w=>totalWins>0?+(w/totalWins*100).toFixed(1):0);
   const barColors=LABELS.map((_,i)=>i>=thresh?'#00c358':'#b8b8b2');
   charts.wr=new Chart(document.getElementById('chWR'),{
     type:'bar',
-    data:{labels:LABELS,datasets:[{label:'Win rate',data:winRate,backgroundColor:barColors,borderRadius:0}]},
+    data:{labels:LABELS,datasets:[{label:'Share of wins',data:winShare,backgroundColor:barColors,borderRadius:0}]},
     options:{
       responsive:true,maintainAspectRatio:false,
       plugins:{
         legend:{display:false},
         tooltip:{...tt,callbacks:{
-          label:ctx=>ctx.parsed.y!=null?`Win rate: ${ctx.parsed.y}%`:'<3 HRs — not enough data',
-          afterLabel:ctx=>{const i=ctx.dataIndex;return`${buckets.winner_hrs[i]} wins from ${buckets.all_hrs[i]} HRs`;}
+          label:ctx=>`${ctx.parsed.y}% of jackpot wins`,
+          afterLabel:ctx=>{const i=ctx.dataIndex;return`${buckets.winner_hrs[i]} of ${totalWins} winning days`;}
         }}
       },
       scales:{
         x:{ticks:{color:'#5a5a54',font:mfSm,maxRotation:40},grid:{display:false}},
-        y:{ticks:{color:'#5a5a54',font:mfSm,callback:v=>v+'%'},grid:{color:'#e8e8e4'},title:{display:true,text:'% of HRs that won',color:'#5a5a54',font:mfSm}}
+        y:{ticks:{color:'#5a5a54',font:mfSm,callback:v=>v+'%'},grid:{color:'#e8e8e4'},title:{display:true,text:'% of jackpot wins',color:'#5a5a54',font:mfSm}}
       }
     }
   });
-  const peakIdx=winRate.reduce((mi,v,i)=>v!=null&&(mi==null||v>winRate[mi])?i:mi,null);
+  const peakIdx=winShare.indexOf(Math.max(...winShare));
   document.getElementById('noteWR').innerHTML=
-    `<strong>Green bars = 430+ ft (winning territory).</strong> A home run at 430+ ft is ${Math.round(pctWin/Math.max(pctAll,1)*10)/10}× more likely to win the jackpot than an average HR. Peak win rate is in the <strong>${LABELS[peakIdx]}</strong> bucket. Fewer than 3 HRs in a bucket shown as no bar.`;
+    `<strong>Green bars = 430+ ft.</strong> ${pctWin}% of all jackpot wins came from a 430+ ft home run. The most common winning distance was <strong>${LABELS[peakIdx]}</strong> (${buckets.winner_hrs[peakIdx]} of ${totalWins} days). Sub-420 ft winners almost always occurred on low-volume slates early in the season.`;
 
   // Volume chart — secondary
   charts.vol=new Chart(document.getElementById('chVol'),{
