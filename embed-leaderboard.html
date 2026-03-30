@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fanatics Long Ball Jackpot — Player Rankings</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<style>
+  :root {
+    --bg: #f0efe9;
+    --white: #fff;
+    --border: #b8b8b2;
+    --border-light: #ddddd8;
+    --text: #111;
+    --muted: #5a5a54;
+    --muted2: #8a8a84;
+    --accent: #00c358;
+    --accent-dark: #007a38;
+    --accent-bg: #e6f9ee;
+    --amber: #7a4f00;
+    --amber-bg: #fdf5e4;
+    --ui: 'IBM Plex Sans Condensed', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--mono); font-size: 12px; }
+
+  /* Header */
+  .embed-header {
+    background: var(--white); border-bottom: 2px solid var(--text);
+    padding: 10px 14px; display: flex; align-items: center; gap: 12px;
+  }
+  .an-logo { height: 16px; }
+  .embed-title { font-family: var(--ui); font-size: 15px; font-weight: 700; }
+  .embed-title em { color: var(--accent-dark); font-style: normal; }
+  .embed-sub { font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-left: auto; text-align: right; line-height: 1.5; }
+
+  /* Controls */
+  .controls {
+    background: var(--white); border-bottom: 1px solid var(--border);
+    padding: 8px 14px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  }
+  .ctrl-label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+  input[type=date] { background: var(--bg); border: 1px solid var(--border); color: var(--text); font-family: var(--mono); font-size: 11px; padding: 4px 7px; outline: none; }
+  input[type=date]:focus { border-color: var(--accent); }
+  .btn-fetch { padding: 5px 14px; font-family: var(--ui); font-size: 11px; font-weight: 700; letter-spacing: 0.05em; background: var(--accent); color: #000; border: none; cursor: pointer; text-transform: uppercase; }
+  .btn-fetch:hover { opacity: 0.88; }
+  .btn-fetch:disabled { opacity: 0.4; cursor: not-allowed; }
+  .status { font-size: 10px; color: var(--muted); }
+
+  /* Table */
+  .tbl-wrap { overflow-x: auto; background: var(--white); border: 1px solid var(--border); margin: 12px; }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  thead tr { background: var(--bg); }
+  thead th {
+    font-family: var(--ui); font-size: 9px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--muted); padding: 7px 10px; text-align: left;
+    border-bottom: 2px solid var(--border); border-right: 1px solid var(--border-light);
+    cursor: pointer; user-select: none; white-space: nowrap; position: relative;
+  }
+  thead th:last-child { border-right: none; }
+  thead th:hover { background: var(--border-light); color: var(--text); }
+  thead th.sort-asc::after { content: ' ↑'; color: var(--accent-dark); }
+  thead th.sort-desc::after { content: ' ↓'; color: var(--accent-dark); }
+  thead th.sort-asc, thead th.sort-desc { color: var(--accent-dark); background: var(--accent-bg); border-bottom-color: var(--accent); }
+  tbody td {
+    padding: 7px 10px; border-bottom: 1px solid var(--border-light);
+    border-right: 1px solid var(--border-light); vertical-align: middle;
+  }
+  tbody td:last-child { border-right: none; }
+  tbody tr:hover td { background: #f8f8f5; }
+  tbody tr:last-child td { border-bottom: none; }
+
+  /* Cell types */
+  .c-player { font-family: var(--ui); font-weight: 600; font-size: 13px; }
+  .c-team { font-size: 9px; color: var(--muted2); margin-left: 5px; font-family: var(--mono); }
+  .c-wins { font-family: var(--ui); font-size: 17px; font-weight: 700; }
+  .c-pct { font-family: var(--ui); font-size: 13px; font-weight: 700; }
+  .c-pct.hi { color: var(--accent-dark); }
+  .c-pct.md { color: var(--amber); }
+  .c-pct.lo { color: var(--muted2); }
+  .bar-wrap { margin-top: 3px; height: 3px; max-width: 72px; background: var(--border-light); }
+  .bar-fill { height: 100%; }
+  .c-num { font-variant-numeric: tabular-nums; color: var(--muted); }
+  .badge { font-family: var(--ui); font-size: 9px; font-weight: 700; letter-spacing: 0.06em; padding: 2px 5px; border: 1px solid; }
+  .b-elite { background: var(--accent-bg); border-color: var(--accent-dark); color: var(--accent-dark); }
+  .b-signal { background: var(--amber-bg); border-color: var(--amber); color: var(--amber); }
+  .b-noise { background: var(--bg); border-color: var(--border); color: var(--muted2); }
+
+  /* Footer */
+  .embed-footer {
+    padding: 8px 14px; font-size: 9px; color: var(--muted2);
+    border-top: 1px solid var(--border-light); background: var(--white);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .embed-footer a { color: var(--muted2); text-decoration: none; }
+  .embed-footer a:hover { color: var(--text); }
+
+  /* Progress bar */
+  .progress-bar { height: 2px; background: var(--border-light); display: none; }
+  .progress-bar.show { display: block; }
+  .progress-fill { height: 100%; background: var(--accent); transition: width 0.3s; }
+
+  /* Season picker */
+  select { background: var(--bg); border: 1px solid var(--border); color: var(--text); font-family: var(--mono); font-size: 11px; padding: 4px 7px; outline: none; }
+</style>
+</head>
+<body>
+
+<div class="embed-header">
+  <img src="https://cdn.vox-cdn.com/uploads/chorus_asset/file/23240520/Action_Network_Logo.png" alt="Action Network" class="an-logo" onerror="this.style.display='none'">
+  <div>
+    <div class="embed-title">Fanatics <em>Long Ball Jackpot</em> Rankings</div>
+  </div>
+  <div class="embed-sub">Baseball Savant · Statcast<br>Sorted by win rate</div>
+</div>
+
+<div class="controls">
+  <span class="ctrl-label">Season</span>
+  <select id="seasonSel" onchange="updateDates()">
+    <option value="2025">2025</option>
+    <option value="2024" selected>2024</option>
+    <option value="2023">2023</option>
+  </select>
+  <span class="ctrl-label">From</span>
+  <input type="date" id="startDate" value="2024-03-20">
+  <span class="ctrl-label">To</span>
+  <input type="date" id="endDate" value="2024-09-29">
+  <button class="btn-fetch" id="fetchBtn" onclick="runFetch()">Load Data</button>
+  <span class="status" id="status"></span>
+</div>
+
+<div class="progress-bar" id="progressBar">
+  <div class="progress-fill" id="progressFill" style="width:0%"></div>
+</div>
+
+<div id="tableArea" style="display:none">
+  <div class="tbl-wrap">
+    <table id="mainTable">
+      <thead>
+        <tr>
+          <th onclick="sortTable('name')" data-key="name">Player</th>
+          <th onclick="sortTable('wins')" data-key="wins">Wins</th>
+          <th onclick="sortTable('winRate')" data-key="winRate" class="sort-desc">Win %</th>
+          <th onclick="sortTable('hrDays')" data-key="hrDays">HR days</th>
+          <th onclick="sortTable('avgDistAll')" data-key="avgDistAll">Avg dist</th>
+          <th onclick="sortTable('p90Dist')" data-key="p90Dist">p90 dist</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="embed-footer">
+  <span>Data: Baseball Savant Statcast · Win % = wins ÷ total days (not conditional on homering)</span>
+  <a href="https://www.actionnetwork.com" target="_blank">actionnetwork.com</a>
+</div>
+
+<script>
+let allPlayers = [];
+let sortKey = 'winRate';
+let sortAsc = false;
+
+const SEASONS = {
+  '2025': { start: '2025-03-27', end: '2025-09-28' },
+  '2024': { start: '2024-03-20', end: '2024-09-29' },
+  '2023': { start: '2023-03-30', end: '2023-10-01' },
+};
+
+function updateDates() {
+  const yr = document.getElementById('seasonSel').value;
+  document.getElementById('startDate').value = SEASONS[yr].start;
+  document.getElementById('endDate').value = SEASONS[yr].end;
+}
+
+function savantUrl(s, e) {
+  const y = s.slice(0, 4);
+  return `https://baseballsavant.mlb.com/statcast_search/csv?all=true&hfPT=&hfAB=home_run%7C&hfGT=R%7C&hfBBT=&hfPR=&hfZ=&stadium=&hfBBL=&hfNewZones=&hfC=&hfSea=${y}%7C&hfSit=&player_type=batter&hfOuts=&opponent=&pitcher_throws=&batter_stands=&hfSA=&game_date_gt=${s}&game_date_lt=${e}&hfInfield=&team=&position=&hfOutfield=&hfRO=&home_road=&hfFlag=&hfPull=&metric_1=&hfInn=&min_pitches=0&min_results=0&group_by=name&sort_col=pitches&player_event_sort=h_launch_speed&sort_order=desc&min_abs=0&type=details`;
+}
+
+function chunks(start, end, days = 30) {
+  const out = [], cur = new Date(start + 'T12:00:00'), last = new Date(end + 'T12:00:00');
+  while (cur <= last) {
+    const ce = new Date(cur); ce.setDate(ce.getDate() + days - 1);
+    if (ce > last) ce.setTime(last.getTime());
+    out.push({ s: cur.toISOString().split('T')[0], e: ce.toISOString().split('T')[0] });
+    cur.setDate(cur.getDate() + days);
+  }
+  return out;
+}
+
+function avg(arr) { return arr.length ? Math.round(arr.reduce((s, v) => s + v, 0) / arr.length) : 0; }
+function p90(arr) {
+  if (!arr.length) return null;
+  const s = [...arr].sort((a, b) => a - b);
+  return s[Math.floor(s.length * 0.9)];
+}
+
+async function runFetch() {
+  const start = document.getElementById('startDate').value;
+  const end = document.getElementById('endDate').value;
+  if (!start || !end) return;
+
+  document.getElementById('fetchBtn').disabled = true;
+  document.getElementById('status').textContent = 'Loading…';
+  document.getElementById('progressBar').classList.add('show');
+  document.getElementById('tableArea').style.display = 'none';
+
+  const cs = chunks(start, end, 30);
+  let allRows = [];
+
+  for (let i = 0; i < cs.length; i++) {
+    const { s, e } = cs[i];
+    document.getElementById('progressFill').style.width = Math.round(((i + 1) / cs.length) * 90) + '%';
+    document.getElementById('status').textContent = `Fetching ${s} → ${e} (${i + 1}/${cs.length})…`;
+
+    let resp, attempts = 0;
+    while (attempts < 3) {
+      try { resp = await fetch(savantUrl(s, e)); if (resp.ok) break; } catch (err) {}
+      attempts++;
+      if (attempts < 3) await new Promise(r => setTimeout(r, 1500 * attempts));
+    }
+    if (!resp || !resp.ok) { console.warn('Skipping', s); continue; }
+
+    const csv = await resp.text();
+    if (!csv || csv.trim()[0] === '<') continue;
+    const parsed = Papa.parse(csv, { header: true, skipEmptyLines: true });
+    const hrs = parsed.data.filter(r => r.events === 'home_run' && r.game_date && parseInt(r.hit_distance_sc) > 100);
+    allRows = allRows.concat(hrs);
+    await new Promise(r => setTimeout(r, 300));
+  }
+
+  document.getElementById('status').textContent = 'Aggregating…';
+  allPlayers = aggregate(allRows, start, end);
+  document.getElementById('progressFill').style.width = '100%';
+  document.getElementById('status').textContent = `${allPlayers._days} days · ${allRows.length} HRs · ${allPlayers.length} players`;
+  document.getElementById('tableArea').style.display = 'block';
+  document.getElementById('fetchBtn').disabled = false;
+  renderTable();
+}
+
+function aggregate(rows, start, end) {
+  const byDate = {}, players = {};
+  for (const r of rows) {
+    const date = r.game_date, dist = parseInt(r.hit_distance_sc);
+    if (!date || !dist || dist < 100) continue;
+    const team = r.inning_topbot === 'Top' ? r.away_team : r.home_team;
+    if (!byDate[date]) byDate[date] = [];
+    byDate[date].push({ player: r.player_name || 'Unknown', playerId: r.batter, team: team || '—', distance: dist });
+  }
+
+  const days = Object.keys(byDate).length;
+  const seenWinners = new Set();
+  for (const [date, hrs] of Object.entries(byDate)) {
+    hrs.sort((a, b) => b.distance - a.distance);
+    const winner = hrs[0];
+    const seenToday = new Set();
+    hrs.forEach((hr, idx) => {
+      const pid = hr.playerId; if (!pid) return;
+      if (!players[pid]) players[pid] = { name: hr.player, team: hr.team, wins: 0, hrDays: 0, allDists: [], winDists: [], top3: 0 };
+      const p = players[pid];
+      p.allDists.push(hr.distance);
+      if (!seenToday.has(pid)) { seenToday.add(pid); p.hrDays++; }
+      if (idx === 0) { p.wins++; p.winDists.push(hr.distance); }
+      if (idx < 3) p.top3++;
+    });
+  }
+
+  const result = Object.values(players).filter(p => p.hrDays >= 2).map(p => ({
+    ...p,
+    winRate: (p.wins / days) * 100,
+    avgDistAll: avg(p.allDists),
+    p90Dist: p90(p.allDists),
+    maxDist: p.allDists.length ? Math.max(...p.allDists) : 0,
+  }));
+  result._days = days;
+  return result;
+}
+
+function sortTable(key) {
+  if (sortKey === key) {
+    sortAsc = !sortAsc;
+  } else {
+    sortKey = key;
+    sortAsc = key === 'name'; // name sorts A-Z by default, numbers sort desc
+  }
+  // Update header classes
+  document.querySelectorAll('thead th').forEach(th => {
+    th.classList.remove('sort-asc', 'sort-desc');
+    if (th.dataset.key === sortKey) {
+      th.classList.add(sortAsc ? 'sort-asc' : 'sort-desc');
+    }
+  });
+  renderTable();
+}
+
+function renderTable() {
+  const sorted = [...allPlayers].sort((a, b) => {
+    const av = a[sortKey] ?? (sortKey === 'name' ? 'zzz' : 0);
+    const bv = b[sortKey] ?? (sortKey === 'name' ? 'zzz' : 0);
+    if (typeof av === 'string') return sortAsc ? av.localeCompare(bv) : bv.localeCompare(av);
+    return sortAsc ? av - bv : bv - av;
+  });
+
+  const maxW = Math.max(...sorted.map(p => p.wins), 1);
+  document.getElementById('tableBody').innerHTML = sorted.map(p => {
+    const wr = p.winRate.toFixed(1);
+    const cls = p.winRate >= 10 ? 'hi' : p.winRate >= 5 ? 'md' : 'lo';
+    const bc = p.winRate >= 10 ? 'var(--accent-dark)' : p.winRate >= 5 ? 'var(--amber)' : 'var(--border)';
+    const bw = Math.round((p.wins / maxW) * 100);
+    return `<tr>
+      <td><span class="c-player">${p.name}</span><span class="c-team">${p.team}</span></td>
+      <td class="c-wins">${p.wins}</td>
+      <td>
+        <div class="c-pct ${cls}">${wr}%</div>
+        <div class="bar-wrap"><div class="bar-fill" style="width:${bw}%;background:${bc}"></div></div>
+      </td>
+      <td class="c-num">${p.hrDays}</td>
+      <td class="c-num">${p.avgDistAll || '—'} ft</td>
+      <td class="c-num">${p.p90Dist || '—'} ft</td>
+    </tr>`;
+  }).join('') || `<tr><td colspan="6" style="text-align:center;color:var(--muted2);padding:20px">No data — click Load Data.</td></tr>`;
+}
+</script>
+</body>
+</html>

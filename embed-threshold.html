@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fanatics Long Ball Jackpot — 430ft+ Rate</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<style>
+  :root {
+    --bg: #f0efe9; --white: #fff; --border: #b8b8b2; --border-light: #ddddd8;
+    --text: #111; --muted: #5a5a54; --muted2: #8a8a84;
+    --accent: #00c358; --accent-dark: #007a38; --accent-bg: #e6f9ee;
+    --amber: #7a4f00;
+    --ui: 'IBM Plex Sans Condensed', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--mono); font-size: 12px; }
+
+  .embed-header { background: var(--white); border-bottom: 2px solid var(--text); padding: 10px 14px; display: flex; align-items: center; gap: 12px; }
+  .an-logo { height: 16px; }
+  .embed-title { font-family: var(--ui); font-size: 15px; font-weight: 700; }
+  .embed-title em { color: var(--accent-dark); font-style: normal; }
+  .embed-sub { font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-left: auto; text-align: right; line-height: 1.5; }
+
+  .controls { background: var(--white); border-bottom: 1px solid var(--border); padding: 8px 14px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .ctrl-label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+  input[type=date] { background: var(--bg); border: 1px solid var(--border); color: var(--text); font-family: var(--mono); font-size: 11px; padding: 4px 7px; outline: none; }
+  input[type=date]:focus { border-color: var(--accent); }
+  select { background: var(--bg); border: 1px solid var(--border); color: var(--text); font-family: var(--mono); font-size: 11px; padding: 4px 7px; outline: none; }
+  .btn-fetch { padding: 5px 14px; font-family: var(--ui); font-size: 11px; font-weight: 700; background: var(--accent); color: #000; border: none; cursor: pointer; text-transform: uppercase; }
+  .btn-fetch:hover { opacity: 0.88; }
+  .btn-fetch:disabled { opacity: 0.4; cursor: not-allowed; }
+  .status { font-size: 10px; color: var(--muted); }
+
+  .progress-bar { height: 2px; background: var(--border-light); display: none; }
+  .progress-bar.show { display: block; }
+  .progress-fill { height: 100%; background: var(--accent); transition: width 0.3s; }
+
+  .chart-area { padding: 14px; display: none; }
+  .chart-area.show { display: block; }
+  .chart-card { background: var(--white); border: 1px solid var(--border); padding: 12px 14px; margin-bottom: 10px; }
+  .chart-label { font-family: var(--ui); font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; color: var(--muted); border-bottom: 1px solid var(--border-light); padding-bottom: 5px; margin-bottom: 10px; }
+  .chart-note { font-size: 9px; color: var(--muted2); margin-top: 6px; }
+  .chart-wrap { position: relative; }
+
+  /* Legend */
+  .legend { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 8px; font-size: 10px; color: var(--muted); }
+  .legend-item { display: flex; align-items: center; gap: 5px; }
+  .legend-swatch { width: 10px; height: 10px; }
+
+  /* Table */
+  .tbl-wrap { overflow-x: auto; background: var(--white); border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 11.5px; }
+  thead tr { background: var(--bg); }
+  thead th { font-family: var(--ui); font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); padding: 6px 9px; text-align: left; border-bottom: 2px solid var(--border); border-right: 1px solid var(--border-light); cursor: pointer; user-select: none; white-space: nowrap; }
+  thead th:last-child { border-right: none; }
+  thead th:hover { background: var(--border-light); color: var(--text); }
+  thead th.sort-asc::after { content: ' ↑'; color: var(--accent-dark); }
+  thead th.sort-desc::after { content: ' ↓'; color: var(--accent-dark); }
+  thead th.sort-asc, thead th.sort-desc { color: var(--accent-dark); background: var(--accent-bg); border-bottom-color: var(--accent); }
+  tbody td { padding: 6px 9px; border-bottom: 1px solid var(--border-light); border-right: 1px solid var(--border-light); vertical-align: middle; }
+  tbody td:last-child { border-right: none; }
+  tbody tr:hover td { background: #f8f8f5; }
+  tbody tr:last-child td { border-bottom: none; }
+  .c-player { font-family: var(--ui); font-weight: 600; font-size: 13px; }
+  .c-team { font-size: 9px; color: var(--muted2); margin-left: 5px; }
+  .c-num { font-variant-numeric: tabular-nums; color: var(--muted); }
+
+  .embed-footer { padding: 8px 14px; font-size: 9px; color: var(--muted2); border-top: 1px solid var(--border-light); background: var(--white); display: flex; align-items: center; justify-content: space-between; }
+  .embed-footer a { color: var(--muted2); text-decoration: none; }
+  .embed-footer a:hover { color: var(--text); }
+</style>
+</head>
+<body>
+
+<div class="embed-header">
+  <img src="https://cdn.vox-cdn.com/uploads/chorus_asset/file/23240520/Action_Network_Logo.png" alt="Action Network" class="an-logo" onerror="this.style.display='none'">
+  <div>
+    <div class="embed-title">Who hits <em>430+ ft</em> home runs most often?</div>
+  </div>
+  <div class="embed-sub">Fanatics Long Ball Jackpot<br>Baseball Savant · Statcast</div>
+</div>
+
+<div class="controls">
+  <span class="ctrl-label">Season</span>
+  <select id="seasonSel" onchange="updateDates()">
+    <option value="2025">2025</option>
+    <option value="2024" selected>2024</option>
+    <option value="2023">2023</option>
+  </select>
+  <span class="ctrl-label">From</span>
+  <input type="date" id="startDate" value="2024-03-20">
+  <span class="ctrl-label">To</span>
+  <input type="date" id="endDate" value="2024-09-29">
+  <span class="ctrl-label">Min HR days</span>
+  <select id="minHR">
+    <option value="5" selected>5</option>
+    <option value="10">10</option>
+    <option value="15">15</option>
+    <option value="20">20</option>
+  </select>
+  <button class="btn-fetch" id="fetchBtn" onclick="runFetch()">Load Data</button>
+  <span class="status" id="status"></span>
+</div>
+
+<div class="progress-bar" id="progressBar">
+  <div class="progress-fill" id="progressFill" style="width:0%"></div>
+</div>
+
+<div class="chart-area" id="chartArea">
+  <div class="chart-card">
+    <div class="chart-label">HR threshold exceedance — % of home runs reaching each distance · top 20 by 430+ rate</div>
+    <div class="legend" id="chartLegend"></div>
+    <div class="chart-wrap" style="height:340px"><canvas id="chartThreshold"></canvas></div>
+    <div class="chart-note">Based on Statcast data. 430+ ft HRs have historically won the Fanatics Long Ball Jackpot most often. Min <span id="minNote">5</span> HR days to qualify.</div>
+  </div>
+
+  <div class="chart-card" style="margin-top:10px">
+    <div class="sec-hd" style="font-family:var(--ui);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--muted);border-bottom:1px solid var(--border-light);padding-bottom:5px;margin-bottom:10px">
+      Full table — sortable by any column
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th onclick="sortTbl('name')" data-key="name">Player</th>
+            <th onclick="sortTbl('r420')" data-key="r420">420+ rate</th>
+            <th onclick="sortTbl('r430')" data-key="r430" class="sort-desc">430+ rate</th>
+            <th onclick="sortTbl('r440')" data-key="r440">440+ rate</th>
+            <th onclick="sortTbl('r450')" data-key="r450">450+ rate</th>
+            <th onclick="sortTbl('avgDist')" data-key="avgDist">Avg dist</th>
+            <th onclick="sortTbl('p90')" data-key="p90">p90 dist</th>
+            <th onclick="sortTbl('hrDays')" data-key="hrDays">HR days</th>
+            <th onclick="sortTbl('wins')" data-key="wins">Wins</th>
+          </tr>
+        </thead>
+        <tbody id="tblBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="embed-footer">
+  <span>Data: Baseball Savant Statcast · Win = longest HR of the day on Fanatics promo</span>
+  <a href="https://www.actionnetwork.com" target="_blank">actionnetwork.com</a>
+</div>
+
+<script>
+const SEASONS = {
+  '2025': { start: '2025-03-27', end: '2025-09-28' },
+  '2024': { start: '2024-03-20', end: '2024-09-29' },
+  '2023': { start: '2023-03-30', end: '2023-10-01' },
+};
+let allPlayers = [];
+let sortKey = 'r430', sortAsc = false;
+let chart = null;
+
+function updateDates() {
+  const yr = document.getElementById('seasonSel').value;
+  document.getElementById('startDate').value = SEASONS[yr].start;
+  document.getElementById('endDate').value = SEASONS[yr].end;
+}
+
+function savantUrl(s, e) {
+  const y = s.slice(0, 4);
+  return `https://baseballsavant.mlb.com/statcast_search/csv?all=true&hfPT=&hfAB=home_run%7C&hfGT=R%7C&hfBBT=&hfPR=&hfZ=&stadium=&hfBBL=&hfNewZones=&hfC=&hfSea=${y}%7C&hfSit=&player_type=batter&hfOuts=&opponent=&pitcher_throws=&batter_stands=&hfSA=&game_date_gt=${s}&game_date_lt=${e}&hfInfield=&team=&position=&hfOutfield=&hfRO=&home_road=&hfFlag=&hfPull=&metric_1=&hfInn=&min_pitches=0&min_results=0&group_by=name&sort_col=pitches&player_event_sort=h_launch_speed&sort_order=desc&min_abs=0&type=details`;
+}
+
+function chunks(start, end, days = 30) {
+  const out = [], cur = new Date(start + 'T12:00:00'), last = new Date(end + 'T12:00:00');
+  while (cur <= last) {
+    const ce = new Date(cur); ce.setDate(ce.getDate() + days - 1);
+    if (ce > last) ce.setTime(last.getTime());
+    out.push({ s: cur.toISOString().split('T')[0], e: ce.toISOString().split('T')[0] });
+    cur.setDate(cur.getDate() + days);
+  }
+  return out;
+}
+
+function avg(arr) { return arr.length ? Math.round(arr.reduce((s, v) => s + v, 0) / arr.length) : 0; }
+function p90fn(arr) {
+  if (!arr.length) return null;
+  const s = [...arr].sort((a, b) => a - b);
+  return s[Math.floor(s.length * 0.9)];
+}
+function rate(arr, thresh) { return arr.length ? Math.round(arr.filter(d => d >= thresh).length / arr.length * 100) : 0; }
+
+async function runFetch() {
+  const start = document.getElementById('startDate').value;
+  const end = document.getElementById('endDate').value;
+  const minHR = parseInt(document.getElementById('minHR').value) || 5;
+  if (!start || !end) return;
+
+  document.getElementById('fetchBtn').disabled = true;
+  document.getElementById('progressBar').classList.add('show');
+  document.getElementById('chartArea').classList.remove('show');
+  document.getElementById('minNote').textContent = minHR;
+
+  const cs = chunks(start, end, 30);
+  let allRows = [];
+
+  for (let i = 0; i < cs.length; i++) {
+    const { s, e } = cs[i];
+    document.getElementById('progressFill').style.width = Math.round(((i + 1) / cs.length) * 90) + '%';
+    document.getElementById('status').textContent = `Fetching ${s} → ${e} (${i + 1}/${cs.length})…`;
+
+    let resp, attempts = 0;
+    while (attempts < 3) {
+      try { resp = await fetch(savantUrl(s, e)); if (resp.ok) break; } catch (err) {}
+      attempts++;
+      if (attempts < 3) await new Promise(r => setTimeout(r, 1500 * attempts));
+    }
+    if (!resp || !resp.ok) continue;
+
+    const csv = await resp.text();
+    if (!csv || csv.trim()[0] === '<') continue;
+    const parsed = Papa.parse(csv, { header: true, skipEmptyLines: true });
+    const hrs = parsed.data.filter(r => r.events === 'home_run' && r.game_date && parseInt(r.hit_distance_sc) > 100);
+    allRows = allRows.concat(hrs);
+    await new Promise(r => setTimeout(r, 300));
+  }
+
+  document.getElementById('status').textContent = 'Aggregating…';
+
+  // Aggregate by player
+  const byDate = {}, players = {};
+  for (const r of allRows) {
+    const date = r.game_date, dist = parseInt(r.hit_distance_sc);
+    if (!date || !dist || dist < 100) continue;
+    const team = r.inning_topbot === 'Top' ? r.away_team : r.home_team;
+    if (!byDate[date]) byDate[date] = [];
+    byDate[date].push({ player: r.player_name || 'Unknown', playerId: r.batter, team: team || '—', distance: dist });
+  }
+  const days = Object.keys(byDate).length;
+  for (const [date, hrs] of Object.entries(byDate)) {
+    hrs.sort((a, b) => b.distance - a.distance);
+    const seenToday = new Set();
+    hrs.forEach((hr, idx) => {
+      const pid = hr.playerId; if (!pid) return;
+      if (!players[pid]) players[pid] = { name: hr.player, team: hr.team, wins: 0, hrDays: 0, allDists: [] };
+      const p = players[pid];
+      p.allDists.push(hr.distance);
+      if (!seenToday.has(pid)) { seenToday.add(pid); p.hrDays++; }
+      if (idx === 0) p.wins++;
+    });
+  }
+
+  allPlayers = Object.values(players)
+    .filter(p => p.hrDays >= minHR && p.allDists.length >= minHR)
+    .map(p => ({
+      ...p,
+      avgDist: avg(p.allDists),
+      p90: p90fn(p.allDists),
+      r420: rate(p.allDists, 420),
+      r430: rate(p.allDists, 430),
+      r440: rate(p.allDists, 440),
+      r450: rate(p.allDists, 450),
+      winRate: (p.wins / days) * 100,
+    }));
+
+  document.getElementById('progressFill').style.width = '100%';
+  document.getElementById('status').textContent = `${days} days · ${allRows.length} HRs · ${allPlayers.length} players`;
+  document.getElementById('chartArea').classList.add('show');
+  document.getElementById('fetchBtn').disabled = false;
+
+  renderChart();
+  renderTable();
+}
+
+function renderChart() {
+  if (chart) { chart.destroy(); chart = null; }
+
+  const top20 = [...allPlayers].sort((a, b) => b.r430 - a.r430).slice(0, 20);
+  const mf = { family: 'IBM Plex Mono', size: 10 };
+  const mfSm = { family: 'IBM Plex Mono', size: 9 };
+  const colors = ['#ddddd8', '#7de0a8', '#00c358', '#007a38'];
+  const labels = ['420+ ft', '430+ ft', '440+ ft', '450+ ft'];
+
+  // Build legend
+  document.getElementById('chartLegend').innerHTML = labels.map((l, i) =>
+    `<div class="legend-item"><div class="legend-swatch" style="background:${colors[i]}"></div>${l}</div>`
+  ).join('');
+
+  chart = new Chart(document.getElementById('chartThreshold'), {
+    type: 'bar',
+    data: {
+      labels: top20.map(p => p.name.split(',')[0]),
+      datasets: [420, 430, 440, 450].map((t, i) => ({
+        label: `${t}+ ft`,
+        data: top20.map(p => p['r' + t]),
+        backgroundColor: colors[i],
+        borderRadius: 0,
+      }))
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#fff', borderColor: '#b8b8b2', borderWidth: 1,
+          titleColor: '#111', bodyColor: '#5a5a54', titleFont: mf, bodyFont: mfSm,
+          callbacks: {
+            title: items => top20[items[0].dataIndex].name,
+            label: ctx => `${ctx.dataset.label}: ${ctx.parsed.y}% of HRs`,
+            afterBody: items => {
+              const p = top20[items[0].dataIndex];
+              return [`Avg dist: ${p.avgDist} ft`, `Wins: ${p.wins}  HR days: ${p.hrDays}`];
+            }
+          }
+        }
+      },
+      scales: {
+        x: { ticks: { color: '#5a5a54', font: mfSm, maxRotation: 40 }, grid: { display: false } },
+        y: { max: 100, ticks: { color: '#5a5a54', font: mfSm, callback: v => v + '%' }, grid: { color: '#e8e8e4' }, title: { display: true, text: '% of home runs', color: '#5a5a54', font: mfSm } }
+      }
+    }
+  });
+}
+
+function sortTbl(key) {
+  if (sortKey === key) {
+    sortAsc = !sortAsc;
+  } else {
+    sortKey = key;
+    sortAsc = key === 'name';
+  }
+  document.querySelectorAll('thead th').forEach(th => {
+    th.classList.remove('sort-asc', 'sort-desc');
+    if (th.dataset.key === sortKey) th.classList.add(sortAsc ? 'sort-asc' : 'sort-desc');
+  });
+  renderTable();
+}
+
+function renderTable() {
+  const sorted = [...allPlayers].sort((a, b) => {
+    const av = a[sortKey] ?? 0, bv = b[sortKey] ?? 0;
+    if (typeof av === 'string') return sortAsc ? av.localeCompare(bv) : bv.localeCompare(av);
+    return sortAsc ? av - bv : bv - av;
+  });
+
+  document.getElementById('tblBody').innerHTML = sorted.map(p => {
+    const clr430 = p.r430 >= 30 ? 'color:var(--accent-dark);font-weight:600' : p.r430 >= 15 ? 'color:var(--amber);font-weight:600' : 'color:var(--muted2)';
+    return `<tr>
+      <td><span class="c-player">${p.name}</span><span class="c-team">${p.team}</span></td>
+      <td class="c-num">${p.r420}%</td>
+      <td style="${clr430}">${p.r430}%</td>
+      <td class="c-num">${p.r440}%</td>
+      <td class="c-num">${p.r450}%</td>
+      <td class="c-num">${p.avgDist || '—'} ft</td>
+      <td class="c-num">${p.p90 || '—'} ft</td>
+      <td class="c-num">${p.hrDays}</td>
+      <td style="font-family:var(--ui);font-weight:700;font-size:14px">${p.wins}</td>
+    </tr>`;
+  }).join('');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Longest HR Research</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<style>
+  :root {
+    --bg: #f0efe9;
+    --white: #ffffff;
+    --border: #b8b8b2;
+    --border-light: #ddddd8;
+    --text: #111111;
+    --muted: #5a5a54;
+    --muted2: #8a8a84;
+    --accent: #00c358;
+    --accent-bg: #e6f9ee;
+    --amber: #7a4f00;
+    --amber-bg: #fdf5e4;
+    --ui: 'IBM Plex Sans Condensed', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--mono); font-size: 12px; min-height: 100vh; }
+
+  .header { background: var(--white); border-bottom: 2px solid var(--text); padding: 10px 20px; display: flex; align-items: center; gap: 16px; }
+  .header-title { font-family: var(--ui); font-size: 18px; font-weight: 700; }
+  .header-title em { color: var(--accent); font-style: normal; }
+  .header-sep { width: 1px; height: 28px; background: var(--border); flex-shrink: 0; }
+  .header-sub { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; line-height: 1.5; }
+  .header-promo { margin-left: auto; background: var(--accent); color: #000; font-family: var(--ui); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; padding: 4px 10px; }
+  .an-logo { height: 18px; opacity: 0.85; }
+
+  .layout { display: grid; grid-template-columns: 220px 1fr; min-height: calc(100vh - 50px); }
+  .sidebar { background: var(--white); border-right: 1px solid var(--border); padding: 14px; display: flex; flex-direction: column; gap: 14px; }
+  .main { padding: 14px 18px; }
+
+  .ctrl-group { display: flex; flex-direction: column; gap: 7px; }
+  .ctrl-head { font-family: var(--ui); font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); border-bottom: 1px solid var(--border-light); padding-bottom: 4px; }
+  .ctrl-row { display: flex; flex-direction: column; gap: 2px; }
+  .ctrl-row label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted2); }
+  input[type=date], input[type=number] { width: 100%; background: var(--bg); border: 1px solid var(--border); color: var(--text); font-family: var(--mono); font-size: 12px; padding: 5px 7px; outline: none; }
+  input:focus { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+  .btn { width: 100%; padding: 7px; font-family: var(--ui); font-size: 12px; font-weight: 700; letter-spacing: 0.06em; border: none; cursor: pointer; text-transform: uppercase; }
+  .btn-run { background: var(--accent); color: #000; }
+  .btn-run:hover { opacity: 0.88; }
+  .btn-run:disabled { opacity: 0.35; cursor: not-allowed; }
+  .btn-stop { background: var(--bg); color: var(--muted); border: 1px solid var(--border); margin-top: 3px; }
+
+  .progress-wrap { display: none; flex-direction: column; gap: 4px; }
+  .progress-wrap.show { display: flex; }
+  .progress-bar { height: 2px; background: var(--border-light); }
+  .progress-fill { height: 100%; background: var(--accent); transition: width 0.25s; }
+  .progress-text { font-size: 10px; color: var(--muted); }
+
+  .sum-grid { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--border); }
+  .sum-cell { background: var(--white); padding: 8px 10px; border-right: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); }
+  .sum-cell:nth-child(2n) { border-right: none; }
+  .sum-cell:nth-last-child(-n+2) { border-bottom: none; }
+  .sum-label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted2); margin-bottom: 2px; }
+  .sum-val { font-family: var(--ui); font-size: 22px; font-weight: 700; line-height: 1; }
+  .sum-sub { font-size: 9px; color: var(--muted2); margin-top: 2px; }
+
+  .tabs { display: flex; border-bottom: 2px solid var(--border); margin-bottom: 14px; }
+  .tab { font-family: var(--ui); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; padding: 6px 14px; cursor: pointer; color: var(--muted); border-bottom: 2px solid transparent; margin-bottom: -2px; }
+  .tab.active { color: var(--text); border-bottom-color: var(--text); }
+  .tab:hover:not(.active) { background: var(--border-light); color: var(--text); }
+  .pane { display: none; }
+  .pane.active { display: block; }
+
+  .sec-hd { font-family: var(--ui); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; color: var(--muted); border-bottom: 1px solid var(--border); padding-bottom: 5px; margin-bottom: 10px; display: flex; align-items: center; }
+  .sec-hd .note { font-family: var(--mono); font-size: 9px; color: var(--muted2); font-weight: 400; text-transform: none; letter-spacing: 0; margin-left: auto; }
+
+  .tbl-wrap { border: 1px solid var(--border); background: var(--white); overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 11.5px; }
+  thead tr { background: var(--bg); }
+  thead th { font-family: var(--ui); font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); padding: 6px 9px; text-align: left; border-bottom: 2px solid var(--border); border-right: 1px solid var(--border-light); cursor: pointer; user-select: none; white-space: nowrap; }
+  thead th:last-child { border-right: none; }
+  thead th:hover { background: var(--border-light); color: var(--text); }
+  thead th.on { background: var(--accent-bg); color: var(--accent); border-bottom-color: var(--accent); }
+  tbody td { padding: 6px 9px; border-bottom: 1px solid var(--border-light); border-right: 1px solid var(--border-light); vertical-align: middle; }
+  tbody td:last-child { border-right: none; }
+  tbody tr:hover td { background: #f8f8f5; }
+  tbody tr:last-child td { border-bottom: none; }
+
+  .c-rank { color: var(--muted2); font-size: 10px; }
+  .c-player { font-family: var(--ui); font-weight: 600; font-size: 13px; }
+  .c-team { font-family: var(--mono); font-size: 9px; color: var(--muted2); margin-left: 5px; }
+  .c-wins { font-family: var(--ui); font-size: 17px; font-weight: 700; }
+  .c-num { font-variant-numeric: tabular-nums; color: var(--muted); }
+  .c-dist { font-variant-numeric: tabular-nums; color: var(--amber); font-weight: 500; }
+  .c-pct { font-family: var(--ui); font-size: 13px; font-weight: 700; }
+  .c-pct.hi { color: #009940; }  /* slightly darker for readability on white */
+  .c-pct.md { color: var(--amber); }
+  .c-pct.lo { color: var(--muted2); }
+  .bar-wrap { margin-top: 3px; height: 3px; max-width: 72px; background: var(--border-light); }
+  .bar-fill { height: 100%; }
+  .badge { font-family: var(--ui); font-size: 9px; font-weight: 700; letter-spacing: 0.06em; padding: 2px 5px; border: 1px solid; }
+  .b-elite { background: var(--accent-bg); border-color: var(--accent); color: var(--accent); }
+  .b-signal { background: var(--amber-bg); border-color: var(--amber); color: var(--amber); }
+  .b-noise { background: var(--bg); border-color: var(--border); color: var(--muted2); }
+
+  .chart-card { background: var(--white); border: 1px solid var(--border); padding: 12px 14px; margin-bottom: 10px; }
+  .chart-label { font-family: var(--ui); font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; color: var(--muted); border-bottom: 1px solid var(--border-light); padding-bottom: 5px; margin-bottom: 10px; }
+  .chart-wrap { position: relative; }
+
+  .day-expand { display: none; background: var(--bg); }
+  .day-expand.open { display: table-row; }
+  .day-inner { padding: 8px 12px 10px; }
+  .day-inner table { border: none; background: transparent; }
+  .day-inner table td { border-right: none !important; border-bottom: 1px solid var(--border-light); padding: 4px 8px; font-size: 11px; background: transparent !important; }
+  .day-inner table tr:last-child td { border-bottom: none; }
+
+  .insight { background: var(--white); border: 1px solid var(--border); border-left: 3px solid var(--accent); padding: 9px 12px; margin-bottom: 8px; font-size: 11.5px; line-height: 1.65; }
+  .insight strong { color: var(--accent); font-weight: 600; }
+  .insight.amb { border-left-color: var(--amber); }
+  .insight.amb strong { color: var(--amber); }
+
+  .empty { text-align: center; color: var(--muted); padding: 60px 20px; font-size: 11px; line-height: 2; }
+
+  .sidebar-foot { margin-top: auto; font-size: 9px; color: var(--muted2); line-height: 1.8; border-top: 1px solid var(--border-light); padding-top: 10px; }
+  .sidebar-foot code { font-family: var(--mono); background: var(--bg); border: 1px solid var(--border-light); padding: 1px 3px; }
+  .dl-btn { margin-left: auto; font-family: var(--ui); font-size: 9px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; background: var(--white); border: 1px solid var(--border); color: var(--muted); padding: 2px 8px; cursor: pointer; }
+  .dl-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <img src="https://cdn.vox-cdn.com/uploads/chorus_asset/file/23240520/Action_Network_Logo.png" alt="Action Network" class="an-logo" onerror="this.style.display='none'">
+  <div class="header-title">Longest <em>HR</em> Research</div>
+  <div class="header-sep"></div>
+  <div class="header-sub">Fanatics promo · $50k longest HR<br>Baseball Savant · Statcast</div>
+  <div class="header-promo">Win share of $50k</div>
+</div>
+
+<div class="layout">
+  <div class="sidebar">
+    <div class="ctrl-group">
+      <div class="ctrl-head">Date range</div>
+      <div class="ctrl-row"><label>Start</label><input type="date" id="startDate"></div>
+      <div class="ctrl-row"><label>End</label><input type="date" id="endDate"></div>
+    </div>
+    <div class="ctrl-group">
+      <div class="ctrl-head">Filters</div>
+      <div class="ctrl-row"><label>Top N players</label><input type="number" id="topN" value="25" min="5" max="50"></div>
+      <div class="ctrl-row"><label>Min HR-day appearances</label><input type="number" id="minHR" value="2" min="1" max="20"></div>
+    </div>
+    <button class="btn btn-run" id="runBtn" onclick="runResearch()">Run Research</button>
+    <button class="btn btn-stop" id="stopBtn" onclick="stopResearch()" style="display:none">Stop</button>
+    <div class="progress-wrap" id="progressWrap">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+      <div class="progress-text" id="progressText"></div>
+    </div>
+    <div class="sum-grid" id="sumGrid" style="display:none">
+      <div class="sum-cell"><div class="sum-label">Days</div><div class="sum-val" id="s-days">—</div><div class="sum-sub">with ≥1 HR</div></div>
+      <div class="sum-cell"><div class="sum-label">Total HRs</div><div class="sum-val" id="s-hrs">—</div><div class="sum-sub">w/ distance</div></div>
+      <div class="sum-cell"><div class="sum-label">Unique winners</div><div class="sum-val" id="s-win">—</div><div class="sum-sub">players</div></div>
+      <div class="sum-cell"><div class="sum-label">Repeat rate</div><div class="sum-val" id="s-rep">—</div><div class="sum-sub">prev winner repeats</div></div>
+    </div>
+    <div class="sidebar-foot">
+      Source: Baseball Savant Statcast CSV API<br>
+      <strong>Must serve via localhost:</strong><br>
+      <code>python3 -m http.server 8080</code><br>
+      → <code>localhost:8080/longest-hr-research.html</code>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="empty" id="emptyState">
+      Set a date range and click <strong>Run Research</strong>.<br>
+      Chunks by month · HR plate appearances only · Statcast distance data.<br>
+      <strong>Must be served via localhost, not file://</strong>
+    </div>
+
+    <div id="resultsArea" style="display:none">
+      <div class="tabs">
+        <div class="tab active" onclick="switchTab('leaderboard')">Leaderboard</div>
+        <div class="tab" onclick="switchTab('charts')">Charts</div>
+        <div class="tab" onclick="switchTab('profile')">EV / LA Profile</div>
+        <div class="tab" onclick="switchTab('ceiling')">Ceiling Hunters</div>
+        <div class="tab" onclick="switchTab('daylog')">Day Log</div>
+        <div class="tab" onclick="switchTab('insights')">Insights</div>
+      </div>
+
+      <div class="pane active" id="pane-leaderboard">
+        <div class="sec-hd">Player rankings <span class="note">click column headers to sort</span><button class="dl-btn" onclick="downloadLeaderboard()">↓ CSV</button></div>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr>
+              <th onclick="sortLb('rank')">#</th>
+              <th onclick="sortLb('name')">Player</th>
+              <th onclick="sortLb('wins')">Wins</th>
+              <th onclick="sortLb('winRate')" class="on">Win %</th>
+              <th onclick="sortLb('hrDays')">HR days</th>
+              <th onclick="sortLb('avgDistAll')">Avg dist</th>
+              <th onclick="sortLb('p90Dist')">p90 dist</th>
+              <th onclick="sortLb('maxDist')">Max dist</th>
+              <th onclick="sortLb('avgEV')">Avg EV</th>
+              <th onclick="sortLb('maxEV')">Max EV</th>
+              <th onclick="sortLb('avgLA')">Avg LA</th>
+              <th onclick="sortLb('top3Rate')">Top-3 rate</th>
+              <th>Signal</th>
+            </tr></thead>
+            <tbody id="lbBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="pane" id="pane-charts">
+        <div class="chart-card">
+          <div class="chart-label">Win frequency — top players (days hit the longest HR)</div>
+          <div class="chart-wrap" style="height:240px"><canvas id="chartWins"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-label">Distance distribution — all HRs vs day winners</div>
+          <div class="chart-wrap" style="height:200px"><canvas id="chartDist"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-label">Rolling repeat-winner rate (7-day window)</div>
+          <div class="chart-wrap" style="height:160px"><canvas id="chartRepeat"></canvas></div>
+        </div>
+      </div>
+
+      <div class="pane" id="pane-profile">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
+          <div class="chart-card">
+            <div class="chart-label">Exit velo vs launch angle — sized by wins · hover for name</div>
+            <div class="chart-wrap" style="height:300px"><canvas id="chartScatter"></canvas></div>
+            <div style="font-size:9px;color:var(--muted2);margin-top:6px">Green band = optimal LA 25–31°. Bigger dot = more wins. Color = win rate.</div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-label">HR volume (HR days) vs win rate — is frequency predictive?</div>
+            <div class="chart-wrap" style="height:300px"><canvas id="chartVolVsWin"></canvas></div>
+            <div style="font-size:9px;color:var(--muted2);margin-top:6px">If volume predicts wins, you'd see a strong upward trend. Flat = random.</div>
+          </div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-label">p90 distance vs avg distance — who has the highest ceiling relative to their average?</div>
+          <div class="chart-wrap" style="height:220px"><canvas id="chartCeiling"></canvas></div>
+          <div style="font-size:9px;color:var(--muted2);margin-top:6px">Gap between bars = ceiling above average. Large gap = inconsistent but dangerous. Small gap = consistent power.</div>
+        </div>
+        <div class="sec-hd" style="margin-top:14px">LA profile breakdown <span class="note">optimal = 25–31° · pop-up = >31° · liner = &lt;25°</span><button class="dl-btn" onclick="downloadProfile()">↓ CSV</button></div>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr>
+              <th onclick="sortLb('name')">Player</th>
+              <th onclick="sortLb('avgEV')">Avg EV</th>
+              <th onclick="sortLb('maxEV')">Max EV</th>
+              <th onclick="sortLb('avgLA')">Avg LA</th>
+              <th>LA profile</th>
+              <th onclick="sortLb('p90Dist')">p90 dist</th>
+              <th onclick="sortLb('avgDistAll')">Avg dist</th>
+              <th onclick="sortLb('maxDist')">Max dist</th>
+              <th onclick="sortLb('wins')">Wins</th>
+              <th onclick="sortLb('winRate')">Win %</th>
+            </tr></thead>
+            <tbody id="profileBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="pane" id="pane-ceiling">
+        <div class="chart-card" style="margin-bottom:10px">
+          <div class="chart-label">HR threshold exceedance — % of HRs reaching 420, 430, 440, 450 ft · top players by 430+ rate</div>
+          <div class="chart-wrap" style="height:320px"><canvas id="chartThreshold"></canvas></div>
+          <div style="font-size:9px;color:var(--muted2);margin-top:6px">Based on our distribution analysis, 430+ ft HRs win the promo most often. This shows how repeatable each player's power ceiling is — not just their one-time max.</div>
+        </div>
+        <div class="chart-card" style="margin-bottom:10px">
+          <div class="chart-label">430 ft+ rate vs win rate — does hitting bombs consistently predict promo wins?</div>
+          <div class="chart-wrap" style="height:260px"><canvas id="chartThresholdWin"></canvas></div>
+          <div style="font-size:9px;color:var(--muted2);margin-top:6px">Each dot is a player. Size = HR days. Upward trend would confirm 430+ rate as a predictor.</div>
+        </div>
+        <div class="sec-hd">Threshold exceedance table <span class="note">sorted by 430+ rate · min 5 HR days</span><button class="dl-btn" onclick="downloadCeiling()">↓ CSV</button></div>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr>
+              <th>#</th>
+              <th onclick="sortLb('name')">Player</th>
+              <th>420+ rate</th>
+              <th>430+ rate</th>
+              <th>440+ rate</th>
+              <th>450+ rate</th>
+              <th onclick="sortLb('avgDistAll')">Avg dist</th>
+              <th onclick="sortLb('p90Dist')">p90 dist</th>
+              <th onclick="sortLb('hrDays')">HR days</th>
+              <th onclick="sortLb('wins')">Wins</th>
+              <th onclick="sortLb('winRate')">Win %</th>
+            </tr></thead>
+            <tbody id="ceilingBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="pane" id="pane-daylog">
+        <div class="sec-hd">Daily results <span class="note">click row to expand top 5</span><button class="dl-btn" onclick="downloadDayLog()">↓ CSV</button></div>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr>
+              <th>Date</th>
+              <th>Winner</th>
+              <th>Winning dist</th>
+              <th>Total HRs</th>
+              <th>Avg dist</th>
+            </tr></thead>
+            <tbody id="dayBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="pane" id="pane-insights">
+        <div class="sec-hd">Promo intelligence</div>
+        <div id="insightsBody"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+let data = { days: [], players: {} };
+let stopFlag = false, sortKey = 'winRate', sortAsc = false, charts = {};
+
+(function() {
+  document.getElementById('endDate').value = '2024-07-31';
+  document.getElementById('startDate').value = '2024-06-01';
+})();
+
+function fmtDate(d) { return d.toISOString().split('T')[0]; }
+function fmtDisp(s) { return new Date(s+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',weekday:'short'}); }
+function avg(arr) { return arr.length ? Math.round(arr.reduce((s,v)=>s+v,0)/arr.length) : 0; }
+
+function savantUrl(s, e) {
+  const y = s.slice(0,4);
+  return `https://baseballsavant.mlb.com/statcast_search/csv?all=true&hfPT=&hfAB=home_run%7C&hfGT=R%7C&hfBBT=&hfPR=&hfZ=&stadium=&hfBBL=&hfNewZones=&hfC=&hfSea=${y}%7C&hfSit=&player_type=batter&hfOuts=&opponent=&pitcher_throws=&batter_stands=&hfSA=&game_date_gt=${s}&game_date_lt=${e}&hfInfield=&team=&position=&hfOutfield=&hfRO=&home_road=&hfFlag=&hfPull=&metric_1=&hfInn=&min_pitches=0&min_results=0&group_by=name&sort_col=pitches&player_event_sort=h_launch_speed&sort_order=desc&min_abs=0&type=details`;
+}
+
+function chunks(start, end, days=30) {
+  const out=[], cur=new Date(start+'T12:00:00'), last=new Date(end+'T12:00:00');
+  while(cur<=last){
+    const ce=new Date(cur); ce.setDate(ce.getDate()+days-1);
+    if(ce>last)ce.setTime(last.getTime());
+    out.push({s:fmtDate(cur),e:fmtDate(ce)});
+    cur.setDate(cur.getDate()+days);
+  }
+  return out;
+}
+
+async function runResearch() {
+  const start=document.getElementById('startDate').value, end=document.getElementById('endDate').value;
+  if(!start||!end||start>end){alert('Set a valid date range.');return;}
+  stopFlag=false; data={days:[],players:{}}; let allRows=[];
+  const $=id=>document.getElementById(id);
+  $('runBtn').disabled=true; $('stopBtn').style.display='block';
+  $('emptyState').style.display='none'; $('resultsArea').style.display='none';
+  $('progressWrap').classList.add('show');
+  $('progressFill').style.cssText='width:0%;background:var(--accent)';
+  $('sumGrid').style.display='none';
+  const cs=chunks(start,end,30);
+  try {
+    for(let i=0;i<cs.length;i++){
+      if(stopFlag)break;
+      const {s,e}=cs[i];
+      $('progressFill').style.width=Math.round(((i+1)/cs.length)*90)+'%';
+      $('progressText').textContent=`Fetching ${s} → ${e} (${i+1}/${cs.length})…`;
+      // Retry up to 2 times with backoff on failure
+      let resp, attempts=0;
+      while(attempts<3){
+        try{
+          resp=await fetch(savantUrl(s,e));
+          if(resp.ok)break;
+        }catch(fetchErr){}
+        attempts++;
+        if(attempts<3){
+          $('progressText').textContent=`Retry ${attempts}/2 for ${s}…`;
+          await new Promise(r=>setTimeout(r,1500*attempts));
+        }
+      }
+      if(!resp||!resp.ok){console.warn(`Skipping chunk ${s} after retries`);continue;}
+      const csv=await resp.text();
+      if(!csv||csv.trim()[0]==='<'){console.warn('bad chunk',s);continue;}
+      const parsed=Papa.parse(csv,{header:true,skipEmptyLines:true});
+      const hrs=parsed.data.filter(r=>r.events==='home_run'&&r.game_date&&parseInt(r.hit_distance_sc)>100);
+      console.log(`${s}→${e}: ${hrs.length} HRs`);
+      allRows=allRows.concat(hrs);
+      await new Promise(r=>setTimeout(r,300));
+    }
+    $('progressText').textContent=`Aggregating ${allRows.length} HRs…`;
+    aggregate(allRows);
+    $('progressFill').style.width='100%';
+    $('progressText').textContent=`Done — ${data.days.length} days · ${allRows.length} HRs · ${Object.keys(data.players).length} players`;
+    render();
+  } catch(err) {
+    console.error(err);
+    $('progressFill').style.background='#8b1a1a';
+    $('progressText').textContent='⚠ '+err.message;
+  }
+  $('runBtn').disabled=false; $('stopBtn').style.display='none';
+}
+
+function stopResearch(){stopFlag=true;document.getElementById('stopBtn').style.display='none';document.getElementById('runBtn').disabled=false;}
+
+function aggregate(rows){
+  const byDate={};
+  for(const r of rows){
+    const date=r.game_date, dist=parseInt(r.hit_distance_sc);
+    if(!date||!dist||dist<100)continue;
+    const team=r.inning_topbot==='Top'?r.away_team:r.home_team;
+    if(!byDate[date])byDate[date]=[];
+    byDate[date].push({player:r.player_name||'Unknown',playerId:r.batter,team:team||'—',distance:dist,exitVelo:parseFloat(r.launch_speed)||null,launchAngle:parseFloat(r.launch_angle)||null});
+  }
+  for(const [date,hrs] of Object.entries(byDate)){
+    hrs.sort((a,b)=>b.distance-a.distance);
+    data.days.push({date,hrs,winner:hrs[0]});
+    const seenToday=new Set(), top3Today={};
+    hrs.forEach((hr,idx)=>{
+      const pid=hr.playerId; if(!pid)return;
+      if(!data.players[pid])data.players[pid]={id:pid,name:hr.player,team:hr.team,wins:0,top3:0,hrDays:0,winDists:[],allDists:[],evs:[],las:[]};
+      const p=data.players[pid];
+      // each HR contributes distance/EV/LA data points (multi-HR games = multiple data points, intentional)
+      p.allDists.push(hr.distance);
+      if(hr.exitVelo)p.evs.push(hr.exitVelo);
+      if(hr.launchAngle!=null&&!isNaN(hr.launchAngle))p.las.push(hr.launchAngle);
+      // hrDays: once per player per day regardless of how many HRs they hit
+      if(!seenToday.has(pid)){seenToday.add(pid);p.hrDays++;}
+      // wins: longest HR of the day — only one winner possible
+      if(idx===0){p.wins++;p.winDists.push(hr.distance);}
+      // top3: player appears in top 3 that day — count once per day even with 2 HRs
+      if(idx<3&&!top3Today[pid]){top3Today[pid]=true;p.top3++;}
+    });
+  }
+  data.days.sort((a,b)=>a.date.localeCompare(b.date));
+}
+
+function p90(arr) {
+  if(!arr.length) return null;
+  const s=[...arr].sort((a,b)=>a-b);
+  return +s[Math.floor(s.length*0.9)].toFixed(1);
+}
+function avgF(arr,dec=1){ return arr.length ? +(arr.reduce((s,v)=>s+v,0)/arr.length).toFixed(dec) : null; }
+
+function getPlayers(){
+  const minHR=parseInt(document.getElementById('minHR').value)||1, total=data.days.length;
+  return Object.values(data.players).filter(p=>p.hrDays>=minHR).map(p=>({
+    ...p,
+    winRate:(p.wins/total)*100,top3Rate:(p.top3/total)*100,
+    avgDist:avg(p.winDists),avgDistAll:avg(p.allDists),
+    maxDist:p.allDists.length?Math.max(...p.allDists):0,
+    p90Dist:p90(p.allDists),
+    avgEV:avgF(p.evs,1),
+    maxEV:p.evs.length?+Math.max(...p.evs).toFixed(1):null,
+    avgLA:avgF(p.las,1),
+    // optimal LA for max distance is ~25-30°; flag pop-ups (>33°) and liners (<20°)
+    laProfile: (function(la){ if(la==null)return'—'; if(la>=25&&la<=31)return'optimal'; if(la>31)return'pop-up'; return'liner'; })(avgF(p.las,1)),
+    ceilingGap: p.allDists.length ? Math.max(...p.allDists) - Math.round(p.allDists.reduce((s,v)=>s+v,0)/p.allDists.length) : 0,
+    outlierRatio: p.allDists.length && p.allDists.reduce((s,v)=>s+v,0)/p.allDists.length > 0 ? +(Math.max(...p.allDists) / (p.allDists.reduce((s,v)=>s+v,0)/p.allDists.length)).toFixed(3) : 0,
+  })).sort((a,b)=>{const av=a[sortKey]??0,bv=b[sortKey]??0;return sortAsc?av-bv:bv-av;});
+}
+
+function renderProfile(){
+  ['scatter','volWin','ceiling'].forEach(k=>{charts[k]?.destroy();delete charts[k];});
+  const players=getPlayers().filter(p=>p.avgEV!=null);
+  const topN=Math.min(parseInt(document.getElementById('topN').value)||25,40);
+  const top=players.slice(0,topN);
+  const ACC='#00c358',AMB='#c87a00',LT='#b8b8b2';
+  const mf={family:'IBM Plex Mono',size:10};
+  const ttBase={backgroundColor:'#fff',borderColor:'#b8b8b2',borderWidth:1,titleColor:'#111',bodyColor:'#5a5a54',titleFont:mf,bodyFont:mf};
+
+  // ── Scatter: EV vs LA, sized by wins, colored by win rate ──
+  if(charts.scatter)charts.scatter.destroy();
+  const scatterData=top.map(p=>({
+    x:p.avgEV, y:p.avgLA,
+    r:Math.max(3, Math.min(8, 3+p.wins*1.5)),  // much smaller — max 8px radius
+    label:p.name.split(',')[0], wins:p.wins, wr:p.winRate.toFixed(1),
+    bg:p.winRate>=10?ACC:p.winRate>=5?AMB:LT
+  }));
+  charts.scatter=new Chart(document.getElementById('chartScatter'),{
+    type:'bubble',
+    data:{datasets:[{
+      label:'Players',
+      data:scatterData.map(d=>({x:d.x,y:d.y,r:d.r})),
+      backgroundColor:scatterData.map(d=>d.bg+'cc'),
+      borderColor:scatterData.map(d=>d.bg),
+      borderWidth:1,
+    }]},
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{
+        legend:{display:false},
+        tooltip:{...ttBase,callbacks:{
+          label:ctx=>{const d=scatterData[ctx.dataIndex];return[`${d.label}`,`EV: ${d.x} mph  LA: ${d.y}°`,`Wins: ${d.wins} (${d.wr}%)`];}
+        }},
+      },
+      scales:{
+        x:{title:{display:true,text:'Avg exit velocity (mph)',color:'#5a5a54',font:mf},ticks:{color:'#5a5a54',font:mf},grid:{color:'#e8e8e4'},min:100,max:115},
+        y:{title:{display:true,text:'Avg launch angle (°)',color:'#5a5a54',font:mf},ticks:{color:'#5a5a54',font:mf},grid:{color:'#e8e8e4'},min:15,max:45}
+      }
+    }
+  });
+
+  // ── Vol vs Win rate scatter ──
+  if(charts.volWin)charts.volWin.destroy();
+  charts.volWin=new Chart(document.getElementById('chartVolVsWin'),{
+    type:'bubble',
+    data:{datasets:[{
+      label:'Players',
+      data:top.map(p=>({x:p.hrDays,y:+p.winRate.toFixed(2),r:Math.max(4,Math.min(16,4+p.wins*2.5))})),
+      backgroundColor:top.map(p=>p.winRate>=10?ACC+'cc':p.winRate>=5?AMB+'cc':LT+'99'),
+      borderColor:top.map(p=>p.winRate>=10?ACC:p.winRate>=5?AMB:LT),
+      borderWidth:1,
+    }]},
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{
+        legend:{display:false},
+        tooltip:{...ttBase,callbacks:{label:ctx=>{const p=top[ctx.dataIndex];return[p.name.split(',')[0],`HR days: ${p.hrDays}`,`Win rate: ${p.winRate.toFixed(1)}%`,`Wins: ${p.wins}`];}}}
+      },
+      scales:{
+        x:{title:{display:true,text:'HR days (volume)',color:'#5a5a54',font:mf},ticks:{color:'#5a5a54',font:mf},grid:{color:'#e8e8e4'}},
+        y:{title:{display:true,text:'Win rate (%)',color:'#5a5a54',font:mf},ticks:{color:'#5a5a54',font:mf},grid:{color:'#e8e8e4'}}
+      }
+    }
+  });
+
+  // ── Ceiling chart: avg dist vs p90 dist, top 15 by p90 ──
+  if(charts.ceiling)charts.ceiling.destroy();
+  const ceilTop=[...players].filter(p=>p.p90Dist).sort((a,b)=>b.p90Dist-a.p90Dist).slice(0,15);
+  charts.ceiling=new Chart(document.getElementById('chartCeiling'),{
+    type:'bar',
+    data:{
+      labels:ceilTop.map(p=>p.name.split(',')[0]),
+      datasets:[
+        {label:'Avg dist',data:ceilTop.map(p=>p.avgDistAll),backgroundColor:'#ddddd8',borderRadius:0},
+        {label:'p90 dist',data:ceilTop.map(p=>p.p90Dist),backgroundColor:ACC,borderRadius:0},
+      ]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:true,labels:{color:'#5a5a54',font:mf,boxWidth:9,padding:10}},tooltip:{...ttBase,callbacks:{label:ctx=>`${ctx.dataset.label}: ${ctx.parsed.y} ft`}}},
+      scales:{
+        x:{ticks:{color:'#5a5a54',font:mf,maxRotation:40},grid:{color:'#e8e8e4'}},
+        y:{ticks:{color:'#5a5a54',font:mf},grid:{color:'#e8e8e4'},title:{display:true,text:'Distance (ft)',color:'#5a5a54',font:mf},min:360}
+      }
+    }
+  });
+
+  // ── Profile table ──
+  const laLabel={optimal:'<span class="badge b-elite">optimal</span>','pop-up':'<span class="badge b-signal">pop-up</span>',liner:'<span class="badge b-noise">liner</span>','—':'<span style="color:var(--muted2)">—</span>'};
+  document.getElementById('profileBody').innerHTML=players.slice(0,topN).map((p,i)=>`<tr>
+    <td><span class="c-player">${p.name}</span><span class="c-team">${p.team}</span></td>
+    <td class="c-num" style="font-weight:500">${p.avgEV!=null?p.avgEV+' mph':'—'}</td>
+    <td class="c-num">${p.maxEV!=null?p.maxEV+' mph':'—'}</td>
+    <td style="font-weight:500;color:${p.laProfile==='optimal'?'var(--accent)':p.laProfile==='pop-up'?'var(--amber)':'var(--muted2)'}">${p.avgLA!=null?p.avgLA+'°':'—'}</td>
+    <td>${laLabel[p.laProfile]||'—'}</td>
+    <td class="c-dist">${p.p90Dist||'—'} ft</td>
+    <td class="c-num">${p.avgDistAll||'—'} ft</td>
+    <td class="c-num">${p.maxDist||'—'} ft</td>
+    <td class="c-wins" style="font-size:14px">${p.wins}</td>
+    <td><div class="c-pct ${p.winRate>=10?'hi':p.winRate>=5?'md':'lo'}">${p.winRate.toFixed(1)}%</div></td>
+  </tr>`).join('')||`<tr><td colspan="10" style="text-align:center;color:var(--muted2);padding:20px">No data — EV/LA coverage requires 2020+ seasons.</td></tr>`;
+}
+
+function renderSummary(){
+  const days=data.days, allHRs=days.flatMap(d=>d.hrs);
+  const uniq=new Set(days.map(d=>d.winner?.playerId).filter(Boolean)).size;
+  const seen=new Set();let rep=0;
+  days.forEach(d=>{const w=d.winner?.playerId;if(w){if(seen.has(w))rep++;seen.add(w);}});
+  document.getElementById('s-days').textContent=days.length;
+  document.getElementById('s-hrs').textContent=allHRs.length;
+  document.getElementById('s-win').textContent=uniq;
+  document.getElementById('s-rep').textContent=days.length>1?Math.round((rep/(days.length-1))*100)+'%':'—';
+}
+
+function renderLeaderboard(){
+  const players=getPlayers(), topN=parseInt(document.getElementById('topN').value)||25;
+  const maxW=Math.max(...players.map(p=>p.wins),1);
+  document.getElementById('lbBody').innerHTML=players.slice(0,topN).map((p,i)=>{
+    const wr=p.winRate.toFixed(1), cls=p.winRate>=10?'hi':p.winRate>=5?'md':'lo';
+    const bc=p.winRate>=10?'var(--accent)':p.winRate>=5?'var(--amber)':'var(--border)';
+    const bw=Math.round((p.wins/maxW)*100);
+    let sig='noise',sc='b-noise';
+    if(p.wins>=3&&p.winRate>=10){sig='ELITE';sc='b-elite';}
+    else if(p.wins>=2&&p.winRate>=5){sig='SIGNAL';sc='b-signal';}
+    const laClr=p.laProfile==='optimal'?'var(--accent)':p.laProfile==='pop-up'?'var(--amber)':'var(--muted2)';
+    return `<tr>
+      <td class="c-rank">${i+1}</td>
+      <td><span class="c-player">${p.name}</span><span class="c-team">${p.team}</span></td>
+      <td class="c-wins">${p.wins}</td>
+      <td><div class="c-pct ${cls}">${wr}%</div><div class="bar-wrap"><div class="bar-fill" style="width:${bw}%;background:${bc}"></div></div></td>
+      <td class="c-num">${p.hrDays}</td>
+      <td class="c-dist">${p.avgDistAll||'—'} ft</td>
+      <td class="c-dist">${p.p90Dist||'—'} ft</td>
+      <td class="c-num">${p.maxDist||'—'} ft</td>
+      <td class="c-num" style="font-weight:500">${p.avgEV!=null?p.avgEV+' mph':'—'}</td>
+      <td class="c-num">${p.maxEV!=null?p.maxEV+' mph':'—'}</td>
+      <td style="color:${laClr};font-weight:500">${p.avgLA!=null?p.avgLA+'°':'—'}</td>
+      <td class="c-num">${p.top3Rate.toFixed(1)}%</td>
+      <td><span class="badge ${sc}">${sig}</span></td>
+    </tr>`;
+  }).join('')||`<tr><td colspan="10" style="text-align:center;color:var(--muted2);padding:20px">No players meet the filter.</td></tr>`;
+}
+
+function sortLb(key){
+  if(sortKey===key)sortAsc=!sortAsc;else{sortKey=key;sortAsc=key==='name';}
+  document.querySelectorAll('thead th').forEach(t=>{
+    t.classList.remove('on');
+    if(t.getAttribute('onclick')===`sortLb('${key}')`)t.classList.add('on');
+  });
+  renderLeaderboard();
+}
+
+function renderCharts(){
+  ['wins','dist','repeat'].forEach(k=>{charts[k]?.destroy();delete charts[k];});
+  const players=getPlayers().slice(0,Math.min(parseInt(document.getElementById('topN').value)||15,15));
+  const ACC='#00c358',AMB='#c87a00',LT='#c8c8c4';
+  const mf={family:'IBM Plex Mono',size:10};
+  const opts=(yLabel,max)=>({
+    responsive:true,maintainAspectRatio:false,
+    plugins:{
+      legend:{display:true,labels:{color:'#5a5a54',font:mf,boxWidth:9,padding:10}},
+      tooltip:{backgroundColor:'#fff',borderColor:'#b8b8b2',borderWidth:1,titleColor:'#111',bodyColor:'#5a5a54',titleFont:mf,bodyFont:mf}
+    },
+    scales:{
+      x:{ticks:{color:'#5a5a54',font:mf,maxRotation:40},grid:{color:'#e8e8e4'}},
+      y:{max,ticks:{color:'#5a5a54',font:mf},grid:{color:'#e8e8e4'},title:{display:!!yLabel,text:yLabel,color:'#5a5a54',font:mf}}
+    }
+  });
+  charts.wins=new Chart(document.getElementById('chartWins'),{
+    type:'bar',
+    data:{
+      labels:players.map(p=>p.name.split(',')[0]),
+      datasets:[
+        {label:'Wins',data:players.map(p=>p.wins),backgroundColor:players.map(p=>p.winRate>=10?ACC:p.winRate>=5?AMB:LT),borderRadius:0},
+        {label:'Top-3 finishes',data:players.map(p=>p.top3),backgroundColor:'rgba(0,79,42,0.14)',borderRadius:0}
+      ]
+    },
+    options:opts('Count',Math.max(...players.map(p=>p.top3),3)+1)
+  });
+
+  const aD=data.days.flatMap(d=>d.hrs).map(h=>h.distance).filter(Boolean);
+  const wD=data.days.map(d=>d.winner?.distance).filter(Boolean);
+  const bins=[290,320,350,370,390,400,410,420,430,440,450,470,500];
+  const bl=['<320','320-349','350-369','370-389','390-399','400-409','410-419','420-429','430-439','440-449','450-469','470+'];
+  const cA=Array(bl.length).fill(0),cW=Array(bl.length).fill(0);
+  aD.forEach(d=>{for(let i=0;i<bins.length-1;i++){if(d>=bins[i]&&d<bins[i+1]){cA[i]++;break;}}});
+  wD.forEach(d=>{for(let i=0;i<bins.length-1;i++){if(d>=bins[i]&&d<bins[i+1]){cW[i]++;break;}}});
+  charts.dist=new Chart(document.getElementById('chartDist'),{
+    type:'bar',
+    data:{labels:bl,datasets:[
+      {label:'All HRs',data:cA,backgroundColor:'#ddddd8',borderRadius:0},
+      {label:'Day winners',data:cW,backgroundColor:ACC,borderRadius:0}
+    ]},
+    options:opts('Count')
+  });
+
+  const seen2=new Set();
+  const rA=data.days.map(d=>{const w=d.winner?.playerId;const r=w&&seen2.has(w)?1:0;if(w)seen2.add(w);return r;});
+  const wSz=Math.min(7,Math.floor(data.days.length/3));
+  const rolling=rA.map((_,i)=>i<wSz-1?null:Math.round((rA.slice(i-wSz+1,i+1).reduce((s,v)=>s+v,0)/wSz)*100));
+  charts.repeat=new Chart(document.getElementById('chartRepeat'),{
+    type:'line',
+    data:{labels:data.days.map(d=>d.date.slice(5)),datasets:[{
+      label:`${wSz}-day rolling repeat %`,data:rolling,
+      borderColor:AMB,backgroundColor:'rgba(200,122,0,0.07)',
+      borderWidth:1.5,pointRadius:0,fill:true,tension:0.4,spanGaps:true
+    }]},
+    options:opts('% repeat',100)
+  });
+}
+
+function renderDayLog(){
+  const days=[...data.days].reverse();
+  document.getElementById('dayBody').innerHTML=days.map((d,i)=>`
+    <tr style="cursor:pointer" onclick="toggleDay(${i})">
+      <td style="font-family:var(--ui);font-weight:600">${fmtDisp(d.date)}</td>
+      <td><span style="font-family:var(--ui);font-weight:600;color:var(--accent)">${d.winner?.player||'—'}</span><span class="c-team">${d.winner?.team||''}</span></td>
+      <td style="font-family:var(--ui);font-weight:700;font-size:13px;color:var(--amber)">${d.winner?.distance||'—'} ft</td>
+      <td class="c-num">${d.hrs.length}</td>
+      <td class="c-num">${avg(d.hrs.map(h=>h.distance).filter(Boolean))||'—'} ft</td>
+    </tr>
+    <tr class="day-expand" id="dx-${i}">
+      <td colspan="5">
+        <div class="day-inner">
+          <table>${d.hrs.slice(0,5).map((h,j)=>`<tr>
+            <td style="color:var(--muted2);width:22px">${j+1}</td>
+            <td style="font-family:var(--ui);font-weight:600">${h.player}</td>
+            <td class="c-team">${h.team}</td>
+            <td style="font-family:var(--ui);font-weight:600;color:var(--amber)">${h.distance} ft</td>
+            <td style="color:var(--muted2)">${h.exitVelo?h.exitVelo+' mph':''}</td>
+          </tr>`).join('')}</table>
+        </div>
+      </td>
+    </tr>`).join('');
+}
+
+function toggleDay(i){document.getElementById('dx-'+i).classList.toggle('open');}
+
+function renderInsights(){
+  const days=data.days,total=days.length;if(!total)return;
+  const players=getPlayers();
+  const elites=players.filter(p=>p.wins>=2&&p.winRate>=5).slice(0,5);
+  const wD=days.map(d=>d.winner?.distance).filter(Boolean);
+  const avgWin=avg(wD),avgAll=avg(days.flatMap(d=>d.hrs).map(h=>h.distance).filter(Boolean));
+  const gap=avgWin-avgAll;
+  const uniq=new Set(days.map(d=>d.winner?.playerId).filter(Boolean)).size;
+  const uRate=Math.round((uniq/total)*100);
+  const t3W=players.slice(0,3).reduce((s,p)=>s+p.wins,0);
+  const t3Pct=Math.round((t3W/total)*100);
+  const best=players[0];
+  document.getElementById('insightsBody').innerHTML=`
+    <div class="insight"><strong>Signal vs. noise:</strong> Top 3 players combined for ${t3W} wins across ${total} days (${t3Pct}% of days). ${t3Pct>=40?'Strong concentration — there is real, actionable signal here.':t3Pct>=20?'Moderate concentration. Some signal but still high variance.':'Low concentration. Wins are spread thin — closer to random.'}</div>
+    <div class="insight amb"><strong>Distance gap:</strong> Day-winning HRs averaged <strong>${avgWin} ft</strong> vs. <strong>${avgAll} ft</strong> for all HRs — a ${gap} ft gap. ${gap>=30?'Large gap — must target elite raw power, not just HR volume.':gap>=15?'Moderate gap — power matters more than frequency.':'Small gap — a typical HR can win most days. Volume hitters are viable.'}</div>
+    ${elites.length?`<div class="insight"><strong>Repeat winners:</strong> ${elites.map(p=>`${p.name} (${p.wins}W, ${p.winRate.toFixed(1)}%)`).join(' · ')}. These players have demonstrated repeatability in this date range.</div>`:''}
+    <div class="insight"><strong>Uniqueness:</strong> ${uniq} different players won across ${total} days (${uRate}% unique rate). ${uRate>=90?'Very high — almost no one repeats. High randomness.':uRate>=70?'Moderate — some repeatability, many one-timers.':'Low — a small pool dominates. Concentration strategy viable.'}</div>
+    <div class="insight amb"><strong>Strategy:</strong> ${t3Pct>=35&&best?.wins>=3?`Target <strong>${best.name}</strong> and the top ELITE-rated players. Concentration is sufficient to beat random picks.`:'Prioritize small slates (fewer total HRs that day) and max-power hitters. Fewer HRs in play = better odds any individual wins.'}</div>
+    <div style="font-size:10px;color:var(--muted2);margin-top:12px;line-height:1.8">${total} days · ${days.flatMap(d=>d.hrs).length} HRs with Statcast distance · Best coverage 2020–present<br>Win % = wins ÷ total days (true promo probability, not conditional on player homering)</div>`;
+}
+
+function renderCeiling(){
+  ['ceilingScatter','ceilingBar','threshold','thresholdWin'].forEach(k=>{charts[k]?.destroy();delete charts[k];});
+  const ACC='#00c358', ACC_HEX='#00c358', AMB='#c87a00', GRAY='#b8b8b2';
+  const DARK_ACC='#007a38'; // darker for chart lines on white
+  const mf={family:'IBM Plex Mono',size:10};
+  const mfSm={family:'IBM Plex Mono',size:9};
+  const tt={backgroundColor:'#fff',borderColor:'#b8b8b2',borderWidth:1,titleColor:'#111',bodyColor:'#5a5a54',titleFont:mf,bodyFont:mf};
+
+  // Compute threshold rates for each player
+  const thresholds=[420,430,440,450];
+  const all=getPlayers().filter(p=>p.hrDays>=5&&p.allDists.length>=5);
+  const withRates=all.map(p=>{
+    const rates={};
+    thresholds.forEach(t=>{
+      rates[t]=Math.round((p.allDists.filter(d=>d>=t).length/p.allDists.length)*100);
+    });
+    return {...p,...rates};
+  });
+
+  // Sort by 430+ rate for bar chart
+  const by430=[...withRates].sort((a,b)=>b[430]-a[430]).slice(0,20);
+
+  // ── Grouped bar: 420/430/440/450 rates for top 20 by 430+ ──
+  const colors=['#ddddd8','#00c358','#007a38','#004f2a'];
+  charts.threshold=new Chart(document.getElementById('chartThreshold'),{
+    type:'bar',
+    data:{
+      labels:by430.map(p=>p.name.split(',')[0]),
+      datasets:thresholds.map((t,i)=>({
+        label:`${t}+ ft`,
+        data:by430.map(p=>p[t]),
+        backgroundColor:colors[i],
+        borderRadius:0,
+      }))
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{
+        legend:{display:true,labels:{color:'#5a5a54',font:mfSm,boxWidth:9,padding:10}},
+        tooltip:{...tt,callbacks:{label:ctx=>`${ctx.dataset.label}: ${ctx.parsed.y}% of HRs`}},
+      },
+      scales:{
+        x:{ticks:{color:'#5a5a54',font:mfSm,maxRotation:40},grid:{display:false}},
+        y:{max:100,ticks:{color:'#5a5a54',font:mfSm,callback:v=>v+'%'},grid:{color:'#e8e8e4'},
+          title:{display:true,text:'% of HRs at threshold',color:'#5a5a54',font:mfSm}}
+      }
+    }
+  });
+
+  // ── Scatter: 430+ rate (x) vs win rate (y), sized by HR days ──
+  const scPts=withRates.map(p=>({
+    x:p[430], y:+p.winRate.toFixed(2),
+    r:Math.max(3,Math.min(12,3+p.hrDays/8)),
+    label:p.name.split(',')[0], wins:p.wins, hrDays:p.hrDays,
+    bg:p.wins>=2?'#00c35899':p.wins===1?AMB+'99':GRAY+'88',
+    border:p.wins>=2?DARK_ACC:p.wins===1?AMB:GRAY,
+  }));
+  charts.thresholdWin=new Chart(document.getElementById('chartThresholdWin'),{
+    type:'bubble',
+    data:{datasets:[{
+      label:'Players',
+      data:scPts.map(d=>({x:d.x,y:d.y,r:d.r})),
+      backgroundColor:scPts.map(d=>d.bg),
+      borderColor:scPts.map(d=>d.border),
+      borderWidth:1,
+    }]},
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{
+        legend:{display:false},
+        tooltip:{...tt,callbacks:{label:ctx=>{
+          const d=scPts[ctx.dataIndex];
+          return[`${d.label}`,`430+ rate: ${d.x}%`,`Win rate: ${d.y}%`,`Wins: ${d.wins}  HR days: ${d.hrDays}`];
+        }}}
+      },
+      scales:{
+        x:{title:{display:true,text:'430+ ft rate (%)',color:'#5a5a54',font:mf},ticks:{color:'#5a5a54',font:mf,callback:v=>v+'%'},grid:{color:'#e8e8e4'}},
+        y:{title:{display:true,text:'Win rate (%)',color:'#5a5a54',font:mf},ticks:{color:'#5a5a54',font:mf,callback:v=>v+'%'},grid:{color:'#e8e8e4'}}
+      }
+    }
+  });
+
+  // ── Table ──
+  const byRate=[...withRates].sort((a,b)=>b[430]-a[430]);
+  document.getElementById('ceilingBody').innerHTML=byRate.slice(0,50).map((p,i)=>{
+    const pct430=p[430];
+    const clr=pct430>=30?'var(--accent)':pct430>=15?'var(--amber)':'var(--muted2)';
+    return `<tr>
+      <td class="c-rank">${i+1}</td>
+      <td><span class="c-player">${p.name}</span><span class="c-team">${p.team}</span></td>
+      <td class="c-num">${p[420]}%</td>
+      <td style="font-weight:600;color:${clr}">${p[430]}%</td>
+      <td class="c-num">${p[440]}%</td>
+      <td class="c-num">${p[450]}%</td>
+      <td class="c-num">${p.avgDistAll||'—'} ft</td>
+      <td class="c-dist">${p.p90Dist||'—'} ft</td>
+      <td class="c-num">${p.hrDays}</td>
+      <td style="font-family:var(--ui);font-size:15px;font-weight:700">${p.wins}</td>
+      <td><div class="c-pct ${p.winRate>=10?'hi':p.winRate>=5?'md':'lo'}">${p.winRate.toFixed(1)}%</div></td>
+    </tr>`;
+  }).join('');
+}
+
+function render(){
+  document.getElementById('resultsArea').style.display='block';
+  document.getElementById('sumGrid').style.display='grid';
+  renderSummary();renderLeaderboard();renderCharts();renderDayLog();renderInsights();
+}
+
+function switchTab(name){
+  const tabNames=['leaderboard','charts','profile','ceiling','daylog','insights'];
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.pane').forEach(p=>p.classList.remove('active'));
+  tabNames.forEach((n,i)=>{
+    if(n===name){document.querySelectorAll('.tab')[i].classList.add('active');document.getElementById('pane-'+n).classList.add('active');}
+  });
+  if(name==='charts')setTimeout(()=>['wins','dist','repeat'].forEach(k=>charts[k]?.resize?.()),50);
+  if(name==='profile')setTimeout(()=>{renderProfile();['scatter','volWin','ceiling'].forEach(k=>charts[k]?.resize?.());},50);
+  if(name==='ceiling')setTimeout(()=>{renderCeiling();['threshold','thresholdWin'].forEach(k=>charts[k]?.resize?.());},50);
+}
+
+function downloadCeiling(){
+  const start=document.getElementById('startDate').value, end=document.getElementById('endDate').value;
+  const thresholds=[420,430,440,450];
+  const players=[...getPlayers().filter(p=>p.hrDays>=5&&p.allDists.length>=5)].map(p=>{
+    const rates={};
+    thresholds.forEach(t=>{rates[t]=Math.round((p.allDists.filter(d=>d>=t).length/p.allDists.length)*100);});
+    return {...p,...rates};
+  }).sort((a,b)=>b[430]-a[430]);
+  const rows=[
+    ['#','Player','Team','420+ rate','430+ rate','440+ rate','450+ rate','Avg dist (ft)','p90 dist (ft)','HR days','Wins','Win %'],
+    ...players.slice(0,50).map((p,i)=>[i+1,p.name,p.team,p[420]+'%',p[430]+'%',p[440]+'%',p[450]+'%',p.avgDistAll||'',p.p90Dist||'',p.hrDays,p.wins,p.winRate.toFixed(1)])
+  ];
+  csvDownload(`longest-hr-threshold_${start}_${end}.csv`,rows);
+}
+
+function csvDownload(filename, rows) {
+  const blob = new Blob([rows.map(r=>r.map(v=>`"${String(v??'').replace(/"/g,'""')}"`).join(',')).join('\n')],{type:'text/csv'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=filename; a.click(); URL.revokeObjectURL(a.href);
+}
+
+function downloadLeaderboard() {
+  const start=document.getElementById('startDate').value, end=document.getElementById('endDate').value;
+  const players=getPlayers(), topN=parseInt(document.getElementById('topN').value)||25;
+  const rows=[
+    ['#','Player','Team','Wins','Win %','HR days','Avg dist (ft)','p90 dist (ft)','Max dist (ft)','Avg EV (mph)','Max EV (mph)','Avg LA (°)','LA profile','Top-3 rate %','Signal'],
+    ...players.slice(0,topN).map((p,i)=>{
+      let sig='noise'; if(p.wins>=3&&p.winRate>=10)sig='ELITE'; else if(p.wins>=2&&p.winRate>=5)sig='SIGNAL';
+      return [i+1,p.name,p.team,p.wins,p.winRate.toFixed(1),p.hrDays,p.avgDistAll||'',p.p90Dist||'',p.maxDist||'',p.avgEV??'',p.maxEV??'',p.avgLA??'',p.laProfile||'',p.top3Rate.toFixed(1),sig];
+    })
+  ];
+  csvDownload(`longest-hr-leaderboard_${start}_${end}.csv`,rows);
+}
+
+function downloadProfile() {
+  const start=document.getElementById('startDate').value, end=document.getElementById('endDate').value;
+  const players=getPlayers().filter(p=>p.avgEV!=null), topN=parseInt(document.getElementById('topN').value)||25;
+  const rows=[
+    ['Player','Team','Avg EV (mph)','Max EV (mph)','Avg LA (°)','LA profile','p90 dist (ft)','Avg dist (ft)','Max dist (ft)','Wins','Win %'],
+    ...players.slice(0,topN).map(p=>[p.name,p.team,p.avgEV??'',p.maxEV??'',p.avgLA??'',p.laProfile||'',p.p90Dist||'',p.avgDistAll||'',p.maxDist||'',p.wins,p.winRate.toFixed(1)])
+  ];
+  csvDownload(`longest-hr-profile_${start}_${end}.csv`,rows);
+}
+
+function downloadDayLog() {
+  const start=document.getElementById('startDate').value, end=document.getElementById('endDate').value;
+  const rows=[
+    ['Date','Winner','Team','Winning dist (ft)','Total HRs','Avg dist (ft)','P2','P2 dist','P3','P3 dist','P4','P4 dist','P5','P5 dist'],
+    ...data.days.map(d=>{
+      const a=avg(d.hrs.map(h=>h.distance).filter(Boolean));
+      const base=[d.date,d.winner?.player||'',d.winner?.team||'',d.winner?.distance||'',d.hrs.length,a||''];
+      const rest=[2,3,4,5].flatMap(n=>d.hrs[n-1]?[d.hrs[n-1].player,d.hrs[n-1].distance]:['','']);
+      return [...base,...rest];
+    })
+  ];
+  csvDownload(`longest-hr-daylog_${start}_${end}.csv`,rows);
+}
+</script>
+</body>
+</html>
