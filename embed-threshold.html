@@ -128,8 +128,6 @@
 </div>
 
 <script>
-const REPO='https://petro438.github.io/Fanatics-Home-Run-Jackpot';
-const PRE={'2025':REPO+'/data-2025.json?v=2','2026':REPO+'/data-2026.json?v=2'};
 const SEASONS={'2025':{s:'2025-03-27',e:'2025-09-28'},'2026':{s:'2026-03-27',e:'2026-09-30'},'2024':{s:'2024-03-20',e:'2024-09-29'}};
 let players=[],sk='r430',sa=false,chart=null;
 
@@ -154,26 +152,7 @@ async function run(){
   document.getElementById('st').textContent='Loading…';
   document.getElementById('pf').style.width='20%';
   try{
-    // Try pre-baked JSON — it has player data but r430 may be null
-    // For the bubble chart we need actual threshold rates, so we do a live fetch
-    // unless the JSON has them populated
-    if(PRE[sel]){
-      try{
-        const r=await fetch(PRE[sel]);
-        if(r.ok){
-          const d=await r.json();
-          // Check if threshold rates are populated
-          const hasRates=d.players.some(p=>p.r430!==null);
-          if(hasRates){
-            players=d.players.filter(p=>(p.hr_days||0)>=minHR&&p.r430!==null);
-            document.getElementById('st').textContent=`${d.meta.days} days · ${d.meta.total_hrs} HRs · ★ pre-loaded`;
-            document.getElementById('pf').style.width='100%';
-            render();btn.disabled=false;return;
-          }
-        }
-      }catch(e){}
-    }
-    // Live fetch — needed to compute threshold rates
+    // Always fetch live — threshold rates require full HR-level data
     const s=document.getElementById('sd').value,e=document.getElementById('ed').value;
     const cs=chunks(s,e,30);let allRows=[];
     for(let i=0;i<cs.length;i++){
@@ -340,7 +319,7 @@ function renderTable(){
   </tr>`).join('');
 }
 
-window.addEventListener('load',run);
+window.addEventListener('load',()=>{onSel();run();});
 </script>
 </body>
 </html>
