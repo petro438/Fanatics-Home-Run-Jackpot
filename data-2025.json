@@ -5,8 +5,10 @@
     "end": "2025-09-28",
     "days": 183,
     "total_hrs": 5646,
+    "avg_win_dist": 445,
+    "avg_all_dist": 430,
     "generated": "2025-09-29",
-    "note": "threshold rates (r420/r430/r440/r450) require raw Savant pull; set to null here"
+    "note": "dist_buckets based on top-5 HRs per day from day log. winner_hrs is exact. all_hrs is top-5 sample only \u2014 not full population."
   },
   "players": [
     {
@@ -7846,32 +7848,32 @@
       "470+"
     ],
     "all_hrs": [
-      18,
-      52,
-      94,
-      287,
-      498,
-      1021,
-      1189,
-      986,
-      742,
-      498,
-      287,
-      47
+      0,
+      0,
+      0,
+      5,
+      6,
+      37,
+      140,
+      270,
+      234,
+      126,
+      86,
+      9
     ],
     "winner_hrs": [
       0,
+      0,
+      0,
+      0,
       1,
+      0,
       4,
-      12,
-      18,
-      28,
-      32,
-      36,
-      22,
-      16,
-      9,
-      5
+      14,
+      44,
+      47,
+      64,
+      9
     ]
   }
 }
